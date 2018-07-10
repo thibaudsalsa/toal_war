@@ -1,0 +1,38 @@
+<div id="menu_left" class="recherche" style="display: none" >
+  <div class="elem_to_find">
+    <h3 style="color: white">Rechercher</h3>
+    <label for="pays" style="color: White">Pays</label>
+    <select id="pays">
+      <option value="">Pays</option>
+      <option value="France">France</option>
+    </select>
+    <label for="job" style="color: White">Métier</label>
+    <select id = "job">
+      <option value ="">Métier</option>
+      <option value="Développeur Front-end (front)">Développeur Front-end</option>
+      <option value="Développeur Back-end (back)">Développeur Back-end</option>
+      <option value="Développeur Web (web)">Développeur Web</option>
+      <option value="Data Scientist (data)">Data Scientist</option>
+      <option value="Administrateur Système (admin)">Administrateur Système</option>
+      <option value="Chef de Projet Informatique (chef)">Chef de Projet Informatique</option>
+    </select>
+    <label for="date" style="color: White">Date</label>
+    <input id ="date" type="date">
+    <label for="date_predicted" style="color: White">Date à prédire</label>
+    <input id="date_predicted" type="date">
+    <label for="find" style="color: White">Rechercher</label>
+    <input id="find" type="button" value="Rechercher" onclick="parse_research()">
+  </div>
+</div>
+<div class="data">
+  <div>
+    <div>
+      <div id="graph">graph</div>
+    </div>
+  </div>
+</div>
+<div class="box_prediction" style="display: none">
+  <p id="prediction" style="color: white"></p>
+</div>
+<!-- Graph lib -->
+<script src="https://code.highcharts.com/highcharts.js"></script>

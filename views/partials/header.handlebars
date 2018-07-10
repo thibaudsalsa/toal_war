@@ -1,0 +1,29 @@
+<div class="top-bar">
+  <div class="top-bar-title">
+    <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+      <span class="menu-icon light" data-toggle></span>
+    </span>
+    <p>Find your employees</p>
+  </div>
+  <div class="top-bar-title">
+    <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+      <span class="menu-icon light" data-toggle></span>
+    </span>
+    <p onclick="display(this)">Rechercher</p>
+  </div>
+</div>
+<script>
+  function display(elem)
+  {
+    if (document.getElementById("menu_left").style.display === "none")
+    {
+      document.getElementById("menu_left").style.display = "";
+      elem.style.color = "#1E90FF";
+    }
+    else
+    {
+      document.getElementById("menu_left").style.display = "none";
+      elem.style.color = "white";
+    }
+  }
+</script>
