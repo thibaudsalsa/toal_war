@@ -11,6 +11,7 @@ var expressValidator = require('express-validator');
 var dotenv = require('dotenv');
 var exphbs = require('express-handlebars');
 
+
 // Load environment variables from .env file
 dotenv.load();
 
