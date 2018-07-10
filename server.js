@@ -26,7 +26,6 @@ require('./config/passport');
 
 var app = express();
 
-
 var hbs = exphbs.create({
   defaultLayout: 'main',
   helpers: {
