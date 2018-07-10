@@ -1,29 +1,29 @@
-<div class="top-bar">
-  <div class="top-bar-title">
-    <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
-      <span class="menu-icon light" data-toggle></span>
-    </span>
-    <p>Find your employees</p>
-  </div>
-  <div class="top-bar-title">
-    <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
-      <span class="menu-icon light" data-toggle></span>
-    </span>
-    <p onclick="display(this)">Rechercher</p>
-  </div>
+<div class="container">
+  <ul class="list-inline">
+    {{#if user}}
+    <li><a href="/">Menu</a></li>
+    {{/if}}
+    <li><a href="/contact">Nous contacter</a></li>
+  </ul>
+  <ul class="list-inline">
+  {{#if user}}
+    <li>
+      {{#if user.picture}}
+        <img class="avatar" src="{{user.picture}}">
+      {{else}}
+        <img class="avatar" src="{{user.gravatar}}">
+      {{/if}}
+      {{#if user.name}}
+        {{user.name}}
+      {{else}}
+        {{user.email}}
+      {{/if}}
+    </li>
+    <li><a href="/account">Mon Compte</a></li>
+    <li><a href="/logout">Deconnexion</a></li>
+  {{else}}
+    <li><a href="/login">Connexion</a></li>
+    <li><a href="/signup">Inscription</a></li>
+  {{/if}}
+  </ul>
 </div>
-<script>
-  function display(elem)
-  {
-    if (document.getElementById("menu_left").style.display === "none")
-    {
-      document.getElementById("menu_left").style.display = "";
-      elem.style.color = "#1E90FF";
-    }
-    else
-    {
-      document.getElementById("menu_left").style.display = "none";
-      elem.style.color = "white";
-    }
-  }
-</script>

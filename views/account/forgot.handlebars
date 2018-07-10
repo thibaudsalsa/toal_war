@@ -1,0 +1,24 @@
+<div class="container">
+  {{#if messages.info}}
+    <div class="text-info">
+      {{#each messages.info}}
+        <div>{{msg}}</div>
+      {{/each}}
+    </div>
+  {{/if}}
+  {{#if messages.error}}
+    <div class="text-danger">
+      {{#each messages.error}}
+        <div>{{msg}}</div>
+      {{/each}}
+    </div>
+  {{/if}}
+  <form method="POST">
+    <h4>Mot de passe oublié</h4>
+    <p>Entrer votre adresse email</p>
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" placeholder="Email" autofocus>
+    <br>
+    <button type="submit">Nouveau de mot de passe</button>
+  </form>
+</div>
