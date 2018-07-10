@@ -1,19 +1,5 @@
 <div class="container">
-  {{#if messages.success}}
-    <div class="text-success">
-      {{#each messages.success}}
-        <div>{{msg}}</div>
-      {{/each}}
-    </div>
-  {{/if}}
-  {{#if messages.error}}
-    <div class="text-danger">
-      {{#each messages.error}}
-        <div>{{msg}}</div>
-      {{/each}}
-    </div>
-  {{/if}}
-
+  
   <h4>Profil</h4>
 
   <form method="POST" action="/account?_method=PUT">
