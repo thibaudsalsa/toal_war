@@ -1,0 +1,47 @@
+/* page de creation de compte (signup_page)*/
+.signup_page{/*page general*/
+	margin-top: 5%;
+	margin-left: 50px;
+	color: white;
+	float: left;
+}
+.creat_acount{/*aspect creation compte*/
+	float: left;
+}
+.lien{
+	color: #05FAFD  ;
+	font-weight: bold;
+	margin-top:10%;
+}
+.video{
+	float: left;
+	margin-left: 70px;
+	margin-top: 5%;
+}
+
+
+/*Bare nous contacter,connexion,inscription  (head_heandlebars) */
+
+.head_heandlebars{/*aspect genral*/
+	text-align: center;
+
+}
+
+.btn{/* style des boutons*/
+	border-radius:12px 0 12px 0;
+	background: black;
+	border:none;
+	color:#fff;
+	font:bold 12px Verdana;
+	padding:6px 0 6px 0;
+	width: 170px;
+	height: 20px;
+}
+.text_btn{/*text lié aux boutons*/
+	color: white;
+	line-height: 20px;
+}
+/*bare du bas (foot_heandlebars)*/
+.foot_heandlebars{
+	color: white;
+}
