@@ -3,6 +3,8 @@ var char = [-1];
 var avion = [-1];
 var my_money = 200;
 //              creation de la map
+
+/*global set_pos set_size make_battleground create_castel soldier plane tank*/
 function make_game()
 {
     /*global Isomer*/
@@ -42,7 +44,6 @@ function make_game()
     form.shape = Shape;
     form = set_pos(form, 0, 0, 0);
     form = set_size(form, 8, 8, 0.2);
-    
     
     //create map
     make_battleground(form, Color);

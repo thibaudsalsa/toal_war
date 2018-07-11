@@ -43,7 +43,7 @@ function plane(form, color, planx)
     var soldier = form.shape.Prism(form.Point(form.pos.x, form.pos.y, form.pos.z), form.size.x, form.size.y, form.size.z);
     form.iso.add(soldier, color.blue);
     planx += 0.01;
-    return planx
+    return planx;
 }
 
 function tank(form, color, tankx)
