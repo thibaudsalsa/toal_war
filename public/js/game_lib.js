@@ -21,6 +21,8 @@ function make_battleground(form, color)
 {
     var battleground = form.shape.Prism(form.Point(form.pos.x, form.pos.y, form.pos.z), form.size.x, form.size.y, form.size.z);
     form.iso.add(battleground, color.green);
+    var countour = form.shape.Prism(form.Point(form.pos.x, form.pos.y, form.pos.z), form.size.x, form.size.y, form.size.z);
+    form.iso.add(countour.rotateX(10, 0, 1), color.blue);
 }
 
 function soldier(form, color, soldx)

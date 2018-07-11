@@ -10,8 +10,8 @@ var expressValidator = require('express-validator');
 var dotenv = require('dotenv');
 var exphbs = require('express-handlebars');
 var passport = require('passport');
-
 var Data_file = require('./models/Data_file.js');
+var ws = require("./ws")
 
 // Load environment variables from .env file
 dotenv.load();
@@ -111,6 +111,9 @@ app.get('/auth/google/callback', passport.authenticate('google', { successRedire
 app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/twitter/callback', passport.authenticate('twitter', { successRedirect: '/', failureRedirect: '/login' }));
 
+app.get('/home', function (req, res) {
+  res.senFile(__dirname + '/home');
+});
 
 
 // Production error handler
