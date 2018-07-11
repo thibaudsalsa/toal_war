@@ -1,9 +1,9 @@
-<div class="container">
+<div class="head_heandlebars">
   <ul class="list-inline">
     {{#if user}}
     <li><a href="/">Menu</a></li>
     {{/if}}
-    <li><a href="/contact">Nous contacter</a></li>
+    <li class="btn"><a class="text_btn" href="/contact">Nous contacter</a></li>
   </ul>
   <ul class="list-inline">
   {{#if user}}
@@ -19,11 +19,11 @@
         {{user.email}}
       {{/if}}
     </li>
-    <li><a href="/account">Mon Compte</a></li>
-    <li><a href="/logout">Deconnexion</a></li>
+    <li class="btn"><a class="text_btn" href="/account">Mon Compte</a></li>
+    <li class="btn"><a class="text_btn" href="/logout">Deconnexion</a></li>
   {{else}}
-    <li><a href="/login">Connexion</a></li>
-    <li><a href="/signup">Inscription</a></li>
+    <li class="btn"><a class="text_btn" href="/login">Connexion</a></li>
+    <li class="btn"><a class="text_btn" href="/signup">Inscription</a></li>
   {{/if}}
   </ul>
 </div>
