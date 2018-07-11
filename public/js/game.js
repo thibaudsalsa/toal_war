@@ -2,6 +2,10 @@ var soldat = [-1];
 var char = [-1];
 var avion = [-1];
 var my_money = 200;
+var blue_city = 200;
+var red_city = 200;
+var orange_city = 200;
+var my_teams = "bleu";
 //              creation de la map
 
 /*global set_pos set_size make_battleground create_castel soldier plane tank*/
@@ -55,7 +59,7 @@ function make_game()
     for (let i = 0; char[i] != -1; i++)
         char[i] = tank(form, Color, char[i]);
     my_money += 0.01;
-    document.getElementById("argent").innerHTML = "Argent: " + parseInt(my_money, 10);
+    document.getElementById("argent").innerHTML = "Equipe: "+ my_teams + "<br>Argent: " + parseInt(my_money, 10) + "<br> Cité: "+ parseInt(blue_city) +"pv";
     requestAnimationFrame(make_game)
 }
 
