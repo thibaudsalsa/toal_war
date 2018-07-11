@@ -1,7 +1,13 @@
 {{#if user}}
-
-<canvas width="800" height="600" id="art"></canvas>
+<div>
+    <p id="argent">Argent: 200<br>Cité: 200pv</p>
+    <button onclick="add_soldier()">Acheter un soldat (50)</button>
+    <button onclick="add_tank()">Acheter un char (100)</button>
+    <button onclick="add_plane()">Acheter un avion (150)</button>
+</div>
+<canvas width="1000" height="800" id="art" style="padding-left: 25%"></canvas>
 <script src="isomer/dist/isomer.min.js"></script>
+<script src="js/game_lib.js"></script>
 <script src="js/game.js"></script>
 
 {{else}}
