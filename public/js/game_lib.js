@@ -77,11 +77,11 @@ function create_castel(form, color)
             form = set_pos(form, 7, 1, 0);
             tmp_life = red_city;
         }
-        if (j === 2)
+        else if (j === 2)
         {
             tmp_c = color.orange;
             form = set_pos(form, 1, 7, 0);
-            tmp_life = orange_city
+            tmp_life = orange_city;
         }
         if (tmp_life > 0)
             castel_team(form, tmp_c);

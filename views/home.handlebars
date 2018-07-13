@@ -1,11 +1,16 @@
 {{#if user}}
-<div>
-    <p id="argent">Argent: 200<br>Cité: 200pv</p>
-    <button onclick="">Acheter un soldat (50)</button>
-    <button onclick="">Acheter un char (50)</button>
-    <button onclick="">Acheter un avion (50)</button>
+<div style="background: white; width: 20%; position:absolute">
+    <label for="information">Information</label>
+    <p id="information" style="color: red">un joueur à utilisé une carte</p>
+    <label>Votre ville:</label>
+    <p id="argent">Argent: 200</p>
+    <p id="cité">Cité: 200pv</p>
+    <p>Soldat: <span id="soldat">0</span> <button onclick="">Acheter un soldat</button></p>
+    <p>Char: <span id="char">0</span>  <button onclick="">Acheter un char</button></p>
+    <p>Avion: <span id="avion">0</span> <button onclick="">Acheter un avion</button></p>
+    <button onclick="">Acheter une carte</button>
 </div>
-<canvas width="1000" height="800" id="art" style="padding-right: 5%"></canvas>
+<canvas width="1000" height="750" id="art" style="padding-left: 40%"></canvas>
 <script>
     var wss = new WebSocket('wss://0.0.0.0:40510');
     wss.onopen = function () {
