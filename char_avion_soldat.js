@@ -2,8 +2,14 @@ var team_unit1 = create_team_unit();
 var team_unit2 = create_team_unit();
 var team_unit3 = create_team_unit();
 
-function create_char(){
-	var char=new Object();
+var team_unit = new Object();
+team_unit.team_unit1 = team_unit1;
+team_unit.team_unit2 = team_unit2;
+team_unit.team_unit3 = team_unit3;
+
+function create_char()
+{
+	var char = new Object();
 		char.pv = 0,
 		char.dmg = 0,
 		char.speed = 0,
@@ -13,12 +19,13 @@ function create_char(){
 		char.z = 0,	
         char.sizex = 0,
 		char.sizey = 0,
-		char.sizez = 0
-	return(char);
+		char.sizez = 0;
+	return (char);
 }
 
-function create_soldat(){
-	var soldat=new Object();
+function create_soldat()
+{
+	var soldat = new Object();
 		soldat.pv = 0,
 		soldat.dmg = 0,
 		soldat.speed = 0,
@@ -28,12 +35,13 @@ function create_soldat(){
 		soldat.z = 0,	
         soldat.sizex = 0,
 		soldat.sizey = 0,
-		soldat.sizez = 0
+		soldat.sizez = 0;
 	return (soldat);
 }
 
-function create_avion(){
-	var avion=new Object();
+function create_avion()
+{
+	var avion = new Object();
 		avion.pv = 0,
 		avion.dmg = 0,
 		avion.speed = 0,
@@ -43,53 +51,40 @@ function create_avion(){
 		avion.z = 0,	
         avion.sizex = 0,
 		avion.sizey = 0,
-		avion.sizez = 0
+		avion.sizez = 0;
 	return (avion);
 }
 
-function create_team_unit(){
-	var team_unit=new Object();
+function create_team_unit()
+{
+	var team_unit = new Object();
 		team_unit.char = [],
 		team_unit.soldat = [],
 		team_unit.avion = [],
 		team_unit.char_in = [],
 		team_unit.soldat_in = [],
-		team_unit.avion_in = []
+		team_unit.avion_in = [];
 	return (team_unit);
 }
 
-function add_unit(team_unit1,team_unit2,team_unit3,team,type){
-	if (team == 1){
-		type_unit(team_unit1,type);
-	}
-	if (team == 2){
-	    type_unit(team_unit2,type);
-	}
-	if (team == 3){
-		type_unit(team_unit3,type);
-	}
+function add_unit(team_unit, team, type)
+{
+	if (team == 1)
+		team_unit.team_unit1 = type_unit(team_unit.team_unit1,type);
+	if (team == 2)
+	    team_unit.team_unit2 = type_unit(team_unit.team_unit2,type);
+	if (team == 3)
+		team_unit.team_unit3 = type_unit(team_unit.team_unit3,type);
+	return (team_unit);
 }
 
-function type_unit(team_unit,type){
-	if (type == "char"){
+function type_unit(team_unit,type)
+{
+	if (type == "char")
 		team_unit.char.push(create_char());
-	}
-	if (type == "avion"){
+	if (type == "avion")
 		team_unit.avion.push(create_avion());	
-	}
-	if (type == "soldat"){
+	if (type == "soldat")
 		team_unit.soldat.push(create_soldat());
-	}
+	return (team_unit);
 }
-/*add_unit(team_unit1,team_unit2,team_unit3,3,"soldat");
-add_unit(team_unit1,team_unit2,team_unit3,3,"soldat");
-console.log(team_unit3.soldat);*/
-
-
-
-
-
-
-
-
-
