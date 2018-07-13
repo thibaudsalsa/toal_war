@@ -24,6 +24,7 @@ function make_game()
     Color.blue = new color(0, 0, 200);
     Color.red = new color(200, 0, 0);
     Color.orange = new color(253, 106, 2);
+    Color.water = new color(0, 100, 238);
     
 
     //              init objet
@@ -49,16 +50,16 @@ function make_game()
     form = set_pos(form, 0, 0, 0);
     form = set_size(form, 8, 8, 0.2);
     
+    
+    
+    
+    
+    
+    
+
     //create map
     make_battleground(form, Color);
     create_castel(form, Color);
-    for (let i = 0; soldat[i] != -1; i++)
-        soldat[i] = soldier(form, Color, soldat[i]);
-    for (let i = 0; avion[i] != -1; i++)
-        avion[i] = plane(form, Color, avion[i]);
-    for (let i = 0; char[i] != -1; i++)
-        char[i] = tank(form, Color, char[i]);
-    my_money += 0.01;
     document.getElementById("argent").innerHTML = "Equipe: "+ my_teams + "<br>Argent: " + parseInt(my_money, 10) + "<br> Cité: "+ parseInt(blue_city) +"pv";
     requestAnimationFrame(make_game)
 }
