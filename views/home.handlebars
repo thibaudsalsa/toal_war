@@ -12,7 +12,7 @@
 </div>
 <canvas width="1000" height="750" id="art" style="padding-left: 40%"></canvas>
 <script>
-    var wss = new WebSocket('wss://0.0.0.0:40510');
+    var wss = new WebSocket('ws://localhost:40510');
     wss.onopen = function () {
         console.log('websocket is connected ...');
         wss.send('connected');
