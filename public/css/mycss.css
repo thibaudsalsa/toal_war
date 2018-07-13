@@ -1,7 +1,7 @@
 /*Bare nous contacter,connexion,inscription  (head_heandlebars) */
 
 .head_heandlebars{/*aspect genral*/
-	text-align: center;
+     text-align: center;
 
 }
 
@@ -19,7 +19,7 @@
 .btn:hover{/*couleur bouton passage sourie*/
      color: #222;
      background: #555;
-	 background: linear-gradient( #777, #333);
+     background: linear-gradient( #777, #333);
 
 }     
 .btn:active{/*couleur bouton clic*/
@@ -30,25 +30,25 @@
      box-shadow: 1px 1px 10px red inset,0 1px 0 rgba( 255, 255, 255, 0.4);
 }
 .text_btn{/*text lié aux boutons*/
-	color: white;
- 	text-decoration:none;
+     color: white;
+	 text-decoration:none;
 }
 /*bare du bas (foot_heandlebars)*/
 .foot_heandlebars{
-	color: white;
+	 color: white;
 }
 /* page de creation de compte (signup_page)*/
 .signup_page{/*page general*/
-	margin-top: 5%;
-	margin-left: 50px;
-	color: white;
-	float: left;
+	 margin-top: 5%;
+	 margin-left: 50px;
+	 color: white;
+	 float: left;
 }
 .creat_acount{/*aspect creation compte*/
-	float: left;
-	background-color: #7B7B7B  ;
-	text-align: center;
-        box-shadow: 1px 1px 10px black;
+	 float: left;
+	 background-color: #7B7B7B  ;
+	 text-align: center;
+     box-shadow: 1px 1px 10px black;
 }
 .lien{
 	font-weight: bold;
@@ -78,7 +78,7 @@
 	margin: 0 auto;
 	margin-top: 10%;
 	text-align: center;
-        box-shadow: 1px 1px 10px black;
+    box-shadow: 1px 1px 10px black;
 }
 
 
