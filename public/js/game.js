@@ -1,14 +1,48 @@
-var soldat = [-1];
-var char = [-1];
-var avion = [-1];
-var my_money = 200;
-var blue_city = 200;
-var red_city = 200;
-var orange_city = 200;
-var my_teams = "bleu";
-//              creation de la map
+var orange_city = 1;
+var blue_city = 1;
+var red_city = 1;
 
-/*global set_pos set_size make_battleground create_castel soldier plane tank*/
+var me = new Object();
+
+me.soldat = [-1];
+me.char = [-1];
+me.avion = [-1];
+me.my_money = 200;
+me.my_city = 200;
+me.my_teams = "bleu";
+me.info = "";
+
+/*global set_pos set_size make_battleground create_castel*/
+
+
+function write_data()
+{
+    document.getElementById("argent").innerHTML = "Argent: " + me.my_money;
+    document.getElementById("cité").innerHTML = "Cité: " + me.my_city;
+    document.getElementById("soldat").innerHTML = me.soldat;
+    document.getElementById("char").innerHTML = me.char;
+    document.getElementById("avion").innerHTML = me.avion;
+    document.getElementById("information").innerHTML = me.info;
+}
+
+function read_data(json)
+{
+    me.my_money = json.money;
+    me.my_city = json.city;
+    me.soldat = json.soldat;
+    me.char = json.soldat;
+    me.avion = json.avion;
+    me.soldat_in = json.soldat_in;
+    me.char_in = json.soldat_in;
+    me.avion_in = json.avion_in;
+    me.info = json.info;
+    orange_city = json.orange_city;
+    blue_city = json.blue_city;
+    red_city = json.red_city;
+    write_data();
+}
+
+
 function make_game()
 {
     /*global Isomer*/
@@ -60,7 +94,6 @@ function make_game()
     //create map
     make_battleground(form, Color);
     create_castel(form, Color);
-    document.getElementById("argent").innerHTML = "Equipe: "+ my_teams + "<br>Argent: " + parseInt(my_money, 10) + "<br> Cité: "+ parseInt(blue_city) +"pv";
     requestAnimationFrame(make_game)
 }
 
