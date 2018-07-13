@@ -10,11 +10,11 @@
      font-size: 1.6em;
      width: 180px;
      height: center;
-	 color: #000;
+     color: #000;
      background: #444;
-	 /* donne du volume au bouton*/
-	 background: linear-gradient( #555, #2C2C2C);
-	 border-radius: 1000px;
+     /* donne du volume au bouton*/
+     background: linear-gradient( #555, #2C2C2C);
+     border-radius: 1000px;
 }
 .btn:hover{/*couleur bouton passage sourie*/
      color: #222;
@@ -27,7 +27,7 @@
      background: #444;
      background: linear-gradient( #555, #2C2C2C);
      /* donne l'impression que le bouton s'enfonce*/
-     box-shadow: 1px 1px 10px black inset,0 1px 0 rgba( 255, 255, 255, 0.4);
+     box-shadow: 1px 1px 10px red inset,0 1px 0 rgba( 255, 255, 255, 0.4);
 }
 .text_btn{/*text lié aux boutons*/
 	color: white;
@@ -48,6 +48,7 @@
 	float: left;
 	background-color: #7B7B7B  ;
 	text-align: center;
+        box-shadow: 1px 1px 10px black;
 }
 .lien{
 	font-weight: bold;
@@ -64,6 +65,7 @@
 	width: 400px;
 	margin: 0 auto;
 	margin-top: 10%;
+	box-shadow: 1px 1px 10px black;
 }
 .text{
 	text-align: center;
@@ -76,6 +78,7 @@
 	margin: 0 auto;
 	margin-top: 10%;
 	text-align: center;
+        box-shadow: 1px 1px 10px black;
 }
 
 
