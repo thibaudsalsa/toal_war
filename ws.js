@@ -6,7 +6,7 @@ wss.on('connection', function (ws) {
   });
 
   setInterval(
-    () => ws.send(`${new Date()}`),
+    () => ws.send('${new Date()}'),
     1000
   );
 });
