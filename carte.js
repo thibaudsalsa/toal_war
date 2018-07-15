@@ -17,4 +17,3 @@ var card = new Object();
 	}
 
 	
-	
