@@ -1,9 +1,13 @@
+/*global attack attack_city*/
 function init_game()
 {
 	var game = new Object();
+	//les trois equipe
 	game.team1 = create_team();
 	game.team2 = create_team();
 	game.team3 = create_team();
+	game.attack = attack;
+	game.attack_city = attack_city;
 	return (game);
 }
 
@@ -14,8 +18,40 @@ function create_team()
 	team.color = "";
 	team.money = 200;
 	team.city = 200;
+	team.carte = [];
 	team.unit = create_team_unit();
+	team.add = add_unit;
 	return (team);
+}
+
+function create_team_unit()
+{
+	var team_unit = new Object();
+	//unité dans la caserne
+	team_unit.char = [];
+	team_unit.soldat = [];
+	team_unit.avion = [];
+	//unité qui attack a gauche
+	team_unit.unit_left = new Object();
+	team_unit.unit_left.char = [];
+	team_unit.unit_left.soldat = [];
+	team_unit.unit_left.avion = [];
+	//unité qui attack a droite
+	team_unit.unit_right = new Object();
+	team_unit.unit_right.char = [];
+	team_unit.unit_right.soldat = [];
+	team_unit.unit_right.avion = [];
+	return (team_unit);
+}
+
+function add_unit(type, nbr)
+{
+	for (let i = 0; i < nbr && type == "char"; i++)
+		this.unit.char.push(create_char());
+	for (let i = 0; i < nbr && type == "avion"; i++)
+		this.unit.avion.push(create_avion());	
+	for (let i = 0; i < nbr && type == "soldat"; i++)
+		this.unit.soldat.push(create_soldat());
 }
 
 function create_char()
@@ -64,101 +100,4 @@ function create_avion()
 		avion.sizey = 0,
 		avion.sizez = 0;
 	return (avion);
-}
-
-function create_team_unit()
-{
-	var team_unit = new Object();
-	team_unit.char = [];
-	team_unit.soldat = [];
-	team_unit.avion = [];
-	team_unit.char_in = [];
-	team_unit.soldat_in = [];
-	team_unit.avion_in = [];
-	team_unit.del = destroy_soldier;
-	team_unit.launch = lunch_unit;
-	return (team_unit);
-}
-
-function add_unit(team, type)
-{
-	if (team == 1)
-		this.team1.unit = type_unit(this.team1.unit, type);
-	if (team == 2)
-	    this.team2.unit = type_unit(this.team2.unit, type);
-	if (team == 3)
-		this.team3.unit = type_unit(this.team3.unit, type);
-}
-
-function type_unit(team_unit, type)
-{
-	if (type == "char")
-		team_unit.char.push(create_char());
-	if (type == "avion")
-		team_unit.avion.push(create_avion());	
-	if (type == "soldat")
-		team_unit.soldat.push(create_soldat());
-	return (team_unit);
-}
-
-function destroy_soldier()
-{
-	var char = [];
-	var soldier = [];
-	var plane = [];
-	
-	for (let i = 0; i < this.char_in.length; i++)
-	{
-		if (this.char_in[i].pv > 0)
-			char.push(this.char_in[i]);
-	}
-	for (let i = 0; i < this.soldat_in.length; i++)
-	{
-		if (this.soldat_in[i].pv > 0)
-			soldier.push(this.soldat_in[i]);
-	}
-	for (let i = 0; i < this.avion_in.length; i++)
-	{
-		if (this.avion_in[i].pv > 0)
-			plane.push(this.avion_in[i]);
-	}
-	this.char_in = char;
-	this.soldat_in = soldier;
-	this.avion_in = plane;
-}
-
-function del_unit()
-{
-	this.team1.unit.del();
-	this.team2.unit.del();
-	this.team3.unit.del();
-}
-
-function lunch_unit(type)
-{
-	if (type == "char")
-	{
-		this.char_in.push(this.char[0]);
-		this.char.pop();
-	}
-	if (type == "avion")
-	{
-		this.avion_in.push(this.avion[0]);
-		this.avion.pop();
-	}
-	if (type == "soldat")
-	{
-		this.soldat_in.push(this.soldat[0]);
-		this.soldat.pop();
-	}
-}
-
-function add_unit_in(team, type)
-{
-	if (team == 1)
-		this.team1.unit.launch(type);
-	if (team == 2)
-		this.team2.unit.launch(type);
-	if (team == 3)
-		this.team3.unit.launch(type);
 }
