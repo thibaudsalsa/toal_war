@@ -1,4 +1,4 @@
-/*global attack attack_city*/
+/*global attack attack_city move_unit launch_right launch_left*/
 function init_game()
 {
 	var game = new Object();
@@ -8,6 +8,7 @@ function init_game()
 	game.team3 = create_team();
 	game.attack = attack;
 	game.attack_city = attack_city;
+	game.move = move_unit;
 	return (game);
 }
 
@@ -21,6 +22,8 @@ function create_team()
 	team.carte = [];
 	team.unit = create_team_unit();
 	team.add = add_unit;
+	team.launch_right = launch_right;
+	team.launch_left = launch_left;
 	return (team);
 }
 
@@ -57,47 +60,41 @@ function add_unit(type, nbr)
 function create_char()
 {
 	var char = new Object();
-		char.pv = 10,
-		char.dmg = 0,
-		char.speed = 0,
-		char.color = 0,
-		char.x = 0,
-		char.y = 0,
-		char.z = 0,	
-        char.sizex = 0,
-		char.sizey = 0,
-		char.sizez = 0;
+	char.pv = 10;
+	char.dmg = 0;
+	char.speed = 0;
+	char.color = 0;
+	char.x = 0;
+	char.y = 0;
+	char.z = 0;
+	char.hit = 0;
 	return (char);
 }
 
 function create_soldat()
 {
 	var soldat = new Object();
-		soldat.pv = 10,
-		soldat.dmg = 0,
-		soldat.speed = 0,
-		soldat.color = 0,
-		soldat.x = 0,
-		soldat.y = 0,
-		soldat.z = 0,	
-        soldat.sizex = 0,
-		soldat.sizey = 0,
-		soldat.sizez = 0;
+	soldat.pv = 10;
+	soldat.dmg = 0;
+	soldat.speed = 0;
+	soldat.color = 0;
+	soldat.x = 0;
+	soldat.y = 0;
+	soldat.z = 0;
+	soldat.hit = 0;
 	return (soldat);
 }
 
 function create_avion()
 {
 	var avion = new Object();
-		avion.pv = 10,
-		avion.dmg = 0,
-		avion.speed = 0,
-		avion.color = 0,
-		avion.x = 0,
-		avion.y = 0,
-		avion.z = 0,	
-        avion.sizex = 0,
-		avion.sizey = 0,
-		avion.sizez = 0;
+	avion.pv = 10;
+	avion.dmg = 0;
+	avion.speed = 0;
+	avion.color = 0;
+	avion.x = 0;
+	avion.y = 0;
+	avion.z = 0;
+	avion.hit = 0;
 	return (avion);
 }
