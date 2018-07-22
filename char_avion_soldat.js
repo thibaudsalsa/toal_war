@@ -60,9 +60,9 @@ function add_unit(type, nbr)
 function create_char()
 {
 	var char = new Object();
-	char.pv = 10;
-	char.dmg = 0;
-	char.speed = 0;
+	char.pv = 3;
+	char.dmg = 1;
+	char.speed = 1;
 	char.color = 0;
 	char.x = 0;
 	char.y = 0;
@@ -74,9 +74,9 @@ function create_char()
 function create_soldat()
 {
 	var soldat = new Object();
-	soldat.pv = 10;
-	soldat.dmg = 0;
-	soldat.speed = 0;
+	soldat.pv = 1;
+	soldat.dmg = 3;
+	soldat.speed = 1;
 	soldat.color = 0;
 	soldat.x = 0;
 	soldat.y = 0;
@@ -88,9 +88,9 @@ function create_soldat()
 function create_avion()
 {
 	var avion = new Object();
-	avion.pv = 10;
-	avion.dmg = 0;
-	avion.speed = 0;
+	avion.pv = 1;
+	avion.dmg = 1;
+	avion.speed = 3;
 	avion.color = 0;
 	avion.x = 0;
 	avion.y = 0;
