@@ -1,16 +1,26 @@
 {{#if user}}
-<div style="background: white; width: 20%; position:absolute">
-    <label for="information">Information</label>
-    <p id="information" style="color: red">un joueur à utilisé une carte</p>
-    <label>Votre ville:</label>
-    <p id="argent">Argent: 200</p>
-    <p id="cité">Cité: 200pv</p>
-    <p>Soldat: <span id="soldat">0</span> <button onclick="">Acheter un soldat</button></p>
-    <p>Char: <span id="char">0</span>  <button onclick="">Acheter un char</button></p>
-    <p>Avion: <span id="avion">0</span> <button onclick="">Acheter un avion</button></p>
-    <button onclick="">Acheter une carte</button>
+<div id="choose" style="background: white; width: 40%; padding-left: 5%;">
+    <p>Recherche de partie</p>
+    <select id="choose_nation">
+    </select>
+    <button onclick="try_connect()">
+        Rechercher une partie
+    </button>
 </div>
-<canvas width="1000" height="750" id="art" style="padding-left: 40%"></canvas>
+<div id="display_game" style="display: none">
+    <div style="background: white; width: 20%; position:absolute">
+        <label for="information">Information</label>
+        <p id="information" style="color: red">un joueur à utilisé une carte</p>
+        <label>Votre ville:</label>
+        <p id="argent">Argent: 200</p>
+        <p id="cité">Cité: 200pv</p>
+        <p>Soldat: <span id="soldat">0</span> <button onclick="">Acheter un soldat</button></p>
+        <p>Char: <span id="char">0</span>  <button onclick="">Acheter un char</button></p>
+        <p>Avion: <span id="avion">0</span> <button onclick="">Acheter un avion</button></p>
+        <button onclick="">Acheter une carte</button>
+    </div>
+    <canvas width="1000" height="750" id="art" style="padding-left: 40%"></canvas>
+</div>
 <script>
     var wss = new WebSocket('ws://localhost:40510');
     wss.onopen = function () {
@@ -19,6 +29,8 @@
     };
     wss.onmessage = function (ev) {console.log(ev);};
 </script>
+<script src="js/co.js"></script>
+<script src=js/nation.js></script>
 <script src="isomer/dist/isomer.min.js"></script>
 <script src="js/game_lib.js"></script>
 <script src="js/game.js"></script>
