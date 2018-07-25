@@ -6,14 +6,6 @@ vm.runInThisContext(fs.readFileSync(__dirname + "/fight.js"));
 /*global init_game*/
 
 var game = init_game();
-game.team1.add("char", 2);
-game.team1.launch_left("char", 1);
-game.team1.launch_right("char", 1);
-game.attack_city();
-console.log(game.team1.unit);
-
-var message_post = JSON.stringify(game);
-var message_get;
 
 function connect(team, game)
 {
@@ -66,4 +58,37 @@ function do_msg(team, message_get)
             //use card
         }
     }
+}
+
+function fill_msg(msg, team)
+{
+    msg.soldat = team.unit.soldat;
+    msg.avion = team.unit.avion;
+    msg.char = team.unit.char;
+    msg.city = team.city;
+}
+
+function respond(game, team)
+{
+    var tmp;
+    var msg = new Object();
+    var msg_json;
+    msg.team1 = game.team1;
+    msg.team2 = game.team2;
+    msg.team3 = game.team3;
+    msg.soldat = 0;
+    msg.char = 0;
+    msg.avion = 0;
+    msg.city = 0;
+    switch (team) {
+        case '1':
+            tmp = game.team1;
+        case '2':
+            tmp = game.team2;
+        case '3':
+            tmp = game.team3;
+    }
+    fill_msg(msg, tmp);
+    msg_json = JSON.stringify(msg);
+    return (msg_json);
 }

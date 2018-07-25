@@ -2,6 +2,8 @@ var orange_city = 1;
 var blue_city = 1;
 var red_city = 1;
 
+var unit_to_draw = [];
+
 var me = new Object();
 
 me.soldat = [-1];
@@ -12,7 +14,7 @@ me.my_city = 200;
 me.my_teams = "bleu";
 me.info = "";
 
-/*global set_pos set_size make_battleground create_castel*/
+/*global set_pos set_size make_battleground create_castel draw_unit*/
 
 
 function write_data()
@@ -83,14 +85,8 @@ function make_game()
     form.shape = Shape;
     form = set_pos(form, 0, 0, 0);
     form = set_size(form, 8, 8, 0.2);
-    
-    
-    
-    
-    
-    
-    
-
+    for (let i = 0; i < unit_to_draw.length; i++)
+        draw_unit(form, unit_to_draw[i]);
     //create map
     make_battleground(form, Color);
     create_castel(form, Color);
