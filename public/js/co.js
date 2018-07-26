@@ -1,5 +1,5 @@
 /*global unit_to_draw:true red_city:true blue_city:true orange_city:true*/
-var wss = new WebSocket('wss://145.239.47.23:40510');
+var wss = new WebSocket('ws://145.239.47.23:40510');
 
 wss.onmessage = function (ev)
 {
