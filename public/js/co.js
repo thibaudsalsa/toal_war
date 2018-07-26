@@ -3,14 +3,13 @@ var wss = new WebSocket('ws://145.239.47.23:40510');
 
 wss.onmessage = function (ev)
 {
-    console.log(ev)
-    if (ev == "start")
+    if (ev.data == "start")
     {
         document.getElementById("display_game").style.display = "";
         document.getElementById("choose").style.display = "none";
     }
     else
-        refresh_game(ev);
+        refresh_game(ev.data);
 };
 
 function try_connect()
