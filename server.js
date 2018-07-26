@@ -10,10 +10,8 @@ var expressValidator = require('express-validator');
 var dotenv = require('dotenv');
 var exphbs = require('express-handlebars');
 var passport = require('passport');
+var vm = require("vm");
 var ws = require("./ws");
-var t = require("./game_server");
-var tt = require("./fight");
-var ttt = require("./char_avion_soldat");
 
 
 var Data_file = require('./models/Data_file.js');

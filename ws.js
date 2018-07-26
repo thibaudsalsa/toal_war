@@ -1,5 +1,5 @@
-/*var vm = require("vm");
-var fs = require("fs");*/
+var vm = require("vm");
+//var fs = require("fs");
 var WebSocketServer = require('ws').Server, wss = new WebSocketServer({port: 40510});
 //vm.runInThisContext(fs.readFileSync(__dirname + "/game_server.js"));
 
