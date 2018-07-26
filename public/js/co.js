@@ -1,20 +1,23 @@
 /*global unit_to_draw:true red_city:true blue_city:true orange_city:true*/
-var wss = new WebSocket('wss://localhost:40510');
+var wss = new WebSocket('ws://145.239.47.23:40510');
 
 wss.onmessage = function (ev)
 {
-    if (ev == "start")
+    if (ev.data == "start")
     {
         document.getElementById("display_game").style.display = "";
         document.getElementById("choose").style.display = "none";
     }
     else
-        refresh_game(ev);
+        refresh_game(ev.data);
 };
 
 function try_connect()
 {
-    var msg = JSON.stringify(document.getElementById("choose_nation").value);
+    var msg = new Object();
+    msg.order = "connect";
+    msg.msg = document.getElementById("choose_nation").value;
+    msg = JSON.stringify(msg);
     wss.send(msg);
 }
 
@@ -22,7 +25,14 @@ function attack(direction)
 {
     var type = document.getElementById("attaque_" + direction + "_unit").value;
     var nb = document.getElementById("attaque_" + direction + "_nb").value;
-    order("attack", type, nb, direction);
+    var tmp = new Object();
+    var msg;
+    tmp.order = "attack";
+    tmp.type = type;
+    tmp.nb = nb;
+    tmp.direction = direction;
+    msg = JSON.stringify(tmp);
+    wss.send(msg);
 }
 
 function order(what, type, nb, direction)

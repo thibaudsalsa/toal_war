@@ -5,10 +5,13 @@ vm.runInThisContext(fs.readFileSync(__dirname + "/fight.js"));
 
 /*global init_game*/
 
+//creation du jeux
 var game = init_game();
+//creation du serveur avec les webSockets
 
-function connect(team, game)
+function connect(game)
 {
+    var team = 0;
     if (game.team1.name === "")
     {
         game.team1.name === team;
@@ -68,11 +71,16 @@ function fill_msg(msg, team)
     msg.city = team.city;
 }
 
-function respond(game, team)
+function respond(game, team, start, ws)
 {
+    if (start === false && team === 0)
+        return;
     var tmp;
     var msg = new Object();
     var msg_json;
+    game.attack();
+    game.attack_city();
+    game.move();
     msg.team1 = game.team1;
     msg.team2 = game.team2;
     msg.team3 = game.team3;
@@ -90,5 +98,5 @@ function respond(game, team)
     }
     fill_msg(msg, tmp);
     msg_json = JSON.stringify(msg);
-    return (msg_json);
+    ws.send(msg_json);
 }

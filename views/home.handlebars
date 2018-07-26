@@ -14,12 +14,12 @@
         <label>Votre ville:</label>
         <p id="argent">Argent: 200</p>
         <p id="cité">Cité: 200pv</p>
-        <p>Soldat: <span id="soldat">0</span> <button onclick="order('buy', soldat, 1)">Acheter un soldat</button></p>
-        <p>Char: <span id="char">0</span>  <button onclick="order('buy', char, 1)">Acheter un char</button></p>
-        <p>Avion: <span id="avion">0</span> <button onclick="order('buy', avion, 1)">Acheter un avion</button></p>
-        <div><p>Attaquer à droite</p><input id="attaque_right_nb" type="number" min="0"></input><select id="attaque_right_unit"><option>soldat</option><option>char</option><option>avion</option></select><button onclick"attack('right')">Attaquer à droite</button></div>
-        <div><p>Attaquer à gauche</p><input id="attaque_left_nb" type="number" min="0"></input><select id="attaque_left_unit"><option>soldat</option><option>char</option><option>avion</option></select><button onclick"attack('left')">Attaquer à gauche</button></div>
-        <button onclick="order('buy', carte, 1)">Acheter une carte</button>
+        <p>Soldat: <span id="soldat">0</span> <button onclick="order('buy', 'soldat', 1)">Acheter un soldat</button></p>
+        <p>Char: <span id="char">0</span>  <button onclick="order('buy', 'char', 1)">Acheter un char</button></p>
+        <p>Avion: <span id="avion">0</span> <button onclick="order('buy', 'avion', 1)">Acheter un avion</button></p>
+        <div><p>Attaquer à droite</p><input id="attaque_right_nb" type="number" min="0"></input><select id="attaque_right_unit"><option>soldat</option><option>char</option><option>avion</option></select><button onclick="attack('right')">Attaquer à droite</button></div>
+        <div><p>Attaquer à gauche</p><input id="attaque_left_nb" type="number" min="0"></input><select id="attaque_left_unit"><option>soldat</option><option>char</option><option>avion</option></select><button onclick="attack('left')">Attaquer à gauche</button></div>
+        <button onclick="order('buy', 'carte', 1)">Acheter une carte</button>
     </div>
     <canvas width="1000" height="750" id="art" style="padding-left: 40%"></canvas>
 </div>
