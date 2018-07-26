@@ -3,6 +3,7 @@ var wss = new WebSocket('ws://145.239.47.23:40510');
 
 wss.onmessage = function (ev)
 {
+    console.log(ev)
     if (ev == "start")
     {
         document.getElementById("display_game").style.display = "";
