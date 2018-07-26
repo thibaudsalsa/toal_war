@@ -10,9 +10,7 @@ var expressValidator = require('express-validator');
 var dotenv = require('dotenv');
 var exphbs = require('express-handlebars');
 var passport = require('passport');
-var vm = require("vm");
 var ws = require("./ws");
-
 
 var Data_file = require('./models/Data_file.js');
 
