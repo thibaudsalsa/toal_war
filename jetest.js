@@ -9,16 +9,15 @@ function init_game()
 	game.attack = attack;
 	game.attack_city = attack_city;
 	game.move = move_unit;
-	game.card = init_card();	
+	game.card = init_card();
 	return (game);
-	
 }
 
 function create_team()
 {
 	var team = new Object();
 	team.player = "";
-	team.color = "reeeed";
+	team.color = "";
 	team.money = 200;
 	team.city = 200;
 	team.carte = [];
@@ -26,6 +25,7 @@ function create_team()
 	team.add = add_unit;
 	team.launch_right = launch_right;
 	team.launch_left = launch_left;
+	team.use_card = use_card;
 	return (team);
 }
 
@@ -62,9 +62,9 @@ function add_unit(type, nbr)
 function create_char()
 {
 	var char = new Object();
-	char.pv = 10;
-	char.dmg = 0;
-	char.speed = 0;
+	char.pv = 3;
+	char.dmg = 1;
+	char.speed = 1;
 	char.color = 0;
 	char.x = 0;
 	char.y = 0;
@@ -76,9 +76,9 @@ function create_char()
 function create_soldat()
 {
 	var soldat = new Object();
-	soldat.pv = 10;
-	soldat.dmg = 0;
-	soldat.speed = 0;
+	soldat.pv = 1;
+	soldat.dmg = 3;
+	soldat.speed = 1;
 	soldat.color = 0;
 	soldat.x = 0;
 	soldat.y = 0;
@@ -90,9 +90,9 @@ function create_soldat()
 function create_avion()
 {
 	var avion = new Object();
-	avion.pv = 10;
-	avion.dmg = 0;
-	avion.speed = 0;
+	avion.pv = 1;
+	avion.dmg = 1;
+	avion.speed = 3;
 	avion.color = 0;
 	avion.x = 0;
 	avion.y = 0;
@@ -367,70 +367,132 @@ function launch_right(type, nb)
 		}
 	}
 }
-
-game=init_game();
-game.team1.carte.push(game.card.tab_nation[1])
-console.log(game.team1.carte) 
-console.log(game.team1.carte[0].bite(game.team2))
+var x = init_card();
+/*console.log(x.)*/
 function init_card()
 {
-	var Icard = new Object(); 
-	Icard.tab_nation = create_tab_nation(4/*nombre de cartes*/);
+	var Icard = new Object();
+	Icard.tab_nation = create_tab_nation(4);
 	Icard.tab_bonus = create_tab_bonus(4);
-	/*console.log(card.tab_bonus)*/
-	Icard.add_card = function add(game)
-	{
-		game.team1.carte.push( Icard.tab_nation[0])
-	}
+	Icard.add_fct = add_fct;
+	Icard.get_card = return_card;
+	Icard.add_fct();
 	return (Icard);
 }
-
-/* CREER LE TABLEAU DE CARTES */
+/* Creer chacune des cartes et lui associe sa function membre*/
 function create_tab_nation(nb_card)
 {
 	var tab_card = [nb_card];
-	var id = ["vatican", "monaco", "dubai", "kosovo"];
-	var img = ["image1", "image2", "image3", "image4"];	
+	var id = ["vatican", "liban", "dubai", "kosovo"];
+	var img = ["image1", "image2", "image3", "image4"];
 	var text = ["JE SAIS PAS", "JE SAIS PAS", "JE SAIS PAS", "JE SAIS PAS"];
-	var prob = [0.25, 0.25, 0.25, 0.25]; 	
+	var prob = [1, 1, 1, 1];
 	for (let i = 0; i < nb_card; i++)
-	{		
+	{
 		var card = new Object();
 		card.id = id[i];
 		card.img = img[i];
 		card.text = text[i];
-		card.prob = prob[i];	
-		card.bite = espion1;	
+		card.prob = prob[i];
 		tab_card[i] = card;
 	}
 	return (tab_card);
 }
 
-
 function create_tab_bonus(nb_card)
 {
 	var tab_card = [nb_card];
 	var id = ["seismes", "Allié inatendu 1", "Prêt à la banque 1", "Appuie aérien"];
-	var img = ["image1", "image2", "image3", "image4"];	
+	var img = ["image1", "image2", "image3", "image4"];
 	var text = ["JE SAIS PAS", "JE SAIS PAS", "JE SAIS PAS", "JE SAIS PAS"];
-	var prob = [0.25, 0.25, 0.25, 0.25]; 	
+	var prob = [1, 1, 1, 1];
 	for (let i = 0; i < nb_card; i++)
-	{		
+	{
 		var card = new Object();
 		card.id = id[i];
 		card.img = img[i];
 		card.text = text[i];
-		card.prob = prob[i];		
-		tab_card[i] = card;	
+		card.prob = prob[i];	
+		tab_card[i] = card;
 	}
 	return (tab_card);
 }
 
-function espion1(team)
+function add_fct()
+{
+	var tab_fct_nation = ["", "", "", ""];
+	for (let i=0; i < tab_fct_nation.length; i++)
+	{
+		this.tab_nation[i].use = tab_fct_nation[i];
+	}
+	var tab_fct_bonus = ["", "", "", ""];
+	for (let i=0; i < tab_fct_bonus.length; i++)
+	{
+		this.tab_bonus[i].use = tab_fct_bonus[i];
+	}
+}
+/* Fin */
+
+/* Function pour thibaud*/
+function use_card(num_card)
+{
+	this.carte[num_card].use();
+}
+function return_card(num_card)
+{
+	if (num_card != -1)
+		return (this.tab_nation[num_card]);
+	else
+		return (this.tab_nation[(Math.floor( Math.random() * (this.tab_nation.length + 0)))]);
+}
+/* fin */
+
+/* functions membres des cartes*/
+function pret_a_la_banque(numero)
+{
+	this.money += numero * 5;
+}
+function allie_inattendu(numero)
+{
+	var nb_unit = this.unit.char.length + this.unit.avion.length + this.unit.soldat.length;
+	if (nb_unit + 3 * numero < 150);
+	{
+		this.add("char",numero*2);
+		this.add("avion",numero*2);
+		this.add("soldat",numero*2);
+	}
+}
+function espion1(team, see_unit)
+{
+	if (see_unit == "char")
+		return (team.unit.char.length);
+	if (see_unit == "avion")
+		return (team.unit.avion.length);
+	if (see_unit == "soldat")
+		return (team.unit.soldat.length);
+}
+function espion2(team)
 {
 	return (team.unit.char.length + team.unit.avion.length + team.unit.soldat.length);
 }
-
+function effort_diplomatique(team2, team3)
+{
+	this.money += 30;
+	calcule_retrait_argent(team2);
+	calcule_retrait_argent(team3);
+}
+function calcule_retrait_argent(team, montant)
+{
+	if (team.money > montant)
+		team.money -= montant;
+	else
+		team.money = 0;
+}
+/* fin */
+var x=init_game();
+var carte = x.card.get_card(-1);
+x.team1.carte.push(carte)
+console.log(x.team1.carte)
 
 
 

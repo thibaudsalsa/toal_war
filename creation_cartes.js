@@ -1,108 +1,106 @@
-var x = init_card();
-console.log(x.tab_nation[0])
-
+/*var x = init_card();
+console.log(x.);*/
 function init_card()
 {
-	var Icard = new Object(); 
-	Icard.tab_nation = create_tab_nation(4/*nombre de cartes*/);
+	var Icard = new Object();
+	Icard.tab_nation = create_tab_nation(4);
 	Icard.tab_bonus = create_tab_bonus(4);
-	Icard.add_card_nation = add_fct_nation(Icard);
-	Icard.add_card_bonus = add_card_bonus(Icard);
+	Icard.add_fct = add_fct;
+	Icard.get_card = return_card;
+	Icard.add_fct();
 	return (Icard);
 }
-/* CREER LE TABLEAU DE CARTES nation*/
+/* Creer chacune des cartes et lui associe sa function membre*/
 function create_tab_nation(nb_card)
 {
 	var tab_card = [nb_card];
 	var id = ["vatican", "liban", "dubai", "kosovo"];
-	var img = ["image1", "image2", "image3", "image4"];	
+	var img = ["image1", "image2", "image3", "image4"];
 	var text = ["JE SAIS PAS", "JE SAIS PAS", "JE SAIS PAS", "JE SAIS PAS"];
-	var prob = [0.25, 0.25, 0.25, 0.25]; 	
+	var prob = [1, 1, 1, 1];
 	for (let i = 0; i < nb_card; i++)
-	{		
+	{
 		var card = new Object();
 		card.id = id[i];
 		card.img = img[i];
 		card.text = text[i];
-		card.prob = prob[i];		
-		tab_card[i] = card;	
+		card.prob = prob[i];
+		tab_card[i] = card;
 	}
-
 	return (tab_card);
 }
-/* CREER LE TABLEAU DE CARTES BONUS */
+
 function create_tab_bonus(nb_card)
 {
 	var tab_card = [nb_card];
 	var id = ["seismes", "Allié inatendu 1", "Prêt à la banque 1", "Appuie aérien"];
-	var img = ["image1", "image2", "image3", "image4"];	
+	var img = ["image1", "image2", "image3", "image4"];
 	var text = ["JE SAIS PAS", "JE SAIS PAS", "JE SAIS PAS", "JE SAIS PAS"];
-	var prob = [0.25, 0.25, 0.25, 0.25]; 	
+	var prob = [1, 1, 1, 1];
 	for (let i = 0; i < nb_card; i++)
-	{		
+	{
 		var card = new Object();
 		card.id = id[i];
 		card.img = img[i];
 		card.text = text[i];
-		card.prob = prob[i];		
-		tab_card[i] = card;	
+		card.prob = prob[i];
+		tab_card[i] = card;
 	}
 	return (tab_card);
 }
 
+function add_fct()
+{
+	var tab_fct_nation = ["", "", "", ""];
+	for (let i=0; i < tab_fct_nation.length; i++)
+	{
+		this.tab_nation[i].use = tab_fct_nation[i];
+	}
+	var tab_fct_bonus = ["", "", "", ""];
+	for (let i=0; i < tab_fct_bonus.length; i++)
+	{
+		this.tab_bonus[i].use = tab_fct_bonus[i];
+	}
+}
+/* Fin */
+
+/* Function pour thibaud*/
 function use_card(num_card)
 {
 	this.carte[num_card].use();
 }
-
-function add_fct_nation(Icard)
+function return_card(num_card)
 {
-	Icard.tab_nation[0].use = espion1;
-	Icard.tab_nation[1].use = espion2;
-	Icard.tab_nation[2].use = effort_diplomatique;
-	Icard.tab_nation[3].use = pret_a_la_banque;
-	/*this.tab_nation[4].
-	this.tab_nation[5].
-	this.tab_nation[6].
-	this.tab_nation[7].*/
+	if (num_card != -1)
+		return (this.tab_nation[num_card]);
+	else
+		return (this.tab_nation[(Math.floor(Math.random() * (this.tab_nation.length + 0)))]);
 }
+/* fin */
 
-function add_fct_bonus(Icard)
-{
-	/*Icard.tab_bonus[0].
-	Icard.tab_bonus[1].
-	Icard.tab_bonus[2].
-	Icard.tab_bonus[3].
-	Icard.tab_bonus[4].
-	Icard.tab_bonus[5].*/
-}
-
-/* functions des cartes*/
+/* functions membres des cartes*/
 function pret_a_la_banque(numero)
 {
-	this.money += numero*5;
+	this.money += numero * 5;
 }
 function allie_inattendu(numero)
 {
 	var nb_unit = this.unit.char.length + this.unit.avion.length + this.unit.soldat.length;
-	if (nb_unit + 3*numero < 150);
-	{	
-		this.add("char",numero*2);
-		this.add("avion",numero*2);
-		this.add("soldat",numero*2);
-		return ("True");	
+	if (nb_unit + 3 * numero < 150);
+	{
+		this.add("char",numero * 2);
+		this.add("avion",numero * 2);
+		this.add("soldat",numero * 2);
 	}
-	return ("False");
-}	
+}
 function espion1(team, see_unit)
 {
-	if (see_unit == "char")	
-		return (team.unit.char.length);	
+	if (see_unit == "char")
+		return (team.unit.char.length);
 	if (see_unit == "avion")
 		return (team.unit.avion.length);
 	if (see_unit == "soldat")
 		return (team.unit.soldat.length);
-	return(False);
 }
 function espion2(team)
 {
@@ -110,7 +108,7 @@ function espion2(team)
 }
 function effort_diplomatique(team2, team3)
 {
-	this.money += 30
+	this.money += 30;
 	calcule_retrait_argent(team2);
 	calcule_retrait_argent(team3);
 }
@@ -121,10 +119,4 @@ function calcule_retrait_argent(team, montant)
 	else
 		team.money = 0;
 }
-
-
-
-
-
-
-
+/* fin */
