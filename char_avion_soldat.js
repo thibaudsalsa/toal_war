@@ -7,10 +7,10 @@ function init_game()
 	var pos_unit = [0, 0, 0];
 	game.team1 = create_team(rgb, pos_unit);
 	rgb = [253, 106, 2];
-	pos_unit = [0, 0, 0];
+	pos_unit = [0, 8, 0];
 	game.team2 = create_team(rgb, pos_unit);
 	rgb = [200, 0, 0];
-	pos_unit = [8, 0, 0];
+	pos_unit = [0, 8, 0];
 	game.team3 = create_team(rgb, pos_unit);
 	game.attack = attack;
 	game.attack_city = attack_city;
