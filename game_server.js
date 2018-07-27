@@ -60,7 +60,6 @@ function do_msg(team, message_get)
 
 function fill_msg(msg, team)
 {
-    console.log(team);
     msg.soldat = team.unit.soldat.length;
     msg.avion = team.unit.avion.length;
     msg.char = team.unit.char.length;
@@ -71,6 +70,7 @@ function respond(game, team, start, ws)
 {
     if (start === false || team === 0)
         return;
+    console.log(game);
     var tmp;
     var msg = new Object();
     var msg_json;
