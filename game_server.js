@@ -29,11 +29,11 @@ function do_msg(team, message_get)
 {
     var type;
     var nb;
-    if (message_get.order === "buy")
+    if (message_get.order === "buy" && message_get.type != "card")
     {
         type = message_get.type;
         nb = message_get.nb;
-        team.add_unit(type, nb);
+        team.add(type, nb);
     }
     else if (message_get.order === "attack")
     {
@@ -44,7 +44,7 @@ function do_msg(team, message_get)
         if (message_get.direction == "right")
         team.launch_right(type, nb);
     }
-    else if (message_get.order == "card")
+    else if (message_get.type == "card")
     {
         if (message_get.order === "buy")
         {
