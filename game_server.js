@@ -70,7 +70,6 @@ function respond(game, team, start, ws)
 {
     if (start === false || team === 0)
         return;
-    console.log(game);
     var tmp;
     var msg = new Object();
     var msg_json;
@@ -85,11 +84,11 @@ function respond(game, team, start, ws)
     msg.avion = 0;
     msg.city = 0;
     switch (team) {
-        case '1':
+        case 1:
             tmp = game.team1;
-        case '2':
+        case 2:
             tmp = game.team2;
-        case '3':
+        case 3:
             tmp = game.team3;
     }
     fill_msg(msg, tmp);
