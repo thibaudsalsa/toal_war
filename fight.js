@@ -249,7 +249,7 @@ function launch_right(type, nb)
 			this.unit.char.pop();
 		}
 	}
-	else if (type == "avion" && this.unit.char.length >= nb)
+	else if (type == "avion" && this.unit.avion.length >= nb)
 	{
 		for (let i = 0; i < nb; i++)
 		{
@@ -257,7 +257,7 @@ function launch_right(type, nb)
 			this.unit.avion.pop();
 		}
 	}
-	else if (type == "soldat" && this.unit.char.length >= nb)
+	else if (type == "soldat" && this.unit.soldat.length >= nb)
 	{
 		for (let i = 0; i < nb; i++)
 		{
