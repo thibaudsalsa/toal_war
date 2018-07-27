@@ -29,7 +29,7 @@ function try_connect()
 function attack(direction)
 {
     var type = document.getElementById("attaque_" + direction + "_unit").value;
-    var nb = document.getElementById("attaque_" + direction + "_nb").value;
+    var nb = parseInt(document.getElementById("attaque_" + direction + "_nb").value, 10);
     var tmp = new Object();
     var msg;
     tmp.order = "attack";
