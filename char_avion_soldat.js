@@ -10,7 +10,7 @@ function init_game()
 	pos_unit = [0, 0, 0];
 	game.team2 = create_team(rgb, pos_unit);
 	rgb = [200, 0, 0];
-	pos_unit = [0, 0, 0];
+	pos_unit = [8, 0, 0];
 	game.team3 = create_team(rgb, pos_unit);
 	game.attack = attack;
 	game.attack_city = attack_city;
@@ -115,7 +115,7 @@ function create_avion(r, g, b, pos_unit)
 	avion.color = [r, g, b];
 	avion.x = pos_unit[0];
 	avion.y = pos_unit[1];
-	avion.z = pos_unit[2];
+	avion.z = pos_unit[2] + 1;
 	avion.sizex = 0.3;
 	avion.sizey = 0.1;
 	avion.sizez = 0.01;
