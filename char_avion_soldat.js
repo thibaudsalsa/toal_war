@@ -3,16 +3,20 @@ function init_game()
 {
 	var game = new Object();
 	//les trois equipe
-	game.team1 = create_team(0, 0, 200);
-	game.team2 = create_team(253, 106, 2);
-	game.team3 = create_team(200, 0, 0);
+	var rgb = [0, 0, 200];
+	var pos_unit = [];
+	game.team1 = create_team(rgb, pos_unit);
+	rgb = [253, 106, 2];
+	game.team2 = create_team(rgb, pos_unit);
+	rgb = [200, 0, 0];
+	game.team3 = create_team(rgb, pos_unit);
 	game.attack = attack;
 	game.attack_city = attack_city;
 	game.move = move_unit;
 	return (game);
 }
 
-function create_team(r, g, b)
+function create_team(rgb, pos_unit)
 {
 	var team = new Object();
 	team.name = ""
@@ -21,9 +25,10 @@ function create_team(r, g, b)
 	team.money = 50;
 	team.city = 6000;
 	team.carte = [];
-	team.r = r;
-	team.g = g;
-	team.b = b;
+	team.r = rgb[0];
+	team.g = rgb[1];
+	team.b = rgb[2];
+	team.pos_unit = pos_unit;
 	team.unit = create_team_unit();
 	team.add = add_unit;
 	team.launch_right = launch_right;
