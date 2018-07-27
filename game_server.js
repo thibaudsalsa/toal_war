@@ -60,9 +60,9 @@ function do_msg(team, message_get)
 
 function fill_msg(msg, team)
 {
-    msg.soldat = team.unit.soldat;
-    msg.avion = team.unit.avion;
-    msg.char = team.unit.char;
+    msg.soldat = team.unit.soldat.length;
+    msg.avion = team.unit.avion.length;
+    msg.char = team.unit.char.length;
     msg.city = team.city;
 }
 

@@ -49,12 +49,16 @@ function create_team_unit()
 
 function add_unit(type, nbr)
 {
-	for (let i = 0; i < nbr && type == "char"; i++)
-		this.unit.char.push(create_char());
-	for (let i = 0; i < nbr && type == "avion"; i++)
-		this.unit.avion.push(create_avion());	
-	for (let i = 0; i < nbr && type == "soldat"; i++)
-		this.unit.soldat.push(create_soldat());
+	if (this.unit.soldat.length + this.unit.char.length + this.unit.avion.length < 100)
+	{
+		this.money -= 5;
+		for (let i = 0; i < nbr && type == "char"; i++)
+			this.unit.char.push(create_char());
+		for (let i = 0; i < nbr && type == "avion"; i++)
+			this.unit.avion.push(create_avion());	
+		for (let i = 0; i < nbr && type == "soldat"; i++)
+			this.unit.soldat.push(create_soldat());
+	}
 }
 
 function create_char()
