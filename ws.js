@@ -1,6 +1,9 @@
-var vm = require("vm");
 var fs = require("fs");
-vm.runInThisContext(fs.readFileSync(__dirname + "/game_server.js"));
+require('vm').runInThisContext(fs.readFileSync(__dirname + "/fight.js"));
+require('vm').runInThisContext(fs.readFileSync(__dirname + "/char_avion_soldat.js"));
+require('vm').runInThisContext(fs.readFileSync(__dirname + "/game_server.js"));
+
+
 var WebSocketServer = require('ws').Server, wss = new WebSocketServer({port: 40510});
 
 /*global connect do_msg game:true respond init_game*/

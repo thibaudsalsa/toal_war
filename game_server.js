@@ -1,8 +1,3 @@
-var vm = require("vm");
-var fs = require("fs");
-vm.runInThisContext(fs.readFileSync(__dirname + "/char_avion_soldat.js"));
-vm.runInThisContext(fs.readFileSync(__dirname + "/fight.js"));
-
 /*global init_game*/
 
 //creation du jeux

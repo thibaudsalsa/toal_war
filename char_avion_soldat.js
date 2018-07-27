@@ -9,7 +9,6 @@ function init_game()
 	game.attack = attack;
 	game.attack_city = attack_city;
 	game.move = move_unit;
-	game.card = init_card();
 	return (game);
 }
 
@@ -25,7 +24,6 @@ function create_team()
 	team.add = add_unit;
 	team.launch_right = launch_right;
 	team.launch_left = launch_left;
-	team.use_card = use_card;
 	return (team);
 }
 
