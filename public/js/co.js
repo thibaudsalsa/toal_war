@@ -8,6 +8,11 @@ wss.onmessage = function (ev)
         document.getElementById("display_game").style.display = "";
         document.getElementById("choose").style.display = "none";
     }
+    else if (ev.data == "reset")
+    {
+        document.getElementById("display_game").style.display = "none";
+        document.getElementById("choose").style.display = "";
+    }
     else
         refresh_game(ev.data);
 };
