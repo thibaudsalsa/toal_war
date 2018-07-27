@@ -68,7 +68,7 @@ function fill_msg(msg, team)
 
 function respond(game, team, start, ws)
 {
-    if (start === false && team === 0)
+    if (start === false || team === 0)
         return;
     var tmp;
     var msg = new Object();
