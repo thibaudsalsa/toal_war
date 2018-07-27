@@ -40,9 +40,9 @@ function do_msg(team, message_get)
         type = message_get.type;
         nb = message_get.nb;
         if (message_get.direction === "left")
-        team.launch_left(type, nb);
-        if (message_get.direction === "right")
-        team.launch_right(type, nb);
+            team.launch_left(type, nb);
+        else if (message_get.direction === "right")
+            team.launch_right(type, nb);
     }
     else if (message_get.type === "carte")
     {

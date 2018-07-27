@@ -207,27 +207,27 @@ function move_unit()
 
 function launch_left(type, nb)
 {
-	if (type == "char" && this.unit.char.length >= nb)
+	if (type === "char" && this.unit.char.length >= nb)
 	{
 		for (let i = 0; i < nb; i++)
 		{
-			this.unit.unit_left.char.push(this.unit.char[0]);
+			this.unit.unit_left.char.push(this.unit.char[this.unit.char.length - 1]);
 			this.unit.char.pop();
 		}
 	}
-	else if (type == "avion" && this.unit.avion.length >= nb)
+	else if (type === "avion" && this.unit.avion.length >= nb)
 	{
 		for (let i = 0; i < nb; i++)
 		{
-			this.unit.unit_left.avion.push(this.unit.avion[0]);
+			this.unit.unit_left.avion.push(this.unit.avion[this.unit.avion.length - 1]);
 			this.unit.avion.pop();
 		}
 	}
-	else if (type == "soldat" && this.unit.soldat.length >= nb)
+	else if (type === "soldat" && this.unit.soldat.length >= nb)
 	{
 		for (let i = 0; i < nb; i++)
 		{
-			this.unit.unit_left.soldat.push(this.unit.soldat[0]);
+			this.unit.unit_left.soldat.push(this.unit.soldat[this.unit.soldat.length - 1]);
 			this.unit.soldat.pop();
 		}
 	}
