@@ -4,11 +4,13 @@ function init_game()
 	var game = new Object();
 	//les trois equipe
 	var rgb = [0, 0, 200];
-	var pos_unit = [];
+	var pos_unit = [0, 0, 0];
 	game.team1 = create_team(rgb, pos_unit);
 	rgb = [253, 106, 2];
+	pos_unit = [0, 0, 0];
 	game.team2 = create_team(rgb, pos_unit);
 	rgb = [200, 0, 0];
+	pos_unit = [0, 0, 0];
 	game.team3 = create_team(rgb, pos_unit);
 	game.attack = attack;
 	game.attack_city = attack_city;
@@ -62,24 +64,24 @@ function add_unit(type, nbr)
 	{
 		this.money -= 5;
 		for (let i = 0; i < nbr && type == "char"; i++)
-			this.unit.char.push(create_char(this.r, this.g, this.b));
+			this.unit.char.push(create_char(this.r, this.g, this.b, this.pos_unit));
 		for (let i = 0; i < nbr && type == "avion"; i++)
-			this.unit.avion.push(create_avion(this.r, this.g, this.b));	
+			this.unit.avion.push(create_avion(this.r, this.g, this.b, this.pos_unit));	
 		for (let i = 0; i < nbr && type == "soldat"; i++)
-			this.unit.soldat.push(create_soldat(this.r, this.g, this.b));
+			this.unit.soldat.push(create_soldat(this.r, this.g, this.b, this.pos_unit));
 	}
 }
 
-function create_char(r, g, b)
+function create_char(r, g, b, pos_unit)
 {
 	var char = new Object();
 	char.pv = 3;
 	char.dmg = 1;
 	char.speed = 1;
 	char.color = [r, g, b];
-	char.x = 0;
-	char.y = 0;
-	char.z = 0;
+	char.x = pos_unit[0];
+	char.y = pos_unit[1];
+	char.z = pos_unit[2];
 	char.sizex = 0.2;
 	char.sizey = 0.2;
 	char.sizez = 0.2;
@@ -87,16 +89,16 @@ function create_char(r, g, b)
 	return (char);
 }
 
-function create_soldat(r, g, b)
+function create_soldat(r, g, b, pos_unit)
 {
 	var soldat = new Object();
 	soldat.pv = 1;
 	soldat.dmg = 3;
 	soldat.speed = 1;
 	soldat.color = [r, g, b];
-	soldat.x = 0;
-	soldat.y = 0;
-	soldat.z = 0;
+	soldat.x = pos_unit[0];
+	soldat.y = pos_unit[1];
+	soldat.z = pos_unit[2];
 	soldat.sizex = 0.1;
 	soldat.sizey = 0.3;
 	soldat.sizez = 0.2;
@@ -104,16 +106,16 @@ function create_soldat(r, g, b)
 	return (soldat);
 }
 
-function create_avion(r, g, b)
+function create_avion(r, g, b, pos_unit)
 {
 	var avion = new Object();
 	avion.pv = 1;
 	avion.dmg = 1;
 	avion.speed = 3;
 	avion.color = [r, g, b];
-	avion.x = 0;
-	avion.y = 0;
-	avion.z = 1;
+	avion.x = pos_unit[0];
+	avion.y = pos_unit[1];
+	avion.z = pos_unit[2];
 	avion.sizex = 0.3;
 	avion.sizey = 0.1;
 	avion.sizez = 0.01;
