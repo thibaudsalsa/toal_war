@@ -4,22 +4,22 @@
 var game = init_game();
 //creation du serveur avec les webSockets
 
-function connect(game)
+function connect(game, name)
 {
     var team = 0;
     if (game.team1.name === "")
     {
-        game.team1.name === team;
+        game.team1.name === name;
         team = 1;
     }
     else if (game.team2.name === "")
     {
-        game.team2.name === team;
+        game.team2.name === name;
         team = 2;
     }
     else if (game.team3.name === "")
     {
-        game.team3.name === team;
+        game.team3.name === name;
         team = 3;
     }
     return (team);

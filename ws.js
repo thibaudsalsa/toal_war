@@ -21,7 +21,7 @@ wss.on('connection', function (ws)
     console.log(message.order);
     if (message.order === "connect")
     {
-      me = check_connection();
+      me = check_connection(message.msg);
       console.log('someone connect');
     }
     else if (start === true)
@@ -38,9 +38,9 @@ wss.on('connection', function (ws)
     setInterval(() => respond(game, me, start, ws), 100);
 });
 
-function check_connection()
+function check_connection(name)
 {
-  var me = connect(game);
+  var me = connect(game, name);
   if (me === 3)
   {
     wss.broadcast("start");
