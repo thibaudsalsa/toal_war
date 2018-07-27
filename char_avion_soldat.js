@@ -99,9 +99,9 @@ function create_soldat(r, g, b, pos_unit)
 	soldat.x = pos_unit[0];
 	soldat.y = pos_unit[1];
 	soldat.z = pos_unit[2];
-	soldat.sizex = 0.1;
-	soldat.sizey = 0.3;
-	soldat.sizez = 0.2;
+	soldat.sizex = 0.3;
+	soldat.sizey = 0.1;
+	soldat.sizez = 0.4;
 	soldat.hit = 0;
 	return (soldat);
 }
