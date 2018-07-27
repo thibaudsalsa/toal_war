@@ -29,7 +29,7 @@ function do_msg(team, message_get)
 {
     var type;
     var nb;
-    if (message_get.order === "buy" && message_get.type != "card")
+    if (message_get.order === "buy" && message_get.type != "carte")
     {
         type = message_get.type;
         nb = message_get.nb;
@@ -44,7 +44,7 @@ function do_msg(team, message_get)
         if (message_get.direction === "right")
         team.launch_right(type, nb);
     }
-    else if (message_get.type === "card")
+    else if (message_get.type === "carte")
     {
         if (message_get.order === "buy")
         {
