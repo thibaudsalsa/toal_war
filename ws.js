@@ -40,7 +40,7 @@ wss.on('connection', function (ws)
 
 function check_connection(name)
 {
-  var me = connect(game, name);
+  var me = connect(name);
   if (me === 3)
   {
     wss.broadcast("start");

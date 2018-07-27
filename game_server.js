@@ -4,7 +4,7 @@
 var game = init_game();
 //creation du serveur avec les webSockets
 
-function connect(game, name)
+function connect(name)
 {
     var team = 0;
     if (game.team1.name === "")
