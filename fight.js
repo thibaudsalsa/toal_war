@@ -195,18 +195,20 @@ function move(unit, x_operator, y_operator)
 function move_unit()
 {
 	//move unit team1
-	move_type(this.team1.unit.unit_left, '+', 'o');
-	move_type(this.team1.unit.unit_right, 'o', '-');
+	move_type(this.team1.unit.unit_left, 'o', '+');
+	move_type(this.team1.unit.unit_right, '-', 'o');
 	//move unit team2
-	move_type(this.team2.unit.unit_left, '-', '+');
-	move_type(this.team2.unit.unit_right, '-', 'o');
+	move_type(this.team2.unit.unit_left, '+', '-');
+	move_type(this.team2.unit.unit_right, 'o', '-');
 	//move unit team3
-	move_type(this.team3.unit.unit_left, 'o', '-');
-	move_type(this.team3.unit.unit_right, '+', '-');
+	move_type(this.team3.unit.unit_left, '-', 'o');
+	move_type(this.team3.unit.unit_right, '-', '+');
 }
 
 function launch_left(type, nb)
 {
+	if (nb > 10)
+		nb = 10;
 	if (type === "char" && this.unit.char.length >= nb)
 	{
 		for (let i = 0; i < nb; i++)
@@ -235,6 +237,8 @@ function launch_left(type, nb)
 
 function launch_right(type, nb)
 {
+	if (nb > 10)
+		nb = 10;
 	if (type == "char" && this.unit.char.length >= nb)
 	{
 		for (let i = 0; i < nb; i++)
