@@ -150,24 +150,6 @@ function attack_city()
     this.team2.city = dmg_city(unit, this.team2.city, 1, 1);
 }
 
-function move(unit, x_operator, y_operator)
-{
-	switch(x_operator)
-	{
-		case '+':
-			unit.x += unit.speed / 100;
-		case '-':
-			unit.x -= unit.speed / 100;
-	}
-	switch(y_operator)
-	{
-		case '+':
-			unit.y += unit.speed / 100;
-		case '-':
-			unit.y -= unit.speed / 100;
-	}
-}
-
 function back_hit(unit)
 {
 	for (let i = 0; i < unit.avion.length; i++)
@@ -196,6 +178,18 @@ function move_type(unit, x_operator, y_operator)
 			move(unit.char[i], x_operator, y_operator);
 	}
 	back_hit(unit);
+}
+
+function move(unit, x_operator, y_operator)
+{
+	if (x_operator === '+')
+		unit.x += unit.speed / 100;
+	else if (x_operator === '-')
+		unit.x -= unit.speed / 100;
+	if (y_operator === '+')
+		unit.y += unit.speed / 100;
+	else if (y_operator === '-')
+		unit.y -= unit.speed / 100;
 }
 
 function move_unit()
