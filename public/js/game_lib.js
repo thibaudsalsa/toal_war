@@ -29,11 +29,11 @@ function draw_unit(form, unit)
 {
     var draw;
     /*global Isomer*/
-    unit.color = new Isomer.Color(unit.color[0], unit.color[1], unit.color[2]);
+    var color_fix = new Isomer.Color(unit.color[0], unit.color[1], unit.color[2]);
     form = set_pos(form, unit.x, unit.y, unit.z);
     form = set_size(form, unit.sizex, unit.sizey, unit.sizez);
     draw = form.shape.Prism(form.Point(form.pos.x, form.pos.y, form.pos.z), form.size.x, form.size.y, form.size.z);
-    form.iso.add(draw, unit.color);
+    form.iso.add(draw, color_fix);
 }
 
 
