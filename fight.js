@@ -182,7 +182,6 @@ function move_type(unit, x_operator, y_operator)
 
 function move(unit, x_operator, y_operator)
 {
-	console.log(x_operator, y_operator);
 	if (x_operator === '+')
 		unit.x += unit.speed / 100;
 	else if (x_operator === '-')
