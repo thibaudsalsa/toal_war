@@ -64,6 +64,7 @@ function fill_msg(msg, team)
     msg.avion = team.unit.avion.length;
     msg.char = team.unit.char.length;
     msg.city = team.city;
+    msg.argent = team.money;
 }
 
 function respond(game, team, start, ws)
@@ -83,6 +84,7 @@ function respond(game, team, start, ws)
     msg.char = 0;
     msg.avion = 0;
     msg.city = 0;
+    msg.money = 0;
     switch (team) {
         case 1:
             tmp = game.team1;

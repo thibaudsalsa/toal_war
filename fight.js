@@ -44,7 +44,8 @@ function unit_attack(my_unit, ennemies)
 	{
 		for (let j = 0; j < ennemies.soldat.length; j++)
 		{
-			tmp = do_dmg(my_unit[i], ennemies.soldat[j]);
+			tmp = do_dmg(my_unit[i],
+			ennemies.soldat[j]);
 			if (tmp != null)
 			{
 				ennemies.soldat[j] = tmp;
@@ -154,16 +155,16 @@ function move(unit, x_operator, y_operator)
 	switch(x_operator)
 	{
 		case '+':
-			unit.x += unit.speed / 1000;
+			unit.x += unit.speed / 100;
 		case '-':
-			unit.x -= unit.speed / 1000;
+			unit.x -= unit.speed / 100;
 	}
 	switch(y_operator)
 	{
 		case '+':
-			unit.y += unit.speed / 1000;
+			unit.y += unit.speed / 100;
 		case '-':
-			unit.y -= unit.speed / 1000;
+			unit.y -= unit.speed / 100;
 	}
 }
 
@@ -220,7 +221,7 @@ function launch_left(type, nb)
 			this.unit.char.pop();
 		}
 	}
-	else if (type == "avion" && this.unit.char.length >= nb)
+	else if (type == "avion" && this.unit.avion.length >= nb)
 	{
 		for (let i = 0; i < nb; i++)
 		{
@@ -228,7 +229,7 @@ function launch_left(type, nb)
 			this.unit.avion.pop();
 		}
 	}
-	else if (type == "soldat" && this.unit.char.length >= nb)
+	else if (type == "soldat" && this.unit.soldat.length >= nb)
 	{
 		for (let i = 0; i < nb; i++)
 		{

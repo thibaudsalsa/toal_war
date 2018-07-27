@@ -72,6 +72,9 @@ function create_char()
 	char.x = 0;
 	char.y = 0;
 	char.z = 0;
+	char.sizex = 0.2;
+	char.sizey = 0.2;
+	char.sizez = 0.2;
 	char.hit = 0;
 	return (char);
 }
@@ -86,6 +89,9 @@ function create_soldat()
 	soldat.x = 0;
 	soldat.y = 0;
 	soldat.z = 0;
+	soldat.sizex = 0.1;
+	soldat.sizey = 0.3;
+	soldat.sizez = 0.2;
 	soldat.hit = 0;
 	return (soldat);
 }
@@ -99,7 +105,10 @@ function create_avion()
 	avion.color = 0;
 	avion.x = 0;
 	avion.y = 0;
-	avion.z = 0;
+	avion.z = 1;
+	avion.sizex = 0.3;
+	avion.sizey = 0.1;
+	avion.sizez = 0.01;
 	avion.hit = 0;
 	return (avion);
 }
