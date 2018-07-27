@@ -10,7 +10,6 @@ var expressValidator = require('express-validator');
 var dotenv = require('dotenv');
 var exphbs = require('express-handlebars');
 var passport = require('passport');
-
 var Data_file = require('./models/Data_file.js');
 
 // Load environment variables from .env file
