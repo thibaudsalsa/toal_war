@@ -35,7 +35,7 @@ wss.on('connection', function (ws)
     wss.broadcast("reset");
   });
   // 10 fois par secondes le serveur actualise et envoit les infos aux clients
-    setInterval(() => respond(game, me, start, ws), 100);
+    setInterval(() => respond(game, me, start, ws), 30);
 });
 
 function check_connection(name)
