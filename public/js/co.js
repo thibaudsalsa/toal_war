@@ -72,7 +72,7 @@ function refresh_game(msg)
     orange_city = msg.team1.city;
     red_city = msg.team1.city;
     // actualise les informations sur la page
-    document.getElementById("argent").innerHTML = "Argent: " + msg.argent;
+    document.getElementById("argent").innerHTML = "Argent: " + parseInt(msg.argent, 10);
     document.getElementById("cité").innerHTML = "Cité: " + msg.city + "pv";
     document.getElementById("soldat").innerHTML = msg.soldat;
     document.getElementById("char").innerHTML = msg.char;
