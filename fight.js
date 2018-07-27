@@ -182,6 +182,7 @@ function move_type(unit, x_operator, y_operator)
 
 function move(unit, x_operator, y_operator)
 {
+	console.log(x_operator, y_operator);
 	if (x_operator === '+')
 		unit.x += unit.speed / 100;
 	else if (x_operator === '-')
@@ -201,7 +202,7 @@ function move_unit()
 	move_type(this.team2.unit.unit_left, '-', '+');
 	move_type(this.team2.unit.unit_right, '-', 'o');
 	//move unit team3
-	move_type(this.team3.unit.unit_left, 'o', '+');
+	move_type(this.team3.unit.unit_left, 'o', '-');
 	move_type(this.team3.unit.unit_right, '+', '-');
 }
 
