@@ -10,7 +10,7 @@ function init_game()
 	pos_unit = [0, 8, 0];
 	game.team2 = create_team(rgb, pos_unit);
 	rgb = [200, 0, 0];
-	pos_unit = [0.6, 8, 0];
+	pos_unit = [0.6, 7, 0];
 	game.team3 = create_team(rgb, pos_unit);
 	game.attack = attack;
 	game.attack_city = attack_city;
