@@ -17,7 +17,7 @@ wss.on('connection', function (ws)
   //quand le server recoit un message
   ws.on('message', function (message)
   {
-    //message = JSON.parse(message);
+    message = JSON.parse(message);
     console.log(message);
     if (message.order === "connect")
       me = check_connection();
