@@ -154,16 +154,16 @@ function move(unit, x_operator, y_operator)
 	switch(x_operator)
 	{
 		case '+':
-			unit.x += unit.speed
+			unit.x += unit.speed / 1000;
 		case '-':
-			unit.x -= unit.speed
+			unit.x -= unit.speed / 1000;
 	}
 	switch(y_operator)
 	{
 		case '+':
-			unit.y += unit.speed
+			unit.y += unit.speed / 1000;
 		case '-':
-			unit.y -= unit.speed
+			unit.y -= unit.speed / 1000;
 	}
 }
 
