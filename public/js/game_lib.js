@@ -32,7 +32,7 @@ function draw_unit(form, unit)
     form = set_pos(form, unit.x, unit.y, unit.z);
     form = set_size(form, unit.sizex, unit.sizey, unit.sizez);
     draw = form.shape.Prism(form.Point(form.pos.x, form.pos.y, form.pos.z), form.size.x, form.size.y, form.size.z);
-    form.iso.add(draw, unit.color);
+    form.iso.add(draw, "red"/*unit.color*/);
 }
 
 
