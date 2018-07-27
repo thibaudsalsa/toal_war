@@ -88,6 +88,7 @@ function make_game()
     for (let i = 0; i < unit_to_draw.length; i++)
         draw_unit(form, unit_to_draw[i]);
     //create map
+    form = set_pos(form, 0, 0, 0);
     make_battleground(form, Color);
     create_castel(form, Color);
     requestAnimationFrame(make_game)
