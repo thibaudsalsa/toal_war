@@ -18,8 +18,8 @@ function create_team(r, g, b)
 	team.name = ""
 	team.player = "";
 	team.color = "";
-	team.money = 200;
-	team.city = 200;
+	team.money = 50;
+	team.city = 6000;
 	team.carte = [];
 	team.r = r;
 	team.g = g;
@@ -53,7 +53,7 @@ function create_team_unit()
 
 function add_unit(type, nbr)
 {
-	if (this.unit.soldat.length + this.unit.char.length + this.unit.avion.length < 100)
+	if (this.unit.soldat.length + this.unit.char.length + this.unit.avion.length < 100 && this.money >= 5)
 	{
 		this.money -= 5;
 		for (let i = 0; i < nbr && type == "char"; i++)

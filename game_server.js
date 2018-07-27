@@ -85,6 +85,9 @@ function respond(game, team, start, ws)
     msg.avion = 0;
     msg.city = 0;
     msg.money = 0;
+    game.team1.money += 0.34;
+    game.team2.money += 0.34;
+    game.team3.money += 0.34;
     switch (team) {
         case 1:
             tmp = game.team1;
