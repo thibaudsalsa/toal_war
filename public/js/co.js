@@ -61,8 +61,8 @@ function refresh_game(msg)
     //get unit on the left
     msg = JSON.parse(msg);
     display_unit(msg.team1.unit.unit_left);
-    display_unit(msg.team2.unit_left);
-    display_unit(msg.team3.unit_left);
+    display_unit(msg.team2.unit.unit_left);
+    display_unit(msg.team3.unit.unit_left);
     //get unit on the right
     display_unit(msg.team1.unit.unit_right);
     display_unit(msg.team2.unit.unit_right);

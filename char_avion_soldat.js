@@ -50,6 +50,7 @@ function create_team_unit()
 
 function add_unit(type, nbr)
 {
+	console.log(this);
 	if (this.unit.soldat.length + this.unit.char.length + this.unit.avion.length < 100)
 	{
 		this.money -= 5;
