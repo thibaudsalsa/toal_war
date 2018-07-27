@@ -33,16 +33,16 @@ function do_msg(team, message_get)
     {
         type = message_get.type;
         nb = message_get.nb;
-        this.add_unit(type, nb);
+        team.add_unit(type, nb);
     }
     else if (message_get.order === "attack")
     {
         type = message_get.type;
         nb = message_get.nb;
         if (message_get.direction == "left")
-        this.launch_right(type, nb);
+        team.launch_right(type, nb);
         if (message_get.direction == "right")
-        this.launch_right(type, nb);
+        team.launch_right(type, nb);
     }
     else if (message_get.order == "card")
     {
