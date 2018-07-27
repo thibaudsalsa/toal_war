@@ -3,16 +3,16 @@ function init_game()
 {
 	var game = new Object();
 	//les trois equipe
-	game.team1 = create_team();
-	game.team2 = create_team();
-	game.team3 = create_team();
+	game.team1 = create_team(0, 0, 200);
+	game.team2 = create_team(253, 106, 2);
+	game.team3 = create_team(200, 0, 0);
 	game.attack = attack;
 	game.attack_city = attack_city;
 	game.move = move_unit;
 	return (game);
 }
 
-function create_team()
+function create_team(r, g, b)
 {
 	var team = new Object();
 	team.name = ""
@@ -21,6 +21,9 @@ function create_team()
 	team.money = 200;
 	team.city = 200;
 	team.carte = [];
+	team.r = r;
+	team.g = g;
+	team.b = b;
 	team.unit = create_team_unit();
 	team.add = add_unit;
 	team.launch_right = launch_right;
@@ -54,21 +57,21 @@ function add_unit(type, nbr)
 	{
 		this.money -= 5;
 		for (let i = 0; i < nbr && type == "char"; i++)
-			this.unit.char.push(create_char());
+			this.unit.char.push(create_char(this.r, this.g, this.b));
 		for (let i = 0; i < nbr && type == "avion"; i++)
-			this.unit.avion.push(create_avion());	
+			this.unit.avion.push(create_avion(this.r, this.g, this.b));	
 		for (let i = 0; i < nbr && type == "soldat"; i++)
-			this.unit.soldat.push(create_soldat());
+			this.unit.soldat.push(create_soldat(this.r, this.g, this.b));
 	}
 }
 
-function create_char()
+function create_char(r, g, b)
 {
 	var char = new Object();
 	char.pv = 3;
 	char.dmg = 1;
 	char.speed = 1;
-	char.color = 0;
+	char.color = [r, g, b];
 	char.x = 0;
 	char.y = 0;
 	char.z = 0;
@@ -79,13 +82,13 @@ function create_char()
 	return (char);
 }
 
-function create_soldat()
+function create_soldat(r, g, b)
 {
 	var soldat = new Object();
 	soldat.pv = 1;
 	soldat.dmg = 3;
 	soldat.speed = 1;
-	soldat.color = 0;
+	soldat.color = [r, g, b];
 	soldat.x = 0;
 	soldat.y = 0;
 	soldat.z = 0;
@@ -96,13 +99,13 @@ function create_soldat()
 	return (soldat);
 }
 
-function create_avion()
+function create_avion(r, g, b)
 {
 	var avion = new Object();
 	avion.pv = 1;
 	avion.dmg = 1;
 	avion.speed = 3;
-	avion.color = 0;
+	avion.color = [r, g, b];
 	avion.x = 0;
 	avion.y = 0;
 	avion.z = 1;
