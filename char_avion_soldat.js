@@ -15,6 +15,7 @@ function init_game()
 function create_team()
 {
 	var team = new Object();
+	team.name = ""
 	team.player = "";
 	team.color = "";
 	team.money = 200;

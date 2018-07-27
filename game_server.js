@@ -22,7 +22,6 @@ function connect(name)
         game.team3.name = name;
         team = 3;
     }
-    console.log(team);
     return (team);
 }
 
