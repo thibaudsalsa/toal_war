@@ -212,7 +212,7 @@ function move_unit()
 {
 	//move unit team1
 	move_type(this.team1.unit.unit_left, 'o', '+');
-	move_type(this.team1.unit.unit_right, '-', 'o');
+	move_type(this.team1.unit.unit_right, '+', 'o');
 	//move unit team2
 	move_type(this.team2.unit.unit_left, '+', '-');
 	move_type(this.team2.unit.unit_right, 'o', '-');

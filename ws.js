@@ -18,7 +18,7 @@ wss.on('connection', function (ws)
   ws.on('message', function (message)
   {
     message = JSON.parse(message);
-    console.log("team" + ws.me + "send: ");
+    console.log("team" + ws.me + " send: ");
     console.log(message);
     if (message.order === "connect" /*&& ws.me === 0*/)
     {
@@ -52,15 +52,12 @@ function check_connection(name)
 
 function interpret_msg(me, message)
 {
-  switch (me)
-  {
-    case 1:
-      do_msg(game.team1, message);
-    case 2:
-      do_msg(game.team2, message);
-    case 3:
-      do_msg(game.team3, message);
-    }
+  if (me === 1)
+    do_msg(game.team1, message);
+  else if (me === 2)
+    do_msg(game.team2, message);
+  else if (me === 3)
+    do_msg(game.team3, message);
 }
 
 wss.broadcast = function broadcast(msg)
