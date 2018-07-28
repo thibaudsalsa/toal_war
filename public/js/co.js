@@ -70,7 +70,7 @@ function display_carte(tab, info)
     document.getElementById("information").innerHTML = info;
     document.getElementById("carte_display").innerHTML = "";
     for (let i = 0; i < tab.length; i++)
-        document.getElementById("carte_display").innerHTML += i + ": " + tab[i].id;
+        document.getElementById("carte_display").innerHTML += i + ": " + tab[i].id + "\n";
     /*
     document.getElementById("len_carte").innerHTML = "";
     for (let i = 0; i < tab.length; i++)
