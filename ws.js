@@ -56,5 +56,9 @@ function interpret_msg(me, message)
 
 wss.broadcast = function broadcast(msg)
 {
-  wss.send(msg);
+  wss.clients.forEach(function each(client)
+  {
+    console.log(client);
+    client.send(msg);
+  });
 };
