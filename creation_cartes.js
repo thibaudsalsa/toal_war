@@ -133,7 +133,10 @@ function plagiat(team)
 
 function soin(team)
 {
-	team.city += 1000;
+	if (team.city < 500)
+		team.city += 100;
+	else
+		team.city = 600;
 }
 
 function pret_a_la_banque(team)
