@@ -35,6 +35,7 @@ wss.on('connection', function (ws)
   //quand un client se deconnect le jeux ce reset
   ws.on('close', function(message)
   {
+    console.log("Client Disconnect");
     start = false;
     game = init_game();
     var tmp = [];
