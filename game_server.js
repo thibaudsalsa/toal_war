@@ -116,9 +116,9 @@ function respond(game, team, start, ws, wss)
         game = init_game();
         wss.broadcast("reset");
         return (game);
-    }
-    if (start === false || team === 0 || ws.readyState != 1)
-        return (game);*/
+    }*/
+    if (start === false/* || team === 0 || ws.readyState != 1*/)
+        return (game);
     var msg = new Object();
     var msg_json;
     game.attack();
