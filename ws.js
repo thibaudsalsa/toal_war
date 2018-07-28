@@ -13,22 +13,20 @@ var start = false;
 //quand quelqu'un ce connect
 wss.on('connection', function (ws)
 {
-  var me = 0;
+  ws.me = 0;
   //quand le server recoit un message
   ws.on('message', function (message)
   {
-    ws.me = me;
-    console.log(ws.me);
     message = JSON.parse(message);
-    console.log("team" + me + "send: ");
+    console.log("team" + ws.me + "send: ");
     console.log(message);
     if (message.order === "connect" /*&& me === 0*/)
     {
-      me = check_connection(message.msg);
+      ws.me = check_connection(message.msg);
       console.log('someone connect');
     }
     else if (start === true)
-      interpret_msg(me, message);
+      interpret_msg(ws.me, message);
   });
   //quand un client se deconnect le jeux ce reset
   ws.on('close', function(message)
