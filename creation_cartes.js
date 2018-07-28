@@ -72,7 +72,7 @@ function use_card(num_card)/* dans l'objet team */
 {
 	if (this.carte.length - 1 < num_card || num_card < 0)
 		return ;
-	game.info += "Team : " + this.id + " " +this.carte[num_card].text + "\n"  ;
+	game.info += "Team : " + this.id + " " + this.carte[num_card].text + "\n"  ;
 	this.carte[num_card].use(num_card, this);
 	var tab_divise = [];
 	for (let i = 0; i < this.carte.length; i++)
