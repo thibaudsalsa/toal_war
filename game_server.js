@@ -8,9 +8,6 @@
 function connect(name)
 {
     var team = 0;
-    console.log(game.team1.name);
-    console.log(game.team1.name);
-    console.log(game.team1.name);
     if (game.team1.name === "")
     {
         game.team1.name = name;
