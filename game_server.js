@@ -1,7 +1,7 @@
 /*global init_game*/
 
 //creation du jeux
-var game = init_game();
+//var game = init_game();
 //creation du serveur avec les webSockets
 
 function connect(name)
