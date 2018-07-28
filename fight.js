@@ -2,14 +2,11 @@ function do_dmg(unit, target)
 {
 	if ((unit.x >= target.x - 0.1 && unit.x <= target.x + 0.1)
 	&& (unit.y >= target.y - 0.1 && unit.y <= target.y + 0.1)
-	&& unit.hit == 0)
+	&& unit.hit === 0)
 	{
 		target.pv -= unit.dmg;
 		unit.hit = 1;
 	}
-	else
-		return (null);
-	return (target);
 }
 
 function die(tab)
@@ -33,12 +30,9 @@ function unit_attack(my_unit, ennemies)
 	{
 		for (let j = 0; j < ennemies.char.length; j++)
 		{
-			tmp = do_dmg(my_unit[i], ennemies.char[j]);
-			if (tmp != null)
-			{
-				ennemies.char[j] = tmp;
+			do_dmg(my_unit[i], ennemies.char[j]);
+			if (my_unit[i].hit === 1)
 				break;
-			}
 		}
 	}
 	//attaquent les soldats
@@ -46,13 +40,9 @@ function unit_attack(my_unit, ennemies)
 	{
 		for (let j = 0; j < ennemies.soldat.length; j++)
 		{
-			tmp = do_dmg(my_unit[i],
-			ennemies.soldat[j]);
-			if (tmp != null)
-			{
-				ennemies.soldat[j] = tmp;
+			do_dmg(my_unit[i], ennemies.soldat[j]);
+			if (my_unit[i].hit === 1)
 				break;
-			}
 		}
 	}
 	//attaquent les avions
@@ -60,18 +50,14 @@ function unit_attack(my_unit, ennemies)
 	{
 		for (let j = 0; j < ennemies.avion.length; j++)
 		{
-			tmp = do_dmg(my_unit[i], ennemies.avion[j]);
-			if (tmp != null)
-			{
-				ennemies.avion[j] = tmp;
+			do_dmg(my_unit[i], ennemies.avion[j]);
+			if (my_unit[i].hit === 1)
 				break;
-			}
 		}
 	}
 	ennemies.char = die(ennemies.char);
 	ennemies.soldat = die(ennemies.soldat);
 	ennemies.avion = die(ennemies.avion);
-	return (ennemies);
 }
 
 function fight(my_units, ennemies)
@@ -85,22 +71,14 @@ function fight(my_units, ennemies)
 	//les chars attaquent
 	ennemies = unit_attack(my_units.char, ennemies);
 	my_units = unit_attack(ennemies.char, my_units);
-	var tab = [my_units, ennemies];
-	return (tab);
 }
 
 function attack()
 {
 	var tab;
-	tab = fight(this.team1.unit.unit_left, this.team2.unit.unit_right);
-	this.team1.unit.unit_left = tab[0];
-	this.team2.unit.unit_right = tab[1];
-	tab = fight(this.team2.unit.unit_left, this.team3.unit.unit_right);
-	this.team2.unit.unit_left = tab[0];
-	this.team3.unit.unit_right = tab[1];
-	tab = fight(this.team3.unit.unit_left, this.team1.unit.unit_right);
-	this.team3.unit.unit_left = tab[0];
-	this.team1.unit.unit_right = tab[1];
+	fight(this.team1.unit.unit_left, this.team2.unit.unit_right);
+	fight(this.team2.unit.unit_left, this.team3.unit.unit_right);
+	fight(this.team3.unit.unit_left, this.team1.unit.unit_right);
 }
 
 function dmg_city(unit, city_pv, posx, posy)
