@@ -1,4 +1,4 @@
-/*global init_game*/
+/*global init_game game*/
 
 //creation du jeux
 //var game = init_game();
@@ -115,6 +115,7 @@ function respond(game, team, start, ws, wss)
         console.log("someone quite the game");
         ws.qquit = 0;
         start = false;
+        game = null;
         game = init_game();
         wss.broadcast("reset");
     }
