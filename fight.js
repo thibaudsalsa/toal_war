@@ -1,7 +1,8 @@
 function do_dmg(unit, target)
 {
 	if ((unit.x >= target.x - 0.1 && unit.x <= target.x + 0.1)
-	&& (unit.y >= target.y - 0.1 && unit.y <= target.y + 0.1))
+	&& (unit.y >= target.y - 0.1 && unit.y <= target.y + 0.1)
+	&& unit.hit == 0)
 	{
 		target.pv -= unit.dmg;
 		unit.hit = 1;
