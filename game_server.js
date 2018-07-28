@@ -6,6 +6,9 @@ var game = init_game();
 
 function connect(name)
 {
+    console.log(game.team1.name);
+    console.log(game.team2.name);
+    console.log(game.team3.name);
     var team = 0;
     if (game.team1.name === "")
     {
