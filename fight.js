@@ -105,7 +105,9 @@ function dmg_city(unit, city_pv, posx, posy)
 {
     for (let i = 0; i < unit.avion.length; i++)
     {
-        if (unit.avion[i].x === posx && unit.avion[i].y === posy && unit.avion[i].hit == 0)
+        if ((unit.avion[i].x >= posx - 0.1 && unit.avion[i].x <= posx + 0.1)
+        && (unit.avion[i].y >= posy - 0.1 && unit.avion[i].y <= posy + 0.1)
+        && unit.avion[i].hit == 0)
         {
             city_pv -= unit.avion[i].dmg;
             unit.avion[i].hit = 1;
@@ -113,7 +115,9 @@ function dmg_city(unit, city_pv, posx, posy)
     }
     for (let i = 0; i < unit.soldat.length; i++)
     {
-        if (unit.soldat[i].x === posx && unit.soldat[i].y === posy && unit.soldat[i].hit == 0)
+        if ((unit.soldat[i].x >= posx - 0.1 && unit.soldat[i].x <= posx + 0.1)
+        && (unit.soldat[i].y >= posy - 0.1 && unit.soldat[i].y <= posy + 0.1)
+        && unit.soldat[i].hit == 0)
         {
             city_pv -= unit.soldat[i].dmg;
             unit.soldat[i].hit = 1;
@@ -121,7 +125,9 @@ function dmg_city(unit, city_pv, posx, posy)
     }
     for (let i = 0; i < unit.char.length; i++)
     {
-        if (unit.char[i].x === posx && unit.char[i].y === posy && unit.char[i].hit == 0)
+        if ((unit.char[i].x >= posx - 0.1 && unit.char[i].x <= posx + 0.1)
+        && (unit.char[i].y >= posy - 0.1 && unit.char[i].y <= posy + 0.1)
+        && unit.char[i].hit == 0)
         {
             city_pv -= unit.char[i].dmg;
             unit.char[i].hit = 1;
@@ -135,19 +141,19 @@ function attack_city()
     var unit;
     //les unités de la team 1 attaquent les villes
     unit = this.team1.unit.unit_left;
-    this.team2.city = dmg_city(unit, this.team2.city, 0.6, 6);
+    this.team2.city = dmg_city(unit, this.team2.city, this.team2.pos_unit[0], this.team2.pos_unit[1]);
     unit = this.team1.unit.unit_right;
-    this.team3.city = dmg_city(unit, this.team3.city, 6, 0.6);
+    this.team3.city = dmg_city(unit, this.team3.city, this.team3.pos_unit[0], this.team3.pos_unit[1]);
     //les unités de la team 2 attaquent les villes
     unit = this.team2.unit.unit_left;
-    this.team3.city = dmg_city(unit, this.team3.city, 6, 0.6);
+    this.team3.city = dmg_city(unit, this.team3.city, this.team3.pos_unit[0], this.team3.pos_unit[1]);
     unit = this.team2.unit.unit_right;
-    this.team1.city = dmg_city(unit, this.team1.city, 0.6, 0.6);
+    this.team1.city = dmg_city(unit, this.team1.city, this.team1.pos_unit[0], this.team1.pos_unit[1]);
     //les unités de la team 3 attaquent les villes
     unit = this.team3.unit.unit_left;
-    this.team1.city = dmg_city(unit, this.team1.city, 0.6, 0.6);
+    this.team1.city = dmg_city(unit, this.team1.city, this.team1.pos_unit[0], this.team1.pos_unit[1]);
     unit = this.team3.unit.unit_right;
-    this.team2.city = dmg_city(unit, this.team2.city, 0.6, 6);
+    this.team2.city = dmg_city(unit, this.team2.city, this.team2.pos_unit[0], this.team2.pos_unit[1]);
 }
 
 function back_hit(unit)
