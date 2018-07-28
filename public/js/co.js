@@ -101,7 +101,7 @@ function refresh_game(msg)
     // actualise les informations sur la page
     document.getElementById("couleur_ville").innerHTML = msg.couleur_ville;
     if (msg.city < 0)
-        document.getElementById("gemaplay").style.display = "none";
+        document.getElementById("gameplay").style.display = "none";
     else
     {
         document.getElementById("argent").innerHTML = "Argent: " + parseInt(msg.argent, 10);

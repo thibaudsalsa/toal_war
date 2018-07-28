@@ -112,7 +112,7 @@ function dmg_city(unit, city_pv, posx, posy)
         && unit.char[i].hit == 0)
         {
         	if (city_pv < 0)
-        		unit.soldat[i].pv = 0;
+        		unit.char[i].pv = 0;
             city_pv -= unit.char[i].dmg;
             unit.char[i].hit = 1;
         }
