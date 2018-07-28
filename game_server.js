@@ -118,7 +118,7 @@ function respond(game, team, start, ws, wss)
         return (game);
     }*/
     if (start === false/* || team === 0 || ws.readyState != 1*/)
-        return (game);
+        return;
     var msg = new Object();
     var msg_json;
     game.attack();
@@ -143,5 +143,4 @@ function respond(game, team, start, ws, wss)
     check_win(game, ws, msg, start);
     msg_json = JSON.stringify(msg);
     ws.send(msg_json);
-    return (game);
 }
