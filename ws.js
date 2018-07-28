@@ -58,7 +58,7 @@ wss.broadcast = function broadcast(msg)
 {
   wss.clients.forEach(function each(client)
   {
-    console.log(client);
-    client.send(msg);
+    if (client.readyState == 1)
+      client.send(msg);
   });
 };
