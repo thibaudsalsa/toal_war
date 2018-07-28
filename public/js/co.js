@@ -80,7 +80,8 @@ function display_carte(tab_carte, info)
         if (info[i] === '\n')
             j += 1;
     }
-    document.getElementById("information").innerHTML = info;
+    if (document.getElementById("information").innerHTML != tmp_info_msg)
+        document.getElementById("information").innerHTML = tmp_info_msg;
     document.getElementById("carte_display").innerHTML = "";
     for (let i = 0; i < tab_carte.length; i++)
     {
