@@ -106,9 +106,23 @@ function check_win(game, ws, msg, start)
 
 function respond(game, team, start, ws)
 {
+    if (ws.readyState != 1)
+    {
+        console.log(ws);
+    start = false;
+    game = init_game();
+    var tmp = [];
+    for (let i = 0; i < users.length; i++)
+    {
+      if (i != id)
+        tmp[i].push(users[i]);
+    }
+    users = tmp;
+    wss.broadcast("reset");
+    users = [];
+    }
     if (start === false || team === 0)
         return;
-    console.log(ws);
     console.log("\n\n\n\n");
     var msg = new Object();
     var msg_json;
