@@ -74,6 +74,7 @@ function fight(my_units, ennemies)
 
 function attack()
 {
+	var alea = Math.floor(Math.random() * Math.floor(3));
 	fight(this.team1.unit.unit_left, this.team2.unit.unit_right);
 	fight(this.team2.unit.unit_left, this.team3.unit.unit_right);
 	fight(this.team3.unit.unit_left, this.team1.unit.unit_right);
