@@ -200,8 +200,8 @@ function move_unit()
 
 function launch_left(type, nb)
 {
-	if (nb > 10)
-		nb = 10;
+	if (nb > 100)
+		nb = 100;
 	if (type === "char" && this.unit.char.length >= nb)
 	{
 		for (let i = 0; i < nb; i++)
@@ -230,8 +230,8 @@ function launch_left(type, nb)
 
 function launch_right(type, nb)
 {
-	if (nb > 10)
-		nb = 10;
+	if (nb > 100)
+		nb = 100;
 	if (type === "char" && this.unit.char.length >= nb)
 	{
 		for (let i = 0; i < nb; i++)

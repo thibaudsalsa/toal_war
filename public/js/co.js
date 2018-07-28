@@ -66,6 +66,20 @@ function replay()
 
 function display_carte(tab_carte, info)
 {
+    var tmp_info = 0;
+    var tmp_info_msg = "";
+    for (let i = 0; i < info.length; i++)
+    {
+        if (info[i] === '\n')
+        tmp_info += 1;
+    }
+    for (let i = 0, j = 0; i < info.length; i++)
+    {
+        if (j >= tmp_info - 10)
+            tmp_info_msg += info[i];
+        if (info[i] === '\n')
+            j += 1;
+    }
     document.getElementById("information").innerHTML = info;
     document.getElementById("carte_display").innerHTML = "";
     for (let i = 0; i < tab_carte.length; i++)
