@@ -104,7 +104,7 @@ function check_win(game, ws, msg, start)
     }
 }
 
-function respond(game, team, start, ws, users, wss)
+function respond(game, team, start, ws, users, wss, id)
 {
     if (ws.readyState != 1)
     {

@@ -49,7 +49,7 @@ wss.on('connection', function (ws)
     users = [];
   });*/
   // 10 fois par secondes le serveur actualise et envoit les infos aux clients
-  setInterval(() => respond(game, ws.me, start, ws, users, wss), 40);
+  setInterval(() => respond(game, ws.me, start, ws, users, wss, id), 40);
 });
 
 function check_connection(name)
