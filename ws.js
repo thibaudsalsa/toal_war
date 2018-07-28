@@ -15,7 +15,7 @@ var game = init_game();
 wss.on('connection', function (ws)
 {
   ws.me = 0;
-  ws.qquit = 0;
+  ws.qquit = 1;
   //quand le server recoit un message
   ws.on('message', function (message)
   {
