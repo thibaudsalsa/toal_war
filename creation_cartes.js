@@ -73,7 +73,7 @@ function use_card(num_card)/* dans l'objet team */
 	if (this.carte.length - 1 < num_card || num_card < 0)
 		return ;
 	game.info += "Team : " + this.id + " " + this.carte[num_card].text + "\n"  ;
-	this.carte[num_card].use(num_card, this);
+	this.carte[num_card].use(this);
 	var tab_divise = [];
 	for (let i = 0; i < this.carte.length; i++)
 	{
@@ -104,7 +104,7 @@ function calcule_proba(Icard)
 /* fin */
 
 /* functions des cartes bonus */
-function plagiat(num_card,team)
+function plagiat(team)
 {
 	var tab_team = [game.team1,game.team2,game.team3];
 	var num = team.id;
@@ -126,17 +126,17 @@ function plagiat(num_card,team)
 	}
 }
 
-function soin(num_card, team)
+function soin(team)
 {
 	team.city += 1000;
 }
 
-function pret_a_la_banque(num_card, team)
+function pret_a_la_banque(team)
 {
 	team.money += (Math.floor(Math.random() * (30 + 0))+30);
 }
 /* function des cartes nation */ 
-function dubai(num_card,team)
+function dubai(team)
 {
 	var tab_team = [game.team1,game.team2,game.team3];
 	var gold = team.money;
