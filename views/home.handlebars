@@ -61,6 +61,9 @@
         <button onclick="attack('left')">Attaquer à gauche</button></div>
         <div>
             <p>Cartes</p>
+            <select id="len_carte">
+            </select>
+            <button onclick="order('use', 'carte', document.getElementById('len_carte').value)">Utiliser la carte</button>
             <button onclick="order('buy', 'carte', 1)">Acheter une carte</button>
         </div>
     </div>

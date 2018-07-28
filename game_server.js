@@ -50,11 +50,12 @@ function do_msg(team, message_get)
     {
         if (message_get.order === "buy")
         {
-            //get card
+            team.get_card(-1);
         }
         else if (message_get.order === "use")
         {
             nb = message_get.nb;
+            team.use_card(nb);
             //use card
         }
     }

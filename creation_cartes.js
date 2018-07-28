@@ -1,5 +1,5 @@
-var x = "team";
-var y = 2;
+/*global game:true*/
+
 function init_card()
 {
 	var Icard = new Object();
@@ -82,14 +82,12 @@ function use_card(num_card)/* dans l'objet team */
 	}
 	this.carte = tab_divise;
 }
-function return_card(num_card,team)/* dans l'objet Icard */
+function return_card(num_card)/* dans l'objet Icard */
 {
 	if (num_card >= 0 && num_card < game.card.tab_nation.length)
-		team.carte.push(this.tab_nation[num_card]);
+		this.carte.push(this.tab_nation[num_card]);
 	if (num_card == -1)
-		team.carte.push(this.tab_proba_carte[(Math.floor(Math.random() * (this.tab_proba_carte.length + 0)))]);
-	else 
-		return ;
+		this.carte.push(this.tab_proba_carte[(Math.floor(Math.random() * (this.tab_proba_carte.length + 0)))]);
 }
 /* fin */
 /* creation du tableau avec les cartes et leurs probabilités */

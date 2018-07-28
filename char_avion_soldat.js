@@ -1,4 +1,4 @@
-/*global attack attack_city move_unit launch_right launch_left*/
+/*global attack attack_city move_unit launch_right launch_left init_card use_card return_card*/
 function init_game()
 {
 	var game = new Object();
@@ -16,6 +16,7 @@ function init_game()
 	game.attack_city = attack_city;
 	game.move = move_unit;
 	game.info = "";
+	game.carte = init_card();
 	return (game);
 }
 
@@ -37,6 +38,8 @@ function create_team(rgb, pos_unit, numero_team)
 	team.add = add_unit;
 	team.launch_right = launch_right;
 	team.launch_left = launch_left;
+	team.use_card = use_card;
+	team.get_card = return_card;
 	return (team);
 }
 
