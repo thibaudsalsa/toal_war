@@ -106,9 +106,9 @@ function check_win(game, ws, msg, start)
 
 function respond(game, team, start, ws, wss)
 {
-    if (ws.readyState != 1 && start == true)
+    if (ws.readyState != 1 && start == true && ws.qquit === 1)
     {
-        console.log("echec");
+        ws.qquit = 0;
         start = false;
         game = init_game();
         wss.broadcast("reset");

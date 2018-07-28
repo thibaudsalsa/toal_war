@@ -15,6 +15,7 @@ var start = false;
 wss.on('connection', function (ws)
 {
   ws.me = 0;
+  ws.qquit = 0;
   //quand le server recoit un message
   ws.on('message', function (message)
   {
@@ -61,6 +62,4 @@ wss.broadcast = function broadcast(msg)
     if (client.readyState == 1)
       client.send(msg);
   });
-  if (msg === "reset")
-    wss.clients = [];
 };
