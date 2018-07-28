@@ -113,7 +113,7 @@ function respond(game, team, start, ws, wss)
         game = init_game();
         wss.broadcast("reset");
     }
-    if (start === false || team === 0 || ws.qquit === 0)
+    if (start === false || team === 0 || ws.readyState != 1)
         return;
     var msg = new Object();
     var msg_json;
