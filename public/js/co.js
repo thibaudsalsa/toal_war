@@ -74,8 +74,8 @@ function refresh_game(msg)
     display_unit(msg.team3.unit.unit_right);
     // recupere si les villes sont vivantes ou non
     blue_city = msg.team1.city;
-    orange_city = msg.team1.city;
-    red_city = msg.team1.city;
+    orange_city = msg.team2.city;
+    red_city = msg.team3.city;
     // actualise les informations sur la page
     if (msg.city < 0)
         document.getElementById("gemaplay").style.display = "none";

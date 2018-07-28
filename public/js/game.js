@@ -27,7 +27,7 @@ function write_data()
     document.getElementById("information").innerHTML = me.info;
 }
 
-function read_data(json)
+/*function read_data(json)
 {
     me.my_money = json.money;
     me.my_city = json.city;
@@ -43,7 +43,7 @@ function read_data(json)
     red_city = json.red_city;
     write_data();
 }
-
+*/
 
 function make_game()
 {
