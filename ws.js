@@ -5,7 +5,7 @@ var wss = new WebSocketServer({port: 40510});
 
 vm.runInThisContext(fs.readFileSync(__dirname + "/fight.js"));
 vm.runInThisContext(fs.readFileSync(__dirname + "/char_avion_soldat.js"));
-vm.runInThisContext(fs.readFileSync(__dirname + "/creation_cartes.js.js"));
+vm.runInThisContext(fs.readFileSync(__dirname + "/creation_cartes.js"));
 vm.runInThisContext(fs.readFileSync(__dirname + "/game_server.js"));
 
 /*global connect do_msg game:true respond init_game*/
