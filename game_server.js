@@ -7,6 +7,9 @@ var game = init_game();
 function connect(name)
 {
     var team = 0;
+    console.log(game.team1.name);
+    console.log(game.team1.name);
+    console.log(game.team1.name);
     if (game.team1.name === "")
     {
         game.team1.name = name;
@@ -111,9 +114,6 @@ function respond(game, team, start, ws, wss)
         ws.qquit = 0;
         start = false;
         game = init_game();
-        console.log(game.team1.name);
-        console.log(game.team1.name);
-        console.log(game.team1.name);
         wss.broadcast("reset");
         return (game);
     }
