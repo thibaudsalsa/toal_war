@@ -65,11 +65,14 @@ function replay()
     document.location.href="http://145.239.47.23:3000/";
 }
 
-function display_carte(tab)
+function display_carte(tab, info)
 {
+    document.getElementById("information").innerHTML = info;
+    /*
     document.getElementById("len_carte").innerHTML = "";
     for (let i = 0; i < tab.length; i++)
         document.getElementById("len_carte").innerHTML += "<option>"+ i +"</option>";
+    */
 }
 
 function refresh_game(msg)
@@ -91,7 +94,7 @@ function refresh_game(msg)
     display_unit(msg.team2.unit.unit_right);
     display_unit(msg.team3.unit.unit_right);
     // recupere si les villes sont vivantes ou non
-    display_carte(msg.carte);
+    display_carte(msg.carte, msg.info);
     blue_city = msg.team1.city;
     orange_city = msg.team2.city;
     red_city = msg.team3.city;

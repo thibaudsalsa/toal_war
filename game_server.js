@@ -121,6 +121,7 @@ function respond(game, team, start, ws)
     msg.avion = 0;
     msg.city = 0;
     msg.money = 0;
+    msg.info = game.info;
     if (game.team1.city > 0)
         game.team1.money += 0.034;
     if (game.team2.city > 0)

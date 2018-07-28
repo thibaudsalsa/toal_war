@@ -14,7 +14,7 @@
 <div id="display_game" style="display: none">
     <div id="gameplay" style="background: white; width: 20%; position:absolute">
         <label for="information">Information</label>
-        <textarea readonly id="information" style="color: red">un joueur à utilisé une carte</textarea>
+        <textarea readonly id="information" style="color: red"></textarea>
         <label >Votre ville: <p id="couleur_ville"></p></label>
         <p id="argent">Argent: 200</p>
         <p id="cité">Cité: 200pv</p>
@@ -61,7 +61,13 @@
         <button onclick="attack('left')">Attaquer à gauche</button></div>
         <div>
             <p>Cartes</p>
+            <div id="carte_display"></div>
             <select id="len_carte">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
             </select>
             <button onclick="order('use', 'carte', document.getElementById('len_carte').value)">Utiliser la carte</button>
             <button onclick="order('buy', 'carte', 1)">Acheter une carte</button>
