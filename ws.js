@@ -10,7 +10,7 @@ vm.runInThisContext(fs.readFileSync(__dirname + "/game_server.js"));
 
 /*global connect do_msg game:true respond init_game*/
 var start = false;
-var game = init_game();
+game = init_game();
 //quand quelqu'un ce connect
 wss.on('connection', function (ws)
 {
