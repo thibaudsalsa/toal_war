@@ -108,6 +108,7 @@ function respond(game, team, start, ws, wss)
 {
     if (ws.readyState != 1 && start == true)
     {
+        console.log("echec");
         start = false;
         game = init_game();
         wss.broadcast("reset");
