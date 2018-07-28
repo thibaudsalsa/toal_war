@@ -27,24 +27,6 @@ function write_data()
     document.getElementById("information").innerHTML = me.info;
 }
 
-/*function read_data(json)
-{
-    me.my_money = json.money;
-    me.my_city = json.city;
-    me.soldat = json.soldat;
-    me.char = json.soldat;
-    me.avion = json.avion;
-    me.soldat_in = json.soldat_in;
-    me.char_in = json.soldat_in;
-    me.avion_in = json.avion_in;
-    me.info = json.info;
-    orange_city = json.orange_city;
-    blue_city = json.blue_city;
-    red_city = json.red_city;
-    write_data();
-}
-*/
-
 function make_game()
 {
     /*global Isomer*/

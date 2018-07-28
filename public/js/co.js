@@ -10,8 +10,7 @@ wss.onmessage = function (ev)
     }
     else if (ev.data == "reset")
     {
-        document.getElementById("display_game").style.display = "none";
-        document.getElementById("choose").style.display = "";
+        replay();
     }
     else
         refresh_game(ev.data);
