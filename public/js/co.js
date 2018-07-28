@@ -74,7 +74,7 @@ function refresh_game(msg)
     {
         document.getElementById("display_game").style.display = "none";
         document.getElementById("victory").style.display = "";
-        document.getElementById("victory").innerHTML = msg.winner;
+        document.getElementById("winner").innerHTML = msg.winner;
     }
     display_unit(msg.team1.unit.unit_left);
     display_unit(msg.team2.unit.unit_left);
