@@ -23,10 +23,8 @@ function die(tab)
 
 function unit_attack(my_unit, ennemies)
 {
-    var tmp;
-    var i = 0;
-    //attack les chars
-	for (i; i < my_unit.length; i++)
+    //attaquent les chars
+	for (let i = 0; i < my_unit.length; i++)
 	{
 		for (let j = 0; j < ennemies.char.length; j++)
 		{
@@ -36,7 +34,7 @@ function unit_attack(my_unit, ennemies)
 		}
 	}
 	//attaquent les soldats
-	for (i; i < my_unit.length; i++)
+	for (let i = 0; i < my_unit.length; i++)
 	{
 		for (let j = 0; j < ennemies.soldat.length; j++)
 		{
@@ -46,7 +44,7 @@ function unit_attack(my_unit, ennemies)
 		}
 	}
 	//attaquent les avions
-	for (i; i < my_unit.length; i++)
+	for (let i = 0; i < my_unit.length; i++)
 	{
 		for (let j = 0; j < ennemies.avion.length; j++)
 		{
@@ -75,7 +73,6 @@ function fight(my_units, ennemies)
 
 function attack()
 {
-	var tab;
 	fight(this.team1.unit.unit_left, this.team2.unit.unit_right);
 	fight(this.team2.unit.unit_left, this.team3.unit.unit_right);
 	fight(this.team3.unit.unit_left, this.team1.unit.unit_right);
