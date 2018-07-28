@@ -84,10 +84,10 @@ function use_card(num_card)/* dans l'objet team */
 }
 function return_card(num_card)/* dans l'objet Icard */
 {
-	if (num_card >= 0 && num_card < game.card.tab_nation.length)
+	if (num_card >= 0 && num_card < game.carte.tab_nation.length)
 		this.carte.push(game.carte.tab_nation[num_card]);
 	if (num_card == -1)
-		this.carte.push(this.tab_proba_carte[(Math.floor(Math.random() * (game.carte.tab_proba_carte.length + 0)))]);
+		this.carte.push(game.carte.tab_proba_carte[(Math.floor(Math.random() * (game.carte.tab_proba_carte.length + 0)))]);
 }
 /* fin */
 /* creation du tableau avec les cartes et leurs probabilités */
