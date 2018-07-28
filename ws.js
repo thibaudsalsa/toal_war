@@ -33,10 +33,12 @@ wss.on('connection', function (ws)
   {
     start = false;
     game = init_game();
-    wss.broadcast("reset");
+    try {wss.broadcast("reset");}
+    catch (err) {}
   });
   // 10 fois par secondes le serveur actualise et envoit les infos aux clients
-    setInterval(() => respond(game, ws.me, start, ws), 40);
+  try {setInterval(() => respond(game, ws.me, start, ws), 40);}
+  catch (err){}
 });
 
 function check_connection(name)
