@@ -34,12 +34,13 @@ function create_tab_nation(nb_card)
 function create_tab_bonus(nb_card)
 {
 	var tab_card = [nb_card];
-	var id = ["plagiat","soin", "Prêt a la banque"];/* -----------------------------------*/
+	var id = ["plagiat","soin", "Prêt a la banque", "appuie aérien"];/* -----------------------------------*/
 	var img = ["pas d'image", "", "", ""];
 	var text = ["à utiliser une carte bonus.", 
 				"à utiliser une carte bonus.", 
-				"à utiliser une carte bonus.",];
-	var prob = [4, 4, 6, 0];
+				"à utiliser une carte bonus.",
+				"à utilisé un Appuie aérien."];
+	var prob = [4, 4, 6, 1];
 	for (let i = 0; i < id.length; i++)
 	{
 		var card = new Object();
@@ -59,7 +60,7 @@ function add_fct()
 	{
 		this.tab_nation[i].use = tab_fct_nation[i];
 	}
-	var tab_fct_bonus = [plagiat, soin, pret_a_la_banque];/* -----------------------------------*/
+	var tab_fct_bonus = [plagiat, soin, pret_a_la_banque, appuie_aerien];/* -----------------------------------*/
 	for (let i = 0; i < tab_fct_bonus.length; i++)
 	{
 		this.tab_bonus[i].use = tab_fct_bonus[i];
@@ -142,6 +143,28 @@ function soin(team)
 function pret_a_la_banque(team)
 {
 	team.money += (Math.floor(Math.random() * (30 + 0))+30);
+}
+
+function appuie_aerien(team)
+{
+	{
+	var tab_team = [game.team1, game.team2, game.team3];
+	var num = team.id;
+
+	num += 1;
+	if (num == 4)
+		num = 1;
+	var aleatoire = Math.floor(Math.random() * (2));
+	if (aleatoire == 1)
+		tab_team[num-1].city -= 60;
+	else 
+	{
+		num += 1;
+		if (num == 4)
+			num = 1;
+		tab_team[num-1].city -= 60;
+	}
+}
 }
 /* function des cartes nation */ 
 function dubai(team)
