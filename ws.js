@@ -17,7 +17,10 @@ wss.on('connection', function (ws)
   //quand le server recoit un message
   ws.on('message', function (message)
   {
+    ws.me = me;
+    console.log(ws.me);
     message = JSON.parse(message);
+    console.log("team" + me + "send: ");
     console.log(message);
     if (message.order === "connect" /*&& me === 0*/)
     {
