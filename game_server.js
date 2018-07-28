@@ -82,6 +82,7 @@ function fill_msg(msg, team, game)
     msg.avion = team.unit.avion.length;
     msg.char = team.unit.char.length;
     msg.city = team.city;
+    msg.carte = team.carte;
     msg.argent = team.money;
 }
 
