@@ -60,8 +60,14 @@ function do_msg(team, message_get)
     }
 }
 
-function fill_msg(msg, team)
+function fill_msg(msg, team, game)
 {
+    if (team === 1)
+        team = game.team1;
+    else if (team === 2)
+        team = game.team2;
+    else if (team === 3)
+        team = game.team3;
     msg.soldat = team.unit.soldat.length;
     msg.avion = team.unit.avion.length;
     msg.char = team.unit.char.length;
@@ -73,7 +79,6 @@ function respond(game, team, start, ws)
 {
     if (start === false || team === 0)
         return;
-    var tmp;
     var msg = new Object();
     var msg_json;
     game.attack();
@@ -93,15 +98,7 @@ function respond(game, team, start, ws)
         game.team2.money += 0.034;
     if (game.team3.city > 0)
         game.team3.money += 0.034;
-    switch (team) {
-        case 1:
-            tmp = game.team1;
-        case 2:
-            tmp = game.team2;
-        case 3:
-            tmp = game.team3;
-    }
-    fill_msg(msg, tmp);
+    fill_msg(msg, team, game);
     msg_json = JSON.stringify(msg);
     ws.send(msg_json);
 }
