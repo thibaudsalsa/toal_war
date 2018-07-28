@@ -25,7 +25,7 @@ wss.on('connection', function (ws)
     if (message.order === "connect" /*&& ws.me === 0*/)
     {
       ws.me = check_connection(message.msg);
-      console.log('someone connect');
+      console.log('someone connect -> ' + ws.me);
     }
     else if (start === true)
       interpret_msg(ws.me, message);
