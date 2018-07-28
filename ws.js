@@ -33,7 +33,7 @@ wss.on('connection', function (ws)
       interpret_msg(ws.me, message);
   });
   //quand un client se deconnect le jeux ce reset
-  ws.on('close', function(message)
+  /*ws.on('close', function(message)
   {
     console.log(ws);
     start = false;
@@ -47,9 +47,9 @@ wss.on('connection', function (ws)
     users = tmp;
     wss.broadcast("reset");
     users = [];
-  });
+  });*/
   // 10 fois par secondes le serveur actualise et envoit les infos aux clients
-  setInterval(() => respond(game, ws.me, start, ws), 40);
+  setInterval(() => respond(game, ws.me, start, ws, users, wss), 40);
 });
 
 function check_connection(name)
