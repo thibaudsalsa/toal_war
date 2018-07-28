@@ -111,6 +111,9 @@ function respond(game, team, start, ws, wss)
         ws.qquit = 0;
         start = false;
         game = init_game();
+        console.log(game.team1.name);
+        console.log(game.team1.name);
+        console.log(game.team1.name);
         wss.broadcast("reset");
         return (game);
     }
