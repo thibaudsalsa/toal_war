@@ -56,6 +56,5 @@ function interpret_msg(me, message)
 
 wss.broadcast = function broadcast(msg)
 {
-  console.log(wss)
-    /*wss.send(msg);*/
+  wss.send(msg);
 };
