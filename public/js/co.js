@@ -65,17 +65,12 @@ function replay()
     document.location.href="http://145.239.47.23:3000/";
 }
 
-function display_carte(tab, info)
+function display_carte(tab_carte, info)
 {
     document.getElementById("information").innerHTML = info;
     document.getElementById("carte_display").innerHTML = "";
-    for (let i = 0; i < tab.length; i++)
-        document.getElementById("carte_display").innerHTML += i + ": " + tab[i].id + "\n";
-    /*
-    document.getElementById("len_carte").innerHTML = "";
-    for (let i = 0; i < tab.length; i++)
-        document.getElementById("len_carte").innerHTML += "<option>"+ i +"</option>";
-    */
+    for (let i = 0; i < tab_carte.length; i++)
+        document.getElementById("carte_display").innerHTML += i + ": " + tab_carte[i].id + "<br>";
 }
 
 function refresh_game(msg)
