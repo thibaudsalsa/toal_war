@@ -109,6 +109,7 @@ function respond(game, team, start, ws)
     if (start === false || team === 0)
         return;
     console.log(ws);
+    console.log("\n\n\n\n");
     var msg = new Object();
     var msg_json;
     game.attack();
