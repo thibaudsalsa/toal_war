@@ -109,7 +109,7 @@ function check_win(game, ws, msg, start)
 
 function respond(game, team, start, ws, wss)
 {
-    if (ws.readyState != 1 && start == true && ws.qquit == 1)
+    /*if (ws.readyState != 1 && start == true && ws.qquit == 1)
     {
         ws.qquit = 0;
         start = false;
@@ -118,7 +118,7 @@ function respond(game, team, start, ws, wss)
         return (game);
     }
     if (start === false || team === 0 || ws.readyState != 1)
-        return (game);
+        return (game);*/
     var msg = new Object();
     var msg_json;
     game.attack();
