@@ -104,7 +104,7 @@ function refresh_game(msg)
     else
     {
         document.getElementById("argent").innerHTML = "Argent: " + parseInt(msg.argent, 10);
-        document.getElementById("cité").innerHTML = "Cité: " + msg.city + "pv";
+        document.getElementById("cité").innerHTML = "Cité: " + parseInt(msg.city) + "pv";
         document.getElementById("soldat").innerHTML = msg.soldat;
         document.getElementById("char").innerHTML = msg.char;
         document.getElementById("avion").innerHTML = msg.avion;

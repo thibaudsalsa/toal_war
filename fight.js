@@ -89,7 +89,7 @@ function dmg_city(unit, city_pv, posx, posy)
         {
         	if (city_pv < 0)
         		unit.avion[i].pv = 0;
-            city_pv -= unit.avion[i].dmg;
+            city_pv -= unit.avion[i].dmg / 100;
             unit.avion[i].hit = 1;
         }
     }
@@ -101,7 +101,7 @@ function dmg_city(unit, city_pv, posx, posy)
         {
         	if (city_pv < 0)
         		unit.soldat[i].pv = 0;
-            city_pv -= unit.soldat[i].dmg;
+            city_pv -= unit.soldat[i].dmg / 100;
             unit.soldat[i].hit = 1;
         }
     }
@@ -113,7 +113,7 @@ function dmg_city(unit, city_pv, posx, posy)
         {
         	if (city_pv < 0)
         		unit.char[i].pv = 0;
-            city_pv -= unit.char[i].dmg;
+            city_pv -= unit.char[i].dmg / 100;
             unit.char[i].hit = 1;
         }
     }
