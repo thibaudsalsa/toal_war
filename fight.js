@@ -63,14 +63,14 @@ function unit_attack(my_unit, ennemies)
 function fight(my_units, ennemies)
 {
 	//les avions attaquent
-	ennemies = unit_attack(my_units.avion, ennemies);
-	my_units = unit_attack(ennemies.avion, my_units);
+	unit_attack(my_units.avion, ennemies);
+	unit_attack(ennemies.avion, my_units);
 	//les soldats attaquent
-	ennemies = unit_attack(my_units.soldat, ennemies);
-	my_units = unit_attack(ennemies.soldat, my_units);
+	unit_attack(my_units.soldat, ennemies);
+	unit_attack(ennemies.soldat, my_units);
 	//les chars attaquent
-	ennemies = unit_attack(my_units.char, ennemies);
-	my_units = unit_attack(ennemies.char, my_units);
+	unit_attack(my_units.char, ennemies);
+	unit_attack(ennemies.char, my_units);
 }
 
 function attack()
