@@ -10,11 +10,14 @@ vm.runInThisContext(fs.readFileSync(__dirname + "/game_server.js"));
 
 /*global connect do_msg game:true respond init_game*/
 var start = false;
+var users = [];
 
 //quand quelqu'un ce connect
 wss.on('connection', function (ws)
 {
   ws.me = 0;
+  var id = users.length;
+  users.push(ws);
   //quand le server recoit un message
   ws.on('message', function (message)
   {
@@ -34,7 +37,15 @@ wss.on('connection', function (ws)
   {
     start = false;
     game = init_game();
+    var tmp = [];
+    for (let i = 0; i < users.length; i++)
+    {
+      if (i != id)
+        tmp[i].push(users[i]);
+    }
+    users = tmp;
     wss.broadcast("reset");
+    users = [];
   });
   // 10 fois par secondes le serveur actualise et envoit les infos aux clients
   setInterval(() => respond(game, ws.me, start, ws), 40);
@@ -63,8 +74,6 @@ function interpret_msg(me, message)
 
 wss.broadcast = function broadcast(msg)
 {
-  wss.clients.forEach(function each(client)
-  {
-    client.send(msg);
-  });
+  for (let i = 0; i < users.length; i++)
+    users[i].send(msg);
 };
