@@ -29,6 +29,8 @@ function do_msg(team, message_get)
 {
     var type;
     var nb;
+    if (team.city <= 0)
+        return;
     if (message_get.order === "buy" && message_get.type != "carte")
     {
         type = message_get.type;
@@ -85,9 +87,12 @@ function respond(game, team, start, ws)
     msg.avion = 0;
     msg.city = 0;
     msg.money = 0;
-    game.team1.money += 0.034;
-    game.team2.money += 0.034;
-    game.team3.money += 0.034;
+    if (game.team1.city > 0)
+        game.team1.money += 0.034;
+    if (game.team2.city > 0)
+        game.team2.money += 0.034;
+    if (game.team3.city > 0)
+        game.team3.money += 0.034;
     switch (team) {
         case 1:
             tmp = game.team1;
