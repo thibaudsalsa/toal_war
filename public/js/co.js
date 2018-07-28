@@ -75,7 +75,7 @@ function display_carte(tab_carte, info)
     }
     for (let i = 0, j = 0; i < info.length; i++)
     {
-        if (j >= tmp_info - 10)
+        if (j >= tmp_info - 5)
             tmp_info_msg += info[i];
         if (info[i] === '\n')
             j += 1;
