@@ -106,7 +106,7 @@ function check_win(game, ws, msg, start)
 
 function respond(game, team, start, ws, wss)
 {
-    if (ws.readyState != 1 && start == true && ws.qquit === 1)
+    if (ws.readyState != 1 && start == true && ws.qquit == 1)
     {
         ws.qquit = 0;
         start = false;

@@ -22,10 +22,9 @@ wss.on('connection', function (ws)
     message = JSON.parse(message);
     console.log("team" + ws.me + " send: ");
     console.log(message);
-    if (message.order === "connect" /*&& ws.me === 0*/)
+    if (message.order === "connect" && ws.me === 0)
     {
       ws.me = check_connection(message.msg);
-      console.log('someone connect -> ' + ws.me);
     }
     else if (start === true)
       interpret_msg(ws.me, message);
