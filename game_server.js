@@ -129,5 +129,4 @@ function respond(game, team, start, ws)
     check_win(game, ws, msg, start);
     msg_json = JSON.stringify(msg);
     ws.send(msg_json);
-    ws = null;
 }

@@ -31,11 +31,9 @@ wss.on('connection', function (ws)
   //quand un client se deconnect le jeux ce reset
   ws.on('close', function(message)
   {
-    ws = null;
     start = false;
     game = init_game();
     wss.broadcast("reset");
-    
   });
   // 10 fois par secondes le serveur actualise et envoit les infos aux clients
   setInterval(() => respond(game, ws.me, start, ws), 40);
