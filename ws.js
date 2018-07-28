@@ -61,4 +61,6 @@ wss.broadcast = function broadcast(msg)
     if (client.readyState == 1)
       client.send(msg);
   });
+  if (msg === "reset")
+    wss.clients = [];
 };
