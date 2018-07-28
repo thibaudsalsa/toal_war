@@ -147,7 +147,6 @@ function pret_a_la_banque(team)
 
 function appuie_aerien(team)
 {
-	{
 	var tab_team = [game.team1, game.team2, game.team3];
 	var num = team.id;
 
@@ -164,7 +163,6 @@ function appuie_aerien(team)
 			num = 1;
 		tab_team[num-1].city -= 60;
 	}
-}
 }
 /* function des cartes nation */ 
 function dubai(team)
