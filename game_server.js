@@ -2,7 +2,7 @@
 
 //creation du jeux
 //var game = init_game();
-var game;
+//var game;
 //creation du serveur avec les webSockets
 
 function connect(name)
@@ -112,6 +112,7 @@ function respond(game, team, start, ws, wss)
 {
     if (ws.readyState != 1 && start == true && ws.qquit == 1)
     {
+        console.log("someone quite the game");
         ws.qquit = 0;
         start = false;
         game = init_game();
