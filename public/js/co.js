@@ -60,11 +60,22 @@ function display_unit(team)
         unit_to_draw.push(team.avion[i]);
 }
 
+function replay()
+{
+    document.location.href="http://145.239.47.23:3000/";
+}
+
 function refresh_game(msg)
 {
     unit_to_draw = [];
     //get unit on the left
     msg = JSON.parse(msg);
+    if (msg.win === true)
+    {
+        document.getElementById("display_game").style.display = "none";
+        document.getElementById("victory").style.display = "";
+        document.getElementById("victory").innerHTML = msg.winner;
+    }
     display_unit(msg.team1.unit.unit_left);
     display_unit(msg.team2.unit.unit_left);
     display_unit(msg.team3.unit.unit_left);
@@ -77,6 +88,7 @@ function refresh_game(msg)
     orange_city = msg.team2.city;
     red_city = msg.team3.city;
     // actualise les informations sur la page
+    document.getElementById("couleur_ville").innerHTML = msg.couleur_ville;
     if (msg.city < 0)
         document.getElementById("gemaplay").style.display = "none";
     else

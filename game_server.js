@@ -63,16 +63,43 @@ function do_msg(team, message_get)
 function fill_msg(msg, team, game)
 {
     if (team === 1)
+    {
+        msg.couleur_ville = "BLEU";
         team = game.team1;
+    }
     else if (team === 2)
+    {
+        msg.couleur_ville = "ORANGE";
         team = game.team2;
+    }
     else if (team === 3)
+    {
+        msg.couleur_ville = "ROUGE";
         team = game.team3;
+    }
     msg.soldat = team.unit.soldat.length;
     msg.avion = team.unit.avion.length;
     msg.char = team.unit.char.length;
     msg.city = team.city;
     msg.argent = team.money;
+}
+
+function check_win(game, ws, msg, start)
+{
+    msg.winner = "";
+    msg.win = false;
+    if (game.team1.city > 0 && game.team3.city <= 0 && game.team2.city <= 0)
+        msg.winner = "L'équipe bleu gagne la partie";
+    else if (game.team2.city > 0 && game.team3.city <= 0 && game.team1.city <= 0)
+        msg.winner = "L'équipe orange gagne la partie";
+    else if (game.team3.city > 0 && game.team1.city <= 0 && game.team2.city <= 0)
+        msg.winner = "L'équipe rouge gagne la partie";
+    if (msg.winner != "")
+    {
+        msg.win = true;
+        game = init_game();
+        start = false;
+    }
 }
 
 function respond(game, team, start, ws)
@@ -99,6 +126,7 @@ function respond(game, team, start, ws)
     if (game.team3.city > 0)
         game.team3.money += 0.034;
     fill_msg(msg, team, game);
+    check_win(game, ws, msg, start);
     msg_json = JSON.stringify(msg);
     ws.send(msg_json);
 }

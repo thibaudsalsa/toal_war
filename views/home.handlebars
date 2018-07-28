@@ -7,11 +7,14 @@
         Rechercher une partie
     </button>
 </div>
+<div id="victory" style="background: white; display: none">
+    <button onclick="replay()">Rejouer</button>
+</div>
 <div id="display_game" style="display: none">
     <div id="gameplay" style="background: white; width: 20%; position:absolute">
         <label for="information">Information</label>
         <textarea readonly id="information" style="color: red">un joueur à utilisé une carte</textarea>
-        <label>Votre ville:</label>
+        <label >Votre ville: <p id="couleur_ville"></p></label>
         <p id="argent">Argent: 200</p>
         <p id="cité">Cité: 200pv</p>
         <p>Soldat: <span id="soldat">0</span> <button onclick="order('buy', 'soldat', 1)">Acheter un soldat</button></p>
