@@ -75,10 +75,13 @@ function display_carte(tab_carte, info)
     }
     for (let i = 0, j = 0; i < info.length; i++)
     {
-        if (j >= tmp_info - 5)
-            tmp_info_msg += info[i];
         if (info[i] === '\n')
+        {
             j += 1;
+            tmp_info_msg += "<br>";
+        }
+        else if (j >= tmp_info - 5)
+            tmp_info_msg += info[i];
     }
     if (document.getElementById("information").innerHTML != tmp_info_msg)
         document.getElementById("information").innerHTML = tmp_info_msg;
