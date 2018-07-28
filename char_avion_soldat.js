@@ -4,7 +4,7 @@ function init_game()
 	var game = new Object();
 	//les trois equipe
 	var rgb = [0, 0, 200];
-	var pos_unit = [0.6, 1.5, 0];
+	var pos_unit = [0.6, 0.6, 0];
 	game.team1 = create_team(rgb, pos_unit);
 	rgb = [253, 106, 2];
 	pos_unit = [0.6, 6, 0];

@@ -135,19 +135,19 @@ function attack_city()
     var unit;
     //les unités de la team 1 attaquent les villes
     unit = this.team1.unit.unit_left;
-    this.team2.city = dmg_city(unit, this.team2.city, 1, 1);
+    this.team2.city = dmg_city(unit, this.team2.city, 0.6, 6);
     unit = this.team1.unit.unit_right;
-    this.team3.city = dmg_city(unit, this.team3.city, 1, 1);
+    this.team3.city = dmg_city(unit, this.team3.city, 6, 0.6);
     //les unités de la team 2 attaquent les villes
     unit = this.team2.unit.unit_left;
-    this.team3.city = dmg_city(unit, this.team3.city, 1, 1);
+    this.team3.city = dmg_city(unit, this.team3.city, 6, 0.6);
     unit = this.team2.unit.unit_right;
-    this.team1.city = dmg_city(unit, this.team1.city, 1, 1);
+    this.team1.city = dmg_city(unit, this.team1.city, 0.6, 0.6);
     //les unités de la team 3 attaquent les villes
     unit = this.team3.unit.unit_left;
-    this.team1.city = dmg_city(unit, this.team1.city, 1, 1);
+    this.team1.city = dmg_city(unit, this.team1.city, 0.6, 0.6);
     unit = this.team3.unit.unit_right;
-    this.team2.city = dmg_city(unit, this.team2.city, 1, 1);
+    this.team2.city = dmg_city(unit, this.team2.city, 0.6, 6);
 }
 
 function back_hit(unit)
