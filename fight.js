@@ -2,7 +2,8 @@ function do_dmg(unit, target)
 {
 	if ((unit.x >= target.x - 0.1 && unit.x <= target.x + 0.1)
 	&& (unit.y >= target.y - 0.1 && unit.y <= target.y + 0.1)
-	&& unit.hit === 0)
+	&& unit.hit === 0
+	&& target.pv > 0)
 	{
 		target.pv -= unit.dmg;
 		unit.hit = 1;
@@ -231,27 +232,27 @@ function launch_right(type, nb)
 {
 	if (nb > 10)
 		nb = 10;
-	if (type == "char" && this.unit.char.length >= nb)
+	if (type === "char" && this.unit.char.length >= nb)
 	{
 		for (let i = 0; i < nb; i++)
 		{
-			this.unit.unit_right.char.push(this.unit.char[0]);
+			this.unit.unit_right.char.push(this.unit.char[this.unit.char.length - 1]);
 			this.unit.char.pop();
 		}
 	}
-	else if (type == "avion" && this.unit.avion.length >= nb)
+	else if (type === "avion" && this.unit.avion.length >= nb)
 	{
 		for (let i = 0; i < nb; i++)
 		{
-			this.unit.unit_right.avion.push(this.unit.avion[0]);
+			this.unit.unit_right.avion.push(this.unit.avion[this.unit.avion.length - 1]);
 			this.unit.avion.pop();
 		}
 	}
-	else if (type == "soldat" && this.unit.soldat.length >= nb)
+	else if (type === "soldat" && this.unit.soldat.length >= nb)
 	{
 		for (let i = 0; i < nb; i++)
 		{
-			this.unit.unit_right.soldat.push(this.unit.soldat[0]);
+			this.unit.unit_right.soldat.push(this.unit.soldat[this.unit.soldat.length - 1]);
 			this.unit.soldat.pop();
 		}
 	}
