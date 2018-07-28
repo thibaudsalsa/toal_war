@@ -106,23 +106,25 @@ function calcule_proba(Icard)
 /* functions des cartes bonus */
 function plagiat(team)
 {
-	var tab_team = [game.team1,game.team2,game.team3];
+	var tab_team = [game.team1, game.team2, game.team3];
 	var num = team.id;
 
-	num += 1 ;
+	num += 1;
 	if (num == 4)
 		num = 1;
-	var aleatoire = Math.floor(Math.random() * (2 + 0));
+	var aleatoire = Math.floor(Math.random() * (2));
 	if (aleatoire == 1)
 	{
-		team.carte.push(tab_team[num-1].carte[tab_team[num-1].carte.length - 1]);
+		if (tab_team[num - 1].carte.length != 0)
+			team.carte.push(tab_team[num - 1].carte[tab_team[num - 1].carte.length - 1]);
 	}
 	else 
-	{	
+	{
 		num += 1;
 		if (num == 4)
 			num = 1;
-		team.carte.push(tab_team[num-1].carte[tab_team[num-1].carte.length - 1]);
+		if (tab_team[num - 1].carte.length != 0)
+			team.carte.push(tab_team[num - 1].carte[tab_team[num - 1].carte.length - 1]);
 	}
 }
 
