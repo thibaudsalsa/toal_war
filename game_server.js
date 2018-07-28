@@ -1,4 +1,4 @@
-/*global init_game game*/
+/*global init_game game:true*/
 
 //creation du jeux
 //var game = init_game();
@@ -108,7 +108,7 @@ function check_win(game, ws, msg, start)
     }
 }
 
-function respond(game, team, start, ws, wss)
+function respond(team, start, ws, wss)
 {
     if (ws.readyState != 1 && start == true && ws.qquit == 1)
     {
