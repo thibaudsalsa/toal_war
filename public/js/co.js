@@ -156,3 +156,9 @@ function refresh_game(msg)
         document.getElementById("avion").innerHTML = msg.avion;
     }
 }
+
+function sound_stop()
+{
+    if (document.getElementById('sound').volume == 0) {document.getElementById('sound').volume = 100}
+    else {document.getElementById('sound').volume = 0}
+}
