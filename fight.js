@@ -22,7 +22,7 @@ function die(tab)
 	return (tmp);
 }
 
-function unit_attack(my_unit, ennemies)
+function unit_attack(my_unit, ennemies, type)
 {
     //attaquent les chars
 	for (let i = 0; i < my_unit.length; i++)
@@ -31,7 +31,11 @@ function unit_attack(my_unit, ennemies)
 		{
 			do_dmg(my_unit[i], ennemies.char[j]);
 			if (my_unit[i].hit === 1)
+			{
+				if (type === "char")
+					do_dmg(ennemies.char[j], my_unit[i]);
 				break;
+			}
 		}
 	}
 	//attaquent les soldats
@@ -41,7 +45,11 @@ function unit_attack(my_unit, ennemies)
 		{
 			do_dmg(my_unit[i], ennemies.soldat[j]);
 			if (my_unit[i].hit === 1)
+			{
+				if (type === "soldat")
+					do_dmg(ennemies.soldat[j], my_unit[i]);
 				break;
+			}
 		}
 	}
 	//attaquent les avions
@@ -51,7 +59,11 @@ function unit_attack(my_unit, ennemies)
 		{
 			do_dmg(my_unit[i], ennemies.avion[j]);
 			if (my_unit[i].hit === 1)
+			{
+				if (type === "avion")
+					do_dmg(ennemies.avion[j], my_unit[i]);
 				break;
+			}
 		}
 	}
 	ennemies.char = die(ennemies.char);
@@ -62,13 +74,13 @@ function unit_attack(my_unit, ennemies)
 function fight(my_units, ennemies)
 {
 	//les avions attaquent
-	unit_attack(my_units.avion, ennemies);
+	unit_attack(my_units.avion, ennemies, "avion");
 	unit_attack(ennemies.avion, my_units);
 	//les soldats attaquent
-	unit_attack(my_units.soldat, ennemies);
+	unit_attack(my_units.soldat, ennemies, "soldat");
 	unit_attack(ennemies.soldat, my_units);
 	//les chars attaquent
-	unit_attack(my_units.char, ennemies);
+	unit_attack(my_units.char, ennemies, "char");
 	unit_attack(ennemies.char, my_units);
 }
 
