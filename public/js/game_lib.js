@@ -64,6 +64,14 @@ function castel_team(form, color)
     form.iso.add(briq, color);
 }
 
+function tree(form, color)
+{
+    var tron = form.shape.Prism(form.Point(form.pos.x, form.pos.y, form.pos.z), form.size.x, form.size.y, form.size.z);
+    form.iso.add(tron, color.marron);
+    var tron = form.shape.Prism(form.Point(form.pos.x, form.pos.y, form.pos.z), form.size.x, form.size.y, form.size.z);
+    form.iso.add(tron, color.feuille);
+}
+
 function create_castel(form, color)
 {
     var briq;
