@@ -111,7 +111,7 @@ function confort_de_jeu(color, msg)
     }
     else if (color == "ROUGE")
     {
-        document.getElementsByClassName("en_rigth")[0].innerHTML = "Attaquer les oranges";
+        document.getElementsByClassName("en_right")[0].innerHTML = "Attaquer les oranges";
         document.getElementsByClassName("en_right")[1].innerHTML = "Attaquer les oranges";
         document.getElementsByClassName("en_left")[0].innerHTML = "Attaquer les bleus";
         document.getElementsByClassName("en_left")[1].innerHTML = "Attaquer les bleus";
