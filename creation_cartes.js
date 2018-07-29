@@ -180,34 +180,28 @@ function incendie(team)
 	var moins_soldat = Math.floor(Math.random() * (moins_avion - moins_soldat));
 	if (aleatoire === 0)
 	{
-		game.team1.unit.char -= moins_char;
-		game.team1.unit.avion -= moins_avion;
-		game.team1.unit.soldat -= moins_soldat;
-		no_negativ_unit(game.team1);
+		no_negativ_unit(game.team1.unit.char, moins_char);
+		no_negativ_unit(game.team1.unit.avion, moins_avion);
+		no_negativ_unit(game.team1.unit.soldat, moins_soldat);
 	}
 	else if (aleatoire === 1)
 	{
-		game.team2.unit.char -= moins_char;
-		game.team2.unit.avion -= moins_avion;
-		game.team2.unit.soldat -= moins_soldat;
-		no_negativ_unit(game.team2);
+		no_negativ_unit(game.team2.unit.char, moins_char);
+		no_negativ_unit(game.team2.unit.avion, moins_avion);
+		no_negativ_unit(game.team2.unit.soldat, moins_soldat);
 	}
 	else
 	{
-		game.team3.unit.char -= moins_char;
-		game.team3.unit.avion -= moins_avion;
-		game.team3.unit.soldat -= moins_soldat;
+		no_negativ_unit(game.team3.unit.char, moins_char);
+		no_negativ_unit(game.team3.unit.avion, moins_avion);
+		no_negativ_unit(game.team3.unit.soldat, moins_soldat);
 	}
 }
 
-function no_negativ_unit(team)
+function no_negativ_unit(unit, nb)
 {
-	if (team.unit.char < 0)
-		team.unit.char = 0;
-	if (team.unit.avion < 0)
-		team.unit.avion = 0;
-	if (team.unit.soldat < 0)
-		team.unit.soldat = 0;
+	for (let i = 0; i < nb && unit.length; i++)
+		unit.pop();
 }
 
 function bluff(team)
