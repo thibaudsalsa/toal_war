@@ -82,9 +82,8 @@
     </div>
     <canvas width="1000" height="750" id="art" style="padding-left: 40%"></canvas>
 </div>
-<div id="sound" style="position: absolute">
-    <embed src='menu.ogg' width='180' height='90' loop='true' autostart='true'>
-</div>
+<button onclick="if (document.getElementById('sound').volume == 0) {document.getElementById('sound').volume = 100} else {document.getElementById('sound').volume = 0}" style="position: absolute"></bitton>
+<embed id="sound" src='menu.ogg' volume=100 width='180' height='90' loop='true' autostart='true' style="display: none">
 <script src="js/co.js"></script>
 <script src=js/nation.js></script>
 <script src="isomer/dist/isomer.min.js"></script>

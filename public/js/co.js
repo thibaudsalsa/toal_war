@@ -7,7 +7,7 @@ wss.onmessage = function (ev)
     {
         document.getElementById("display_game").style.display = "";
         document.getElementById("choose").style.display = "none";
-        document.getElementById("sound").innerHTML = "<embed src='audio.ogg' width='180' height='90' loop='true' autostart='true'>"
+        document.getElementById("sound").src = "audio.ogg"
     }
     else if (ev.data == "reset")
     {
