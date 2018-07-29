@@ -93,6 +93,31 @@ function display_carte(tab_carte, info)
     }
 }
 
+function confort_de_jeu(color, msg)
+{
+    if (color == "BLEU")
+    {
+        document.getElementsByClassName("en_left")[0].innerHTML = "Attaquer les oranges";
+        document.getElementsByClassName("en_left")[1].innerHTML = "Attaquer les oranges";
+        document.getElementsByClassName("en_right")[0].innerHTML = "Attaquer les rouges";
+        document.getElementsByClassName("en_right")[1].innerHTML = "Attaquer les rouges";
+    }
+    else if (color == "ORANGE")
+    {
+        document.getElementsByClassName("en_left")[0].innerHTML = "Attaquer les rouges";
+        document.getElementsByClassName("en_left")[1].innerHTML = "Attaquer les rouges";
+        document.getElementsByClassName("en_right")[0].innerHTML = "Attaquer les bleus";
+        document.getElementsByClassName("en_right")[1].innerHTML = "Attaquer les bleus";
+    }
+    else if (color == "ROUGE")
+    {
+        document.getElementsByClassName("en_rigth")[0].innerHTML = "Attaquer les oranges";
+        document.getElementsByClassName("en_right")[1].innerHTML = "Attaquer les oranges";
+        document.getElementsByClassName("en_left")[0].innerHTML = "Attaquer les bleus";
+        document.getElementsByClassName("en_left")[1].innerHTML = "Attaquer les bleus";
+    }
+}
+
 function refresh_game(msg)
 {
     unit_to_draw = [];
@@ -118,6 +143,7 @@ function refresh_game(msg)
     red_city = msg.team3.city;
     // actualise les informations sur la page
     document.getElementById("couleur_ville").innerHTML = msg.couleur_ville;
+    confort_de_jeu(msg.couleur_ville, msg);
     if (msg.city < 0)
         document.getElementById("gameplay").style.display = "none";
     else

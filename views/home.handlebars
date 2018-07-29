@@ -21,7 +21,7 @@
         <p>Soldat: <span id="soldat">0</span> <button onclick="order('buy', 'soldat', 1)">Acheter un soldat</button></p>
         <p>Char: <span id="char">0</span>  <button onclick="order('buy', 'char', 1)">Acheter un char</button></p>
         <p>Avion: <span id="avion">0</span> <button onclick="order('buy', 'avion', 1)">Acheter un avion</button></p>
-        <div><p>Attaquer à droite</p>
+        <div><p class="en_right">Attaquer à droite</p>
         <select id="attaque_right_nb">
             <option>1</option>
             <option>2</option>
@@ -42,8 +42,8 @@
             <option>char</option>
             <option>avion</option>
         </select>
-        <button onclick="attack('right')">Attaquer à droite</button></div>
-        <div><p>Attaquer à gauche</p>
+        <button onclick="attack('right')" class="en_right">Attaquer à droite</button></div>
+        <div><p class="en_left">Attaquer à gauche</p>
         <select id="attaque_left_nb">
             <option>1</option>
             <option>2</option>
@@ -64,7 +64,7 @@
             <option>char</option>
             <option>avion</option>
         </select>
-        <button onclick="attack('left')">Attaquer à gauche</button></div>
+        <button onclick="attack('left')" class="en_left">Attaquer à gauche</button></div>
         <div>
             <p>Cartes</p>
             <div id="carte_display"></div>
