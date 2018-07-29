@@ -159,6 +159,7 @@ function refresh_game(msg)
 
 function sound_stop()
 {
+    console.log(document.getElementById('sound'));
     if (document.getElementById('sound').volume == 0) {document.getElementById('sound').volume = 100}
     else {document.getElementById('sound').volume = 0}
 }
