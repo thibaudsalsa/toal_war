@@ -173,30 +173,30 @@ function appuie_aerien(team)
 
 function incendie(team)
 {
+	/*team unesed*/
 	var aleatoire = Math.floor(Math.random() * (3));
-	var moins_char = Math.floor(Math.random() * (11));
-	var moins_avion = Math.floor(Math.random() * (11));
-	var moins_soldat = Math.floor(Math.random() * (11));
-	switch (aleatoire)
+	var moins_char = Math.floor(Math.random() * (26));
+	var moins_avion = Math.floor(Math.random() * (26 - moins_char));
+	var moins_soldat = Math.floor(Math.random() * (moins_avion - moins_soldat));
+	if (aleatoire === 0)
 	{
-		case (0):
-			game.team1.unit.char -= moins_char;
-			game.team1.unit.avion -= moins_avion;
-			game.team1.unit.soldat -= moins_soldat;
-			no_negativ_unit(game.team1);
-			break
-		case (1):
-			game.team2.unit.char -= moins_char;
-			game.team2.unit.avion -= moins_avion;
-			game.team2.unit.soldat -= moins_soldat;
-			no_negativ_unit(game.team2);
-			break
-		case (2):
-			game.team3.unit.char -= moins_char;
-			game.team3.unit.avion -= moins_avion;
-			game.team3.unit.soldat -= moins_soldat;
-			no_negativ_unit(game.team3);
-			break
+		game.team1.unit.char -= moins_char;
+		game.team1.unit.avion -= moins_avion;
+		game.team1.unit.soldat -= moins_soldat;
+		no_negativ_unit(game.team1);
+	}
+	else if (aleatoire === 1)
+	{
+		game.team2.unit.char -= moins_char;
+		game.team2.unit.avion -= moins_avion;
+		game.team2.unit.soldat -= moins_soldat;
+		no_negativ_unit(game.team2);
+	}
+	else
+	{
+		game.team3.unit.char -= moins_char;
+		game.team3.unit.avion -= moins_avion;
+		game.team3.unit.soldat -= moins_soldat;
 	}
 }
 
