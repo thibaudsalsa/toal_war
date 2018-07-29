@@ -37,14 +37,14 @@ function create_tab_bonus(nb_card)
 	var tab_card = [nb_card];
 	var id = ["plagiat","soin", "Prêt a la banque", "appuie aérien","incendie","bluff", "séismes", "allié inattendu"];/* -----------------------------------*/
 	var img = ["pas d'image", "", "", "", "", "", ""];
-	var text = ["à utiliser une carte bonus.", 
-				"à utiliser une carte bonus.", 
-				"à utiliser une carte bonus.",
+	var text = ["à utilisé une carte bonus.", 
+				"à utilisé une carte bonus.", 
+				"à utilisé une carte bonus.",
 				"à utilisé un Appuie aérien.",
-				"à declanché un incendie",
-				"à utilisé une carte bonus",
-				"à utiliser une carte bonus.",
-				"à utiliser une carte bonus."];
+				"à declanché un incendie.",
+				"à utilisé une carte bonus.",
+				"à utilisé une carte bonus.",
+				"à utilisé une carte bonus."];
 	var prob = [4, 4, 6, 1, 4, 10, 1 ,6];
 	for (let i = 0; i < id.length; i++)
 	{

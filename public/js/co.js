@@ -78,7 +78,8 @@ function display_carte(tab_carte, info)
         if (info[i] === '\n')
         {
             j += 1;
-            tmp_info_msg += "<br>";
+            if (j >= tmp_info - 5)
+                tmp_info_msg += "<br>";
         }
         else if (j >= tmp_info - 5)
             tmp_info_msg += info[i];
