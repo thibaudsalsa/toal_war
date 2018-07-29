@@ -1,4 +1,10 @@
 {{#if user}}
+<embed
+	src="/public/audio.mp3"
+	width="180"
+	height="90"
+	loop="false"
+	autostart="true">
 <div id="choose" style="background: white; width: 40%; padding-left: 5%;">
     <p>Recherche de partie</p>
     <select id="choose_nation">
@@ -81,12 +87,6 @@
     </div>
     <canvas width="1000" height="750" id="art" style="padding-left: 40%"></canvas>
 </div>
-<embed
-	src="/public/audio.mp3"
-	width="180"
-	height="90"
-	loop="false"
-	autostart="true">
 <script src="js/co.js"></script>
 <script src=js/nation.js></script>
 <script src="isomer/dist/isomer.min.js"></script>
