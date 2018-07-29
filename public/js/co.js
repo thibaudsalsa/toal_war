@@ -79,10 +79,10 @@ function display_carte(tab_carte, info)
         if (info[i] === '\n')
         {
             j += 1;
-            if (j >= tmp_info - 5)
+            if (j >= tmp_info - 2)
                 tmp_info_msg += "<br>";
         }
-        else if (j >= tmp_info - 5)
+        else if (j >= tmp_info - 3)
             tmp_info_msg += info[i];
     }
     if (document.getElementById("information").innerHTML != tmp_info_msg)
