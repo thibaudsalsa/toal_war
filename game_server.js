@@ -133,11 +133,11 @@ function respond(team, start, ws, wss)
     msg.money = 0;
     msg.info = game.info;
     if (game.team1.city > 0)
-        game.team1.money += 0.024;
+        game.team1.money += 0.015;
     if (game.team2.city > 0)
-        game.team2.money += 0.024;
+        game.team2.money += 0.015;
     if (game.team3.city > 0)
-        game.team3.money += 0.024;
+        game.team3.money += 1;
     fill_msg(msg, team, game);
     check_win(game, ws, msg, start);
     msg_json = JSON.stringify(msg);
