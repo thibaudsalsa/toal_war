@@ -110,6 +110,6 @@ function lobby(canvas, color)
     else if (color === "orange")
         red = new Color(253, 106, 2);
     iso.add(Shape.Prism(new Point(0, 0, 0), 0.75, 0.75, 5), red);
-    iso.add(Shape.Prism(new Point(0, 2, -1), 0.75, 0.75, 4), red);
-    iso.add(Shape.Prism(new Point(2, 0, -1), 0.75, 0.75, 3), red);
+    iso.add(Shape.Prism(new Point(0, 2, -1.5), 0.75, 0.75, 4), red);
+    iso.add(Shape.Prism(new Point(2, 0, -1.5), 0.75, 0.75, 3), red);
 }
