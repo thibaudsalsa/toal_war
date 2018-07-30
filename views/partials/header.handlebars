@@ -7,16 +7,16 @@
   </ul>
   <ul class="list-inline">
   {{#if user}}
-    <li>
+    <li style="font-family: Bubblegum">
       {{#if user.picture}}
         <img class="avatar" src="{{user.picture}}">
       {{else}}
         <img class="avatar" src="{{user.gravatar}}">
       {{/if}}
       {{#if user.name}}
-        <p style="font-family: Bubblegum">{{user.name}}</p>
+        {{user.name}}
       {{else}}
-        <p style="font-family: Bubblegum">{{user.email}}</p>
+        {{user.email}}
       {{/if}}
     </li>
     <li class="btn"><a class="text_btn" href="/account" style="font-family: Bubblegum">Mon compte</a></li>
