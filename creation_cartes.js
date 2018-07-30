@@ -111,7 +111,7 @@ function use_card(num_card)/* dans l'objet team */
 }
 function return_card(num_card)/* dans l'objet Icard */
 {
-	var price = 25;
+	var price = 20;
 	if (this.carte.length > 5 || this.money < price)
 		return;
 	this.money -= price;
