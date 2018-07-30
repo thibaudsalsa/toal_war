@@ -12,6 +12,8 @@ wss.onmessage = function (ev)
     {
         document.getElementById("display_game").style.display = "";
         document.getElementById("wait").style.display = "none";
+        document.getElementById("canvas02").style.display = "none";
+        document.getElementById("canvas02").style.display = "none";
         document.getElementById("sound").src = "audio.ogg";
         var notification = new Notification("La partie à commencée");
     }
