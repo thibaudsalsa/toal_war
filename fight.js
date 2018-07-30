@@ -1,11 +1,18 @@
-function do_dmg(unit, target)
+function do_dmg(unit, target, attack_type, defense_type)
 {
+	var bonus = 0;
 	if ((unit.x >= target.x - 0.1 && unit.x <= target.x + 0.1)
 	&& (unit.y >= target.y - 0.1 && unit.y <= target.y + 0.1)
 	&& unit.hit === 0
 	&& target.pv > 0)
 	{
-		target.pv -= unit.dmg;
+		if (attack_type == "avion" && defense_type == "soldat")
+			bonus += 1;
+		else if (attack_type == "soldat" && defense_type == "char")
+			bonus += 1;
+		else if (attack_type == "avion" && defense_type == "avion")
+			bonus += 0.035;
+		target.pv -= unit.dmg + bonus;
 		unit.hit = 1;
 	}
 }
@@ -29,11 +36,11 @@ function unit_attack(my_unit, ennemies, type)
 	{
 		for (let j = 0; j < ennemies.char.length; j++)
 		{
-			do_dmg(my_unit[i], ennemies.char[j]);
+			do_dmg(my_unit[i], ennemies.char[j], type, "char");
 			if (my_unit[i].hit === 1)
 			{
 				if (type === "char")
-					do_dmg(ennemies.char[j], my_unit[i]);
+					do_dmg(ennemies.char[j], my_unit[i], "char", type);
 				break;
 			}
 		}
@@ -43,11 +50,11 @@ function unit_attack(my_unit, ennemies, type)
 	{
 		for (let j = 0; j < ennemies.soldat.length; j++)
 		{
-			do_dmg(my_unit[i], ennemies.soldat[j]);
+			do_dmg(my_unit[i], ennemies.soldat[j], type, "soldat");
 			if (my_unit[i].hit === 1)
 			{
 				if (type === "soldat")
-					do_dmg(ennemies.soldat[j], my_unit[i]);
+					do_dmg(ennemies.soldat[j], my_unit[i], "soldat", type);
 				break;
 			}
 		}
@@ -57,11 +64,11 @@ function unit_attack(my_unit, ennemies, type)
 	{
 		for (let j = 0; j < ennemies.avion.length; j++)
 		{
-			do_dmg(my_unit[i], ennemies.avion[j]);
+			do_dmg(my_unit[i], ennemies.avion[j], type, "avion");
 			if (my_unit[i].hit === 1)
 			{
 				if (type === "avion")
-					do_dmg(ennemies.avion[j], my_unit[i]);
+					do_dmg(ennemies.avion[j], my_unit[i], "avion", type);
 				break;
 			}
 		}

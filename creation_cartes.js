@@ -292,7 +292,7 @@ function delete_unit(unit1, unit2)
 	unit1.char = [];
 	unit1.avion = [];
 	unit1.soldat = [];
-	unit2.char = []
+	unit2.char = [];
 	unit2.avion = [];
 	unit2.soldat = [];
 }
