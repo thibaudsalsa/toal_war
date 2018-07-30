@@ -68,9 +68,14 @@ function display_unit(team)
         unit_to_draw.push(team.avion[i]);
 }
 
+var notif = 0;
 function replay()
 {
-    var notification = new Notification("La partie est finie");
+    if (notif === 0)
+    {
+        var notification = new Notification("La partie est finie");
+        notif++;
+    }
     document.location.href="http://145.239.47.23:3000/";
 }
 
