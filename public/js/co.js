@@ -1,4 +1,4 @@
-/*global unit_to_draw:true red_city:true blue_city:true orange_city:true*/
+/*global unit_to_draw:true red_city:true blue_city:true orange_city:true Notification*/
 var wss = new WebSocket('ws://145.239.47.23:40510');
 
 wss.onmessage = function (ev)
@@ -8,9 +8,11 @@ wss.onmessage = function (ev)
         document.getElementById("display_game").style.display = "";
         document.getElementById("choose").style.display = "none";
         document.getElementById("sound").src = "audio.ogg"
+        var notification = new Notification("La partie à commencée");
     }
     else if (ev.data == "reset")
     {
+        var notification = new Notification("La partie est finie");
         replay();
     }
     else
@@ -129,6 +131,7 @@ function refresh_game(msg)
         document.getElementById("display_game").style.display = "none";
         document.getElementById("victory").style.display = "";
         document.getElementById("winner").innerHTML = msg.winner;
+        var notification = new Notification("L'équipe "+ msg.winner + " à gagnée");
     }
     display_unit(msg.team1.unit.unit_left);
     display_unit(msg.team2.unit.unit_left);
