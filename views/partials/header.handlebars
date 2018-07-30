@@ -3,15 +3,15 @@
     {{#if user}}
     <li class="btn"><a class="text_btn" href="/" style="font-family: Bubblegum">Jeu</a></li>
     {{/if}}
-    <li class="btn"><a class="text_btn" href="/contact">Contacts</a></li>
+    <li class="btn"><a class="text_btn" href="/contact" style="font-family: Bubblegum">Contacts</a></li>
   </ul>
   <ul class="list-inline">
   {{#if user}}
     <li>
       {{#if user.picture}}
-        <img class="avatar" src="{{user.picture}}">
+        <img class="avatar" src="{{user.picture}}" style="font-family: Bubblegum">
       {{else}}
-        <img class="avatar" src="{{user.gravatar}}">
+        <img class="avatar" src="{{user.gravatar}}" style="font-family: Bubblegum">
       {{/if}}
       {{#if user.name}}
         {{user.name}}
@@ -19,11 +19,11 @@
         {{user.email}}
       {{/if}}
     </li>
-    <li class="btn"><a class="text_btn" href="/account">Mon compte</a></li>
-    <li class="btn"><a class="text_btn" href="/logout">Deconnexion</a></li>
+    <li class="btn"><a class="text_btn" href="/account" style="font-family: Bubblegum">Mon compte</a></li>
+    <li class="btn"><a class="text_btn" href="/logout" style="font-family: Bubblegum">Deconnexion</a></li>
   {{else}}
-    <li class="btn"><a class="text_btn" href="/login">Connexion</a></li>
-    <li class="btn"><a class="text_btn" href="/signup">Inscription</a></li>
+    <li class="btn"><a class="text_btn" href="/login" style="font-family: Bubblegum">Connexion</a></li>
+    <li class="btn"><a class="text_btn" href="/signup" style="font-family: Bubblegum">Inscription</a></li>
   {{/if}}
   </ul>
 </div>
