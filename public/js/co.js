@@ -1,13 +1,18 @@
 /*global unit_to_draw:true red_city:true blue_city:true orange_city:true Notification*/
 var wss = new WebSocket('ws://145.239.47.23:40510');
 
+Notification.requestPermission(function(status) {
+    if (Notification.permission !== status)
+        Notification.permission = status;
+});
+
 wss.onmessage = function (ev)
 {
     if (ev.data == "start")
     {
         document.getElementById("display_game").style.display = "";
         document.getElementById("choose").style.display = "none";
-        document.getElementById("sound").src = "audio.ogg"
+        document.getElementById("sound").src = "audio.ogg";
         var notification = new Notification("La partie à commencée");
     }
     else if (ev.data == "reset")
