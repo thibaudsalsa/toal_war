@@ -107,6 +107,7 @@ function lobby()
     iso.add(Shape.Prism(new Point(0, 0, 0), 1, 1, 5), red);
     iso.add(Shape.Prism(new Point(0, 1.5, -1.5), 1, 1, 4), red);
     iso.add(Shape.Prism(new Point(1.5, 0, -1.5), 1, 1, 3), red);
+    iso.add(Shape.Prism(new Point(-1, -1, 0), 1, 1, 1), red);
     iso = new Isomer(document.getElementById("canvas02"));
     Shape = Isomer.Shape;
     Point = Isomer.Point;
@@ -115,4 +116,5 @@ function lobby()
     iso.add(Shape.Prism(new Point(0, 0, 0), 1, 1, 5), red);
     iso.add(Shape.Prism(new Point(0, 1.5, -1.5), 1, 1, 4), red);
     iso.add(Shape.Prism(new Point(1.5, 0, -1.5), 1, 1, 3), red);
+    iso.add(Shape.Prism(new Point(-1, -1, 0), 1, 1, 1), red);
 }
