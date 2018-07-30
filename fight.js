@@ -6,10 +6,6 @@ function do_dmg(unit, target, attack_type, defense_type)
 	&& unit.hit === 0
 	&& target.pv > 0)
 	{
-		if (defense_type == "avion" && attack_type == "soldat")
-			malus = -0.02;
-		if (defense_type == "char" && attack_type == "soldat")
-			target.pv /= 3;
 		target.pv -= unit.dmg + malus;
 		unit.hit = 1;
 	}

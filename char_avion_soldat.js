@@ -80,7 +80,7 @@ function add_unit(type, nbr)
 function create_char(r, g, b, pos_unit)
 {
 	var char = new Object();
-	char.pv = 3;
+	char.pv = 2;
 	char.dmg = 1 / 100;
 	char.speed = 1 / 3;
 	char.color = [r, g, b];
@@ -98,7 +98,7 @@ function create_soldat(r, g, b, pos_unit)
 {
 	var soldat = new Object();
 	soldat.pv = 1;
-	soldat.dmg = 3 / 100;
+	soldat.dmg = 2 / 100;
 	soldat.speed = 1 / 3;
 	soldat.color = [r, g, b];
 	soldat.x = pos_unit[0];
