@@ -95,3 +95,14 @@ function create_castel(form, color)
             castel_team(form, tmp_c);
     }
 }
+
+lobby();
+function lobby()
+{
+    var iso = new Isomer(document.getElementById("canvas01"));
+    var Shape = Isomer.Shape;
+    var Point = Isomer.Point;
+    var Color = Isomer.color;
+    var red = new Color(255, 0, 0);
+    iso.add(Shape.Prism(new Point(0, 0, 0), 1, 1, 5, red));
+}
