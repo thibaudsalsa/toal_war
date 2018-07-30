@@ -18,10 +18,7 @@ wss.onmessage = function (ev)
         var notification = new Notification("La partie à commencée");
     }
     else if (ev.data == "reset")
-    {
-        var notification = new Notification("La partie est finie");
         replay();
-    }
     else
         refresh_game(ev.data);
 };
@@ -73,6 +70,7 @@ function display_unit(team)
 
 function replay()
 {
+    var notification = new Notification("La partie est finie");
     document.location.href="http://145.239.47.23:3000/";
 }
 
@@ -157,8 +155,11 @@ function refresh_game(msg)
     // actualise les informations sur la page
     document.getElementById("couleur_ville").innerHTML = msg.couleur_ville;
     confort_de_jeu(msg.couleur_ville, msg);
-    if (msg.city < 0)
+    if (msg.city < 0 && document.getElementById("gameplay").style.display != "none")
+    {
+        var notification = new Notification("Votre ville est détruite");
         document.getElementById("gameplay").style.display = "none";
+    }
     else
     {
         document.getElementById("argent").innerHTML = "Argent: " + parseInt(msg.argent, 10);
