@@ -97,7 +97,7 @@ function create_castel(form, color)
 }
 
 lobby("canvas01", "red");
-lobby("canvas01", "orange");
+lobby("canvas02", "orange");
 function lobby(canvas, color)
 {
     var iso = new Isomer(document.getElementById(canvas));
@@ -109,8 +109,7 @@ function lobby(canvas, color)
         red = new Color(255, 0, 0);
     else if (color === "orange")
         red = new Color(253, 106, 2);
-    iso.add(Shape.Prism(new Point(0.5, 0.5, 0), 0.75, 0.75, 5), red);
+    iso.add(Shape.Prism(new Point(0, 0, 0), 0.75, 0.75, 5), red);
     iso.add(Shape.Prism(new Point(0, 2, -2), 0.75, 0.75, 4), red);
     iso.add(Shape.Prism(new Point(2, 0, -2), 0.75, 0.75, 3), red);
-    iso.add(Shape.Prism(new Point(-0.5, -0.5, 0), 0.75, 0.75, 1), red);
 }
