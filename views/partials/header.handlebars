@@ -9,14 +9,14 @@
   {{#if user}}
     <li>
       {{#if user.picture}}
-        <img class="avatar" src="{{user.picture}}" style="font-family: Bubblegum">
+        <img class="avatar" src="{{user.picture}}">
       {{else}}
-        <img class="avatar" src="{{user.gravatar}}" style="font-family: Bubblegum">
+        <img class="avatar" src="{{user.gravatar}}">
       {{/if}}
       {{#if user.name}}
-        {{user.name}}
+        <p style="font-family: Bubblegum">{{user.name}}</p>
       {{else}}
-        {{user.email}}
+        <p style="font-family: Bubblegum">{{user.email}}</p>
       {{/if}}
     </li>
     <li class="btn"><a class="text_btn" href="/account" style="font-family: Bubblegum">Mon compte</a></li>
