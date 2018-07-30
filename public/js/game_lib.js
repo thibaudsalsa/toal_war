@@ -107,21 +107,11 @@ function lobby()
     iso.add(Shape.Prism(new Point(0, 0, 0), 1, 1, 5), red);
     iso.add(Shape.Prism(new Point(0, 1, -1), 1, 1, 4), red);
     iso.add(Shape.Prism(new Point(1, 0, -1), 1, 1, 3), red);
-    
-    var iso = new Isomer(document.getElementById("canvas03"));
-    var Shape = Isomer.Shape;
-    var Point = Isomer.Point;
-    var Color = Isomer.Color;
-    var red = new Color(0, 0, 255);
-    iso.add(Shape.Prism(new Point(0, 0, 0), 1, 1, 5), red);
-    iso.add(Shape.Prism(new Point(0, 1, -1), 1, 1, 4), red);
-    iso.add(Shape.Prism(new Point(1, 0, -1), 1, 1, 3), red);
-
-    var iso = new Isomer(document.getElementById("canvas02"));
-    var Shape = Isomer.Shape;
-    var Point = Isomer.Point;
-    var Color = Isomer.Color;
-    var red = new Color(255, 0, 0);
+    iso = new Isomer(document.getElementById("canvas02"));
+    Shape = Isomer.Shape;
+    Point = Isomer.Point;
+    Color = Isomer.Color;
+    red = new Color(253, 106, 2);
     iso.add(Shape.Prism(new Point(0, 0, 0), 1, 1, 5), red);
     iso.add(Shape.Prism(new Point(0, 1, -1), 1, 1, 4), red);
     iso.add(Shape.Prism(new Point(1, 0, -1), 1, 1, 3), red);
