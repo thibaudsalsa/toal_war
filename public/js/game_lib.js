@@ -104,5 +104,5 @@ function lobby()
     var Point = Isomer.Point;
     var Color = Isomer.Color;
     var red = new Color(255, 0, 0);
-    iso.add(Shape.Prism(new Point(0, 0, 0), red,  1, 1, 5));
+    iso.add(Shape.Prism(new Point(0, 0, 0), 1, 1, 5), red);
 }
