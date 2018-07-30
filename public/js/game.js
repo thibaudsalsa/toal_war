@@ -42,7 +42,7 @@ function make_game()
     Color.blue = new color(0, 0, 200);
     Color.red = new color(200, 0, 0);
     Color.orange = new color(253, 106, 2);
-    Color.water = new color(0, 0, 0, 0);
+    Color.water = new color(0, 0, 0, 0.4);
     
 
     //              init objet
