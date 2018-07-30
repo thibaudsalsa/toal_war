@@ -29,8 +29,8 @@ function try_connect()
     var msg = new Object();
     msg.order = "connect";
     msg.msg = document.getElementById("choose_nation").value;
-    document.getElementById("choose").display = "none";
-    document.getElementById("wait").display = "";
+    document.getElementById("choose").style.display = "none";
+    document.getElementById("wait").style.display = "";
     msg = JSON.stringify(msg);
     wss.send(msg);
 }
