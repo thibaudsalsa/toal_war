@@ -1,14 +1,16 @@
 function do_dmg(unit, target, attack_type, defense_type)
 {
-	var bonus = 0;
+	var malus = 0;
 	if ((unit.x >= target.x - 0.1 && unit.x <= target.x + 0.1)
 	&& (unit.y >= target.y - 0.1 && unit.y <= target.y + 0.1)
 	&& unit.hit === 0
 	&& target.pv > 0)
 	{
 		if (defense_type == "avion" && attack_type == "soldat")
-			bonus = -0.03;
-		target.pv -= unit.dmg + bonus;
+			malus = -0.02;
+		if (defense_type == "char" && attack_type == "soldat")
+			target.pv /= 3;
+		target.pv -= unit.dmg + malus;
 		unit.hit = 1;
 	}
 }
