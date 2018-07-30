@@ -1,12 +1,12 @@
 function do_dmg(unit, target, attack_type, defense_type)
 {
-	var malus = 0;
 	if ((unit.x >= target.x - 0.1 && unit.x <= target.x + 0.1)
 	&& (unit.y >= target.y - 0.1 && unit.y <= target.y + 0.1)
 	&& unit.hit === 0
-	&& target.pv > 0)
+	&& target.pv > 0
+	&& unit.pv >0)
 	{
-		target.pv -= unit.dmg + malus;
+		target.pv -= unit.dmg / 100;
 		unit.hit = 1;
 	}
 }

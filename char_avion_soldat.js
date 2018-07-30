@@ -81,7 +81,7 @@ function create_char(r, g, b, pos_unit)
 {
 	var char = new Object();
 	char.pv = 2;
-	char.dmg = 1 / 100;
+	char.dmg = 1;
 	char.speed = 1 / 3;
 	char.color = [r, g, b];
 	char.x = pos_unit[0];
@@ -98,7 +98,7 @@ function create_soldat(r, g, b, pos_unit)
 {
 	var soldat = new Object();
 	soldat.pv = 1;
-	soldat.dmg = 2 / 100;
+	soldat.dmg = 2;
 	soldat.speed = 1 / 3;
 	soldat.color = [r, g, b];
 	soldat.x = pos_unit[0];
@@ -115,7 +115,7 @@ function create_avion(r, g, b, pos_unit)
 {
 	var avion = new Object();
 	avion.pv = 1;
-	avion.dmg = 1/ 100;
+	avion.dmg = 1;
 	avion.speed = 3 / 3;
 	avion.color = [r, g, b];
 	avion.x = pos_unit[0];
