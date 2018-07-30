@@ -30,10 +30,7 @@ wss.on('connection', function (ws)
       interpret_msg(ws.me, message);
   });
   // 10 fois par secondes le serveur actualise et envoit les infos aux clients
-  if (start === true)
-  {
     setInterval(() => respond(ws.me, start, ws, wss), 40);
-  }
 });
 
 function check_connection(name)
