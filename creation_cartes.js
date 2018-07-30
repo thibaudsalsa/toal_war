@@ -287,18 +287,6 @@ function espion2(team)
 						tab[1].unit.soldat.length + " soldat."
 }
 
-/* fin */ 
-/* function utilisé pour les cartes bonus */
-function no_negativ_unit(team)
-{
-	if (team.unit.char < 0)
-		team.unit.char = 0;
-	if (team.unit.avion < 0)
-		team.unit.avion = 0;
-	if (team.unit.soldat < 0)
-		team.unit.soldat = 0;
-}
-
 function delete_unit(unit1, unit2)
 {
 	unit1.char = [];
