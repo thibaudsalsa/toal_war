@@ -48,10 +48,10 @@ function create_tab_bonus(nb_card)
 				"a utilisé une carte bonus.",
 				"a fait tremblé le sol.",
 				"a utilisé une carte bonus.",
-				"vous a forcé a utiliser une carte.",
+				"vous a forcé à utiliser une carte.",
 				"a utilisé une carte bonus.",
 				"a utilisé une carte bonus.",
-				"a une information a vous donner."];
+				"a une information à vous donner."];
 	var prob = [4, 4, 6, 1, 4, 5, 1 , 6, 4, 2, 2, 4];
 	for (let i = 0; i < id.length; i++)
 	{
