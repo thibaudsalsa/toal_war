@@ -105,14 +105,14 @@ function lobby()
     var Color = Isomer.Color;
     var red = new Color(255, 0, 0);
     iso.add(Shape.Prism(new Point(0, 0, 0), 1, 1, 5), red);
-    iso.add(Shape.Prism(new Point(0, 1, -1), 1, 1, 4), red);
-    iso.add(Shape.Prism(new Point(1, 0, -1), 1, 1, 3), red);
+    iso.add(Shape.Prism(new Point(0, 1.5, -1.5), 1, 1, 4), red);
+    iso.add(Shape.Prism(new Point(1.5, 0, -1.5), 1, 1, 3), red);
     iso = new Isomer(document.getElementById("canvas02"));
     Shape = Isomer.Shape;
     Point = Isomer.Point;
     Color = Isomer.Color;
     red = new Color(253, 106, 2);
     iso.add(Shape.Prism(new Point(0, 0, 0), 1, 1, 5), red);
-    iso.add(Shape.Prism(new Point(0, 1, -1), 1, 1, 4), red);
-    iso.add(Shape.Prism(new Point(1, 0, -1), 1, 1, 3), red);
+    iso.add(Shape.Prism(new Point(0, 1.5, -1.5), 1, 1, 4), red);
+    iso.add(Shape.Prism(new Point(1.5, 0, -1.5), 1, 1, 3), red);
 }
