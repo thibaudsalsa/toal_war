@@ -1,6 +1,6 @@
 function do_dmg(unit, target, attack_type, defense_type)
 {
-	var bonus = unit.dmg / 100;
+	var malus = 1;
 	if ((unit.x >= target.x - 0.1 && unit.x <= target.x + 0.1)
 	&& (unit.y >= target.y - 0.1 && unit.y <= target.y + 0.1)
 	&& unit.hit <= 0
@@ -10,7 +10,11 @@ function do_dmg(unit, target, attack_type, defense_type)
 		|| attack_type == "soldat" && defense_type == "char"
 		|| attack_type == "avion" && defense_type == "soldat")
 			unit.hit -= 1;
-		target.pv -= bonus;
+		if (attack_type == "avion" && defense_type == "char"
+		|| attack_type == "char" && defense_type == "soldat"
+		|| attack_type == "soldat" && defense_type == "avion")
+			malus = 2;
+		target.pv -= (unit.dmg / malus) / 100;
 		unit.hit += 2;
 	}
 }
@@ -82,12 +86,12 @@ function dmg_city(unit, city_pv, posx, posy)
     {
         if ((unit.avion[i].x >= posx - 0.1 && unit.avion[i].x <= posx + 0.1)
         && (unit.avion[i].y >= posy - 0.1 && unit.avion[i].y <= posy + 0.1)
-        && unit.avion[i].hit == 0)
+        && unit.avion[i].hit < 0)
         {
         	if (city_pv < 0)
         		unit.avion[i].pv = 0;
             city_pv -= unit.avion[i].dmg / 100;
-            unit.avion[i].hit = 1;
+            unit.avion[i].hit += 2;
         }
     }
     for (let i = 0; i < unit.soldat.length; i++)
