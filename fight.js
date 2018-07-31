@@ -6,12 +6,12 @@ function do_dmg(unit, target, attack_type, defense_type)
 	&& unit.hit === 0
 	&& target.pv > 0.001)
 	{
-		if (attack_type == "char" && defense_type == "soldat")
+		/*if (attack_type == "char" && defense_type == "soldat")
 			bonus = 1 / 100;
 		if (attack_type == "soldat" && defense_type == "avion")
 			bonus = 1 / 100;
 		if (attack_type == "avion" && defense_type == "char")
-			bonus = 1 / 100;
+			bonus = 1 / 100;*/
 		target.pv -= bonus;
 		unit.hit = 1;
 	}
