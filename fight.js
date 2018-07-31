@@ -73,9 +73,6 @@ function unit_attack(my_unit, ennemies, type)
 			}
 		}
 	}
-	ennemies.char = die(ennemies.char);
-	ennemies.soldat = die(ennemies.soldat);
-	ennemies.avion = die(ennemies.avion);
 }
 
 function fight(my_units, ennemies)
@@ -89,6 +86,13 @@ function fight(my_units, ennemies)
 	//les chars attaquent
 	unit_attack(my_units.char, ennemies, "char");
 	unit_attack(ennemies.char, my_units, "char");
+
+	ennemies.char = die(ennemies.char);
+	ennemies.soldat = die(ennemies.soldat);
+	ennemies.avion = die(ennemies.avion);
+	my_units.char = die(my_units.char);
+	my_units.soldat = die(my_units.soldat);
+	my_units.avion = die(my_units.avion);
 }
 
 function attack()
