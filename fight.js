@@ -1,18 +1,18 @@
 function do_dmg(unit, target, attack_type, defense_type)
 {
-	var bonus = 1;
+	var bonus = unit.dmg / 100;
 	if ((unit.x >= target.x - 0.1 && unit.x <= target.x + 0.1)
 	&& (unit.y >= target.y - 0.1 && unit.y <= target.y + 0.1)
 	&& unit.hit === 0
 	&& target.pv > 0)
 	{
 		if (attack_type == "char" && defense_type == "soldat")
-			bonus = 3;
+			bonus = 0.03333334;
 		if (attack_type == "soldat" && defense_type == "avion")
-			bonus = 3;
+			bonus = 0.03333334;
 		if (attack_type == "avion" && defense_type == "char")
-			bonus = 3;
-		target.pv -= (unit.dmg / 100) / bonus;
+			bonus = 0.03333334;
+		target.pv -= bonus;
 		unit.hit = 1;
 	}
 }
