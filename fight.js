@@ -4,14 +4,14 @@ function do_dmg(unit, target, attack_type, defense_type)
 	if ((unit.x >= target.x - 0.1 && unit.x <= target.x + 0.1)
 	&& (unit.y >= target.y - 0.1 && unit.y <= target.y + 0.1)
 	&& unit.hit === 0
-	&& target.pv > 0)
+	&& target.pv > 0.0000001)
 	{
 		if (attack_type == "char" && defense_type == "soldat")
-			bonus = 0.03333334;
+			bonus = 0.003333334;
 		if (attack_type == "soldat" && defense_type == "avion")
-			bonus = 0.03333334;
+			bonus = 0.003333334;
 		if (attack_type == "avion" && defense_type == "char")
-			bonus = 0.03333334;
+			bonus = 0.003333334;
 		target.pv -= bonus;
 		unit.hit = 1;
 	}
@@ -23,7 +23,7 @@ function die(tab)
 	
 	for (let i = 0; i < tab.length; i++)
 	{
-		if (tab[i].pv > 0.0001)
+		if (tab[i].pv > 0.0000001)
 			tmp.push(tab[i]);
 	}
 	return (tmp);
@@ -83,7 +83,7 @@ function fight(my_units, ennemies)
 	//les avions attaquent
 	unit_attack(my_units.avion, ennemies, "avion");
 	unit_attack(ennemies.avion, my_units, "avion");
-	//les soldats attaquent
+	//les soldats attaquents
 	unit_attack(my_units.soldat, ennemies, "soldat");
 	unit_attack(ennemies.soldat, my_units, "soldat");
 	//les chars attaquent
