@@ -70,6 +70,7 @@ function display_unit(team)
 
 function replay()
 {
+    var notification = new Notification("La partie est finie");
     document.location.href="http://145.239.47.23:3000/";
 }
 
@@ -127,6 +128,7 @@ function confort_de_jeu(color, msg)
     }
 }
 
+var notif = 0;
 function refresh_game(msg)
 {
     unit_to_draw = [];
@@ -137,7 +139,11 @@ function refresh_game(msg)
         document.getElementById("display_game").style.display = "none";
         document.getElementById("victory").style.display = "";
         document.getElementById("winner").innerHTML = msg.winner;
-        var notification = new Notification("L'équipe "+ msg.winner + " à gagnée");
+        if (notif == 0)
+        {
+            var notification = new Notification("L'équipe "+ msg.winner + " à gagnée");
+            notif++;
+        }
     }
     display_unit(msg.team1.unit.unit_left);
     display_unit(msg.team2.unit.unit_left);

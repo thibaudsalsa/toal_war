@@ -4,15 +4,14 @@ function do_dmg(unit, target, attack_type, defense_type)
 	if ((unit.x >= target.x - 0.1 && unit.x <= target.x + 0.1)
 	&& (unit.y >= target.y - 0.1 && unit.y <= target.y + 0.1)
 	&& unit.hit === 0
-	&& target.pv > 0
-	&& unit.pv > 0)
+	&& target.pv > 0)
 	{
 		if (attack_type == "char" && defense_type == "soldat")
-			bonus = 2;
+			bonus = 4;
 		if (attack_type == "soldat" && defense_type == "avion")
-			bonus = 2;
+			bonus = 4;
 		if (attack_type == "avion" && defense_type == "char")
-			bonus = 2;
+			bonus = 4;
 		target.pv -= (unit.dmg / 100) / bonus;
 		unit.hit = 1;
 	}
