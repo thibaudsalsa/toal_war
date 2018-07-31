@@ -7,11 +7,11 @@ function do_dmg(unit, target, attack_type, defense_type)
 	&& target.pv > 0)
 	{
 		if (attack_type == "char" && defense_type == "soldat")
-			bonus = 4;
+			bonus = 3;
 		if (attack_type == "soldat" && defense_type == "avion")
-			bonus = 4;
+			bonus = 3;
 		if (attack_type == "avion" && defense_type == "char")
-			bonus = 4;
+			bonus = 3;
 		target.pv -= (unit.dmg / 100) / bonus;
 		unit.hit = 1;
 	}
@@ -23,7 +23,7 @@ function die(tab)
 	
 	for (let i = 0; i < tab.length; i++)
 	{
-		if (tab[i].pv > 0)
+		if (tab[i].pv > 0.0001)
 			tmp.push(tab[i]);
 	}
 	return (tmp);
