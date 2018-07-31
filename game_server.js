@@ -1,9 +1,6 @@
 /*global init_game game:true*/
 
-//creation du jeux
-//var game = init_game();
-//var game;
-//creation du serveur avec les webSockets
+var start = false;
 
 function connect(name)
 {
