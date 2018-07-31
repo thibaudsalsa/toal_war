@@ -152,9 +152,8 @@ function bluff()
 
 function soin(team)
 {
-	if (team.city < 540)
-		team.city += 60;
-	else
+		team.city += 25;
+	if (team.city > 600)
 		team.city = 600;
 }
 
