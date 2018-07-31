@@ -116,7 +116,7 @@ function create_avion(r, g, b, pos_unit)
 	var avion = new Object();
 	avion.pv = 1;
 	avion.dmg = 1;
-	avion.speed = 3 / 3;
+	avion.speed = 6 / 3;
 	avion.color = [r, g, b];
 	avion.x = pos_unit[0];
 	avion.y = pos_unit[1];
