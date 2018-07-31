@@ -117,30 +117,31 @@ function respond(team, ws, wss)
         game = init_game();
         wss.broadcast("reset");
     }
-    if (start == false || team === 0 || ws.readyState != 1)
-        return;
-    var msg = new Object();
-    var msg_json;
-    game.attack();
-    game.attack_city();
-    game.move();
-    msg.team1 = game.team1;
-    msg.team2 = game.team2;
-    msg.team3 = game.team3;
-    msg.soldat = 0;
-    msg.char = 0;
-    msg.avion = 0;
-    msg.city = 0;
-    msg.money = 0;
-    msg.info = game.info;
-    if (game.team1.city > 0)
-        game.team1.money += 0.01;
-    if (game.team2.city > 0)
-        game.team2.money += 0.01;
-    if (game.team3.city > 0)
-        game.team3.money += 0.01;
-    fill_msg(msg, team, game);
-    check_win(game, ws, msg, start);
-    msg_json = JSON.stringify(msg);
-    ws.send(msg_json);
+    if (start != false && team != 0 && ws.readyState == 1)
+    {
+        var msg = new Object();
+        var msg_json;
+        game.attack();
+        game.attack_city();
+        game.move();
+        msg.team1 = game.team1;
+        msg.team2 = game.team2;
+        msg.team3 = game.team3;
+        msg.soldat = 0;
+        msg.char = 0;
+        msg.avion = 0;
+        msg.city = 0;
+        msg.money = 0;
+        msg.info = game.info;
+        if (game.team1.city > 0)
+            game.team1.money += 0.01;
+        if (game.team2.city > 0)
+            game.team2.money += 0.01;
+        if (game.team3.city > 0)
+            game.team3.money += 0.01;
+        fill_msg(msg, team, game);
+        check_win(game, ws, msg, start);
+        msg_json = JSON.stringify(msg);
+        ws.send(msg_json);
+    }
 }
