@@ -33,43 +33,19 @@ function unit_attack(my_unit, ennemies, type)
 	for (let i = 0; i < my_unit.length; i++)
 	{
 		for (let j = 0; j < ennemies.char.length; j++)
-		{
 			do_dmg(my_unit[i], ennemies.char[j], type, "char");
-			if (my_unit[i].hit === 1)
-			{
-				if (type === "char")
-					do_dmg(ennemies.char[j], my_unit[i], "char", type);
-				break;
-			}
-		}
 	}
 	//attaquent les soldats
 	for (let i = 0; i < my_unit.length; i++)
 	{
 		for (let j = 0; j < ennemies.soldat.length; j++)
-		{
 			do_dmg(my_unit[i], ennemies.soldat[j], type, "soldat");
-			if (my_unit[i].hit === 1)
-			{
-				if (type === "soldat")
-					do_dmg(ennemies.soldat[j], my_unit[i], "soldat", type);
-				break;
-			}
-		}
 	}
 	//attaquent les avions
 	for (let i = 0; i < my_unit.length; i++)
 	{
 		for (let j = 0; j < ennemies.avion.length; j++)
-		{
 			do_dmg(my_unit[i], ennemies.avion[j], type, "avion");
-			if (my_unit[i].hit === 1)
-			{
-				if (type === "avion")
-					do_dmg(ennemies.avion[j], my_unit[i], "avion", type);
-				break;
-			}
-		}
 	}
 }
 
@@ -167,11 +143,11 @@ function attack_city()
 function back_hit(unit)
 {
 	for (let i = 0; i < unit.avion.length; i++)
-		unit.avion[i].hit = 0;
+		unit.avion[i].hit = -1;
 	for (let i = 0; i < unit.soldat.length; i++)
-		unit.soldat[i].hit = 0;
+		unit.soldat[i].hit = -1;
 	for (let i = 0; i < unit.char.length; i++)
-		unit.char[i].hit = 0;
+		unit.char[i].hit = -1;
 }
 
 function move_type(unit, x_operator, y_operator)
