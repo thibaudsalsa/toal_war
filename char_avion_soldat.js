@@ -65,9 +65,9 @@ function create_team_unit()
 
 function add_unit(type, nbr)
 {
-	if (this.unit.soldat.length + this.unit.char.length + this.unit.avion.length < 100 && this.money >= 10)
+	if (this.unit.soldat.length + this.unit.char.length + this.unit.avion.length < 100 && this.money >= 5)
 	{
-		this.money -= 10;
+		this.money -= 5;
 		for (let i = 0; i < nbr && type == "char"; i++)
 			this.unit.char.push(create_char(this.r, this.g, this.b, this.pos_unit));
 		for (let i = 0; i < nbr && type == "avion"; i++)
