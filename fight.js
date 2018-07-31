@@ -4,7 +4,7 @@ function do_dmg(unit, target, attack_type, defense_type)
 	if ((unit.x >= target.x - 0.1 && unit.x <= target.x + 0.1)
 	&& (unit.y >= target.y - 0.1 && unit.y <= target.y + 0.1)
 	&& unit.hit === 0
-	&& target.pv > 0.00001)
+	&& target.pv > 0.001)
 	{
 		if (attack_type == "char" && defense_type == "soldat")
 			bonus = 0.003333334;
@@ -23,7 +23,7 @@ function die(tab)
 	
 	for (let i = 0; i < tab.length; i++)
 	{
-		if (tab[i].pv > 0.00001)
+		if (tab[i].pv > 0.001)
 			tmp.push(tab[i]);
 	}
 	return (tmp);
