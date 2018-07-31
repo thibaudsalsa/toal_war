@@ -27,7 +27,7 @@ function create_team(rgb, pos_unit, numero_team)
 	team.id = numero_team;
 	team.player = "";
 	team.color = "";
-	team.money = 1500;
+	team.money = 100;
 	team.city = 600;
 	team.carte = [];
 	team.r = rgb[0];
@@ -67,7 +67,7 @@ function add_unit(type, nbr)
 {
 	if (this.unit.soldat.length + this.unit.char.length + this.unit.avion.length < 100 && this.money >= 5)
 	{
-		this.money -= 5;
+		this.money -= 10;
 		for (let i = 0; i < nbr && type == "char"; i++)
 			this.unit.char.push(create_char(this.r, this.g, this.b, this.pos_unit));
 		for (let i = 0; i < nbr && type == "avion"; i++)

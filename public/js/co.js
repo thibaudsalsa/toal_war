@@ -8,6 +8,7 @@ Notification.requestPermission(function(status) {
 
 wss.onmessage = function (ev)
 {
+    console.log(ev.data);
     if (ev.data == "start")
     {
         document.getElementById("display_game").style.display = "";
