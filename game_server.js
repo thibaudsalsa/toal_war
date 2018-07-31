@@ -102,10 +102,8 @@ function check_win(game, ws, msg, start)
     }
 }
 
-/*global start:true*/
 function respond(team, ws, wss)
 {
-    console.log(start);
     if (ws.readyState != 1 && start == true && ws.qquit == 1)
     {
         console.log("someone quite the game");

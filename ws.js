@@ -8,7 +8,7 @@ vm.runInThisContext(fs.readFileSync(__dirname + "/char_avion_soldat.js"));
 vm.runInThisContext(fs.readFileSync(__dirname + "/creation_cartes.js"));
 vm.runInThisContext(fs.readFileSync(__dirname + "/game_server.js"));
 
-/*global connect do_msg game:true respond init_game*/
+/*global connect do_msg game:true respond init_game start:true*/
 start = false;
 game = init_game();
 //quand quelqu'un ce connect
