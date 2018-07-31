@@ -3,17 +3,15 @@ function do_dmg(unit, target, attack_type, defense_type)
 	var bonus = unit.dmg / 100;
 	if ((unit.x >= target.x - 0.1 && unit.x <= target.x + 0.1)
 	&& (unit.y >= target.y - 0.1 && unit.y <= target.y + 0.1)
-	&& unit.hit === 0
+	&& unit.hit <= 0
 	&& target.pv > 0.001)
 	{
-		/*if (attack_type == "char" && defense_type == "soldat")
-			bonus = 1 / 100;
-		if (attack_type == "soldat" && defense_type == "avion")
-			bonus = 1 / 100;
-		if (attack_type == "avion" && defense_type == "char")
-			bonus = 1 / 100;*/
+		if (attack_type == "char" && defense_type == "avion"
+		|| attack_type == "soldat" && defense_type == "char"
+		|| attack_type == "avion" && defense_type == "soldat")
+			unit.hit -= 1;
 		target.pv -= bonus;
-		unit.hit = 1;
+		unit.hit += 2;
 	}
 }
 
@@ -180,17 +178,17 @@ function move_type(unit, x_operator, y_operator)
 {
 	for (let i = 0; i < unit.avion.length; i++)
 	{
-		if (unit.avion[i].hit == 0)
+		if (unit.avion[i].hit === -1)
 			move(unit.avion[i], x_operator, y_operator);
 	}
 	for (let i = 0; i < unit.soldat.length; i++)
 	{
-		if (unit.soldat[i].hit == 0)
+		if (unit.soldat[i].hit === -1)
 			move(unit.soldat[i], x_operator, y_operator);
 	}
 	for (let i = 0; i < unit.char.length; i++)
 	{
-		if (unit.char[i].hit == 0)
+		if (unit.char[i].hit === -1)
 			move(unit.char[i], x_operator, y_operator);
 	}
 	back_hit(unit);
