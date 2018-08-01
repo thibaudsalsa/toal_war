@@ -135,8 +135,8 @@ function respond(team, ws, wss)
         console.log("someone quite the game");
         if (player_wait.length >= 1)
         {
+            add_connection_wait(player_wait.name, player_wait[0]);
             player_in.push(player_wait[0]);
-            add_connection_wait(player_wait.name, player_wait);
             var tmp_player_wait = [];
             for (let i = 1; i < player_wait.length; i++)
                 tmp_player_wait.push(player_wait[i]);
