@@ -8,7 +8,7 @@ vm.runInThisContext(fs.readFileSync(__dirname + "/char_avion_soldat.js"));
 vm.runInThisContext(fs.readFileSync(__dirname + "/creation_cartes.js"));
 vm.runInThisContext(fs.readFileSync(__dirname + "/game_server.js"));
 
-/*global connect do_msg game:true respond init_game start:true player_in:true player_wait:true*/
+/*global connect do_msg game:true respond init_game start:true player_in:true player_wait:true check_connection*/
 start = false;
 game = init_game();
 //quand quelqu'un ce connect
@@ -30,24 +30,6 @@ wss.on('connection', function (ws)
   // 10 fois par secondes le serveur actualise et envoit les infos aux clients
     setInterval(() => respond(ws.me, ws, wss), 40);
 });
-
-function check_connection(name, ws)
-{
-  ws.name = name;
-  var me = connect(name);
-  if (me != 0)
-    player_in.push(ws);
-  else
-    player_wait.push(ws);
-  if (me === 3 && start === false)
-  {
-    wss.broadcast("start");
-    start = true;
-  }
-  else if (start === true && me != 0)
-    ws.send("start");
-  return (me);
-}
 
 function interpret_msg(me, message)
 {
