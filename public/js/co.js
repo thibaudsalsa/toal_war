@@ -6,6 +6,8 @@ Notification.requestPermission(function(status) {
         Notification.permission = status;
 });
 
+var co = false;
+
 wss.onmessage = function (ev)
 {
     if (ev.data == "start")
@@ -16,6 +18,7 @@ wss.onmessage = function (ev)
         document.getElementById("canvas02").style.display = "none";
         document.getElementById("sound").src = "audio.ogg";
         var notification = new Notification("La partie à commencée");
+        co = true;
     }
     else if (ev.data == "reset")
         replay();
@@ -31,7 +34,8 @@ function try_connect()
     document.getElementById("choose").style.display = "none";
     document.getElementById("wait").style.display = "";
     msg = JSON.stringify(msg);
-    wss.send(msg);
+    for (co; co === false; wss.send(msg))
+        setTimeout(function(){}, 1000);
 }
 
 function attack(direction)

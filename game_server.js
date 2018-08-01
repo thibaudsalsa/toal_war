@@ -125,7 +125,6 @@ function respond(team, ws, wss)
         {
             ws.qquit = 0;
             start = false;
-            game = null;
             game = init_game();
             wss.broadcast("reset");
         }
