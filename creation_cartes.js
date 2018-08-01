@@ -1,4 +1,4 @@
-/*global game:true*/
+/*global game:true create_tab_nation add_fct*/
 function init_card()
 {
 	var Icard = new Object();

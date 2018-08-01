@@ -5,6 +5,7 @@ var wss = new WebSocketServer({port: 40510});
 
 vm.runInThisContext(fs.readFileSync(__dirname + "/fight.js"));
 vm.runInThisContext(fs.readFileSync(__dirname + "/char_avion_soldat.js"));
+vm.runInThisContext(fs.readFileSync(__dirname + "/cartenation.js"));
 vm.runInThisContext(fs.readFileSync(__dirname + "/creation_cartes.js"));
 vm.runInThisContext(fs.readFileSync(__dirname + "/game_server.js"));
 

@@ -62,9 +62,7 @@ app.use(function(req, res, next) {
     }
     next();
   });
-});
-
-
+}); 
 
 function sendMeData_file(user, callback) {
   if (!user) {
