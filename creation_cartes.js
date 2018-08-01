@@ -1,5 +1,4 @@
 /*global game:true*/
-
 function init_card()
 {
 	var Icard = new Object();
@@ -11,27 +10,7 @@ function init_card()
 	Icard.get_card = return_card;
 	return (Icard);
 }
-/* Creation de l'objet Icard */
-function create_tab_nation(nb_card)
-{
-	var tab_card = [nb_card];
-	var id = ["Dubai","France"];/* -----------------------------------*/
-	var img = ["pas d'image", "pas d'image", "", ""];
-	var text = ["à utiliser une carte nation",
-				"à utiliser une carte nation"];
-	var prob = [1, 0, 0, 0]; 
-	for (let i = 0; i < id.length; i++)
-	{
-		var card = new Object();
-		card.id = id[i];
-		card.img = img[i];
-		card.text = text[i];
-		card.prob = prob[i];
-		tab_card[i] = card;
-	}
-	return (tab_card);
-}
-
+/* creation des cartes bonus */
 function create_tab_bonus(nb_card)
 {
 	var tab_card = [nb_card];
@@ -52,6 +31,10 @@ function create_tab_bonus(nb_card)
 				"a utilisé une carte bonus.",
 				"a utilisé une carte bonus.",
 				"a une information à vous donner."];
+	var tab_fct_bonus = [plagiat, soin, pret_a_la_banque,
+						appuie_aerien, incendie, bluff,
+						seisme, allie_inattendu, forcer_le_jeu, 
+						d_une_pierre_de_carte, retentez_votre_chance, espion2];
 	var prob = [4, 4, 6, 1, 4, 5, 1 , 6, 4, 2, 2, 4];
 	for (let i = 0; i < id.length; i++)
 	{
@@ -60,26 +43,10 @@ function create_tab_bonus(nb_card)
 		card.img = img[i];
 		card.text = text[i];
 		card.prob = prob[i];
+		card.use = tab_fct_bonus[i];
 		tab_card[i] = card;
 	}
 	return (tab_card);
-}
-
-function add_fct()
-{
-	var tab_fct_nation = [dubai, france];/* -----------------------------------*/
-	for (let i = 0; i < tab_fct_nation.length; i++)
-	{
-		this.tab_nation[i].use = tab_fct_nation[i];
-	}
-	var tab_fct_bonus = [plagiat, soin, pret_a_la_banque,
-						appuie_aerien, incendie, bluff,
-						seisme, allie_inattendu, forcer_le_jeu, 
-						d_une_pierre_de_carte, retentez_votre_chance, espion2];/* -----------------------------------*/
-	for (let i = 0; i < tab_fct_bonus.length; i++)
-	{
-		this.tab_bonus[i].use = tab_fct_bonus[i];
-	}
 }
 
 function calcule_proba(Icard)
@@ -161,24 +128,16 @@ function pret_a_la_banque(team)
 {
 	team.money += (Math.floor(Math.random() * (30 + 0))+30);
 }
-
+/* modification */
 function appuie_aerien(team)
 {
-	var tab_team = [game.team1, game.team2, game.team3];
-	var num = team.id;
-
-	num += 1;
-	if (num == 4)
-		num = 1;
+	var tab = return_enemie_team(team);
 	var aleatoire = Math.floor(Math.random() * (2));
 	if (aleatoire == 1)
-		tab_team[num-1].city -= 60;
+		tab[0].city -= 60;
 	else 
 	{
-		num += 1;
-		if (num == 4)
-			num = 1;
-		tab_team[num-1].city -= 60;
+		tab[tab.length - 1].city -= 60;
 	}
 }
 
@@ -238,15 +197,15 @@ function allie_inattendu(team)
 	team.add("avion",Math.floor(Math.random() * (6)));
 	team.add("soldat",Math.floor(Math.random() * (6)));
 }
-
+/* modification */
 function forcer_le_jeu(team)
 {
 	var tab = return_enemie_team(team);
 	var aleatoire = Math.floor(Math.random() * (2));
 	if (aleatoire == 0 && tab[0].carte.length > 0)
 		tab[0].use_card(Math.floor(Math.random() * (tab[0].carte.length)));
-	else if (aleatoire == 1 && tab[1].carte.length > 0)
-		tab[1].use_card(Math.floor(Math.random() * (tab[1].carte.length)));
+	else if (aleatoire == 1 && tab[tab.length - 1].carte.length > 0)
+		tab[tab.length - 1].use_card(Math.floor(Math.random() * (tab[tab.length - 1].carte.length)));
 }
 
 function d_une_pierre_de_carte(team)
@@ -268,7 +227,7 @@ function retentez_votre_chance(team)
 {
 	team.money += 20;
 }
-
+/* modification */
 function espion2(team)
 {
 	var tab = return_enemie_team(team);
@@ -280,10 +239,10 @@ function espion2(team)
 						tab[0].unit.avion.length + " avion, " +
 						tab[0].unit.soldat.length + " soldat."
 	else
-		game.info += "La team " + color[tab[1].id - 1] + " posséde : " + 
-						tab[1].unit.char.length + " char, " + 
-						tab[1].unit.avion.length + " avion, " +
-						tab[1].unit.soldat.length + " soldat."
+		game.info += "La team " + color[tab[tab.length - 1].id - 1] + " posséde : " + 
+						tab[tab.length - 1].unit.char.length + " char, " + 
+						tab[tab.length - 1].unit.avion.length + " avion, " +
+						tab[tab.length - 1].unit.soldat.length + " soldat."
 }
 
 function delete_unit(unit1, unit2)
@@ -301,50 +260,9 @@ function return_enemie_team(team)
 	var tab = [];
 	for (let i = 0; i < 3; i++)
 	{
-		if (tab_team[i].id != team.id)
+		if (tab_team[i].id != team.id && tab_team[i].city > 0)
 			tab.push(tab_team[i]);
-	} 
+	}
 	return (tab);
 }
-/* fin */ 
-/* function des cartes nation */ 
-function dubai(team)
-{
-	var tab_team = [game.team1,game.team2,game.team3];
-	var gold = team.money;
-	var num = team.id;
-	num += 1;
-	if (num == 4)
-		num = 1;
-	var aleatoire = Math.floor(Math.random() * (2 + 0));
-	if (aleatoire == 1)
-	{
-		team.money = tab_team[num-1].money;
-		tab_team[num-1].money = gold;
-	}
-	else 
-	{	
-		num += 1;
-		if (num == 4)
-			num = 1;
-		team.money = tab_team[num-1].money;
-		tab_team[num-1].money = gold;
-	}
-}
-
-function france(team)
-{
-	for (let i = 0; i < team.unit.unit_left.char.length; i++)
-		team.unit.unit_left.char[i].speed = 0;
-	for (let i = 0; i < team.unit.unit_left.soldat.length; i++)
-		team.unit.unit_left.soldat[i].speed = 0;
-	for (let i = 0; i < team.unit.unit_left.avion.length; i++)
-		team.unit.unit_left.avion[i].speed = 0;
-	for (let i = 0; i < team.unit.unit_right.char.length; i++)
-		team.unit.unit_right.char[i].speed = 0;
-	for (let i = 0; i < team.unit.unit_right.soldat.length; i++)
-		team.unit.unit_right.soldat[i].speed = 0;
-	for (let i = 0; i < team.unit.unit_right.avion.length; i++)
-		team.unit.unit_right.avion[i].speed = 0;	
-}
-/* fin */ 
+/* fin */
