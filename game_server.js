@@ -104,6 +104,17 @@ function check_win(game, ws, msg, start)
     }
 }
 
+
+function add_connection_wait(name, ws)
+{
+    ws.name = name;
+    var me = connect(name);
+    player_in.push(ws);
+    if (start === true && me != 0)
+        ws.send("start");
+    ws.me = me;
+}
+
 function respond(team, ws, wss)
 {
     if (ws.readyState == 2 && start == true && ws.qquit == 1 && ws.me != 0)
@@ -125,7 +136,7 @@ function respond(team, ws, wss)
         if (player_wait.length >= 1)
         {
             player_in.push(player_wait[0]);
-            check_connection(player_wait.name, player_wait);
+            add_connection_wait(player_wait.name, player_wait);
             var tmp_player_wait = [];
             for (let i = 1; i < player_wait.length; i++)
                 tmp_player_wait.push(player_wait[i]);
@@ -166,22 +177,4 @@ function respond(team, ws, wss)
         msg_json = JSON.stringify(msg);
         ws.send(msg_json);
     }
-}
-
-function check_connection(name, ws)
-{
-  ws.name = name;
-  var me = connect(name);
-  if (me != 0)
-    player_in.push(ws);
-  else
-    player_wait.push(ws);
-  if (me === 3 && start === false)
-  {
-    wss.broadcast("start");
-    start = true;
-  }
-  else if (start === true && me != 0)
-    ws.send("start");
-  return (me);
 }

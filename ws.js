@@ -46,3 +46,21 @@ wss.broadcast = function broadcast(msg)
   for (let i = 0; i < player_in.length; i++)
     player_in[i].send(msg);
 };
+
+function check_connection(name, ws)
+{
+  ws.name = name;
+  var me = connect(name);
+  if (me != 0)
+    player_in.push(ws);
+  else
+    player_wait.push(ws);
+  if (me === 3 && start === false)
+  {
+    wss.broadcast("start");
+    start = true;
+  }
+  else if (start === true && me != 0)
+    ws.send("start");
+  return (me);
+}
