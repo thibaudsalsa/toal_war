@@ -23,12 +23,7 @@ wss.on('connection', function (ws)
     console.log("team" + ws.me + " send: ");
     console.log(message);
     if (message.order === "connect"/* && ws.me === 0*/)
-    {
-      
-      ws.me = check_connection(message.msg);
-      if (ws.me != 0)
-        player_in.push(ws);
-    }
+      ws.me = check_connection(message.msg, ws);
     else if (start === true)
       interpret_msg(ws.me, message);
   });
@@ -36,9 +31,11 @@ wss.on('connection', function (ws)
     setInterval(() => respond(ws.me, ws, wss), 40);
 });
 
-function check_connection(name)
+function check_connection(name, ws)
 {
   var me = connect(name);
+  if (me != 0)
+        player_in.push(ws);
   if (me === 3)
   {
     wss.broadcast("start");
