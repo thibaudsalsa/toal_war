@@ -115,7 +115,7 @@ function respond(team, ws, wss)
         }
         player_in = tab;
         console.log("someone quite the game");
-        if (player_in <= 1)
+        if (player_in.length <= 1)
         {
             ws.qquit = 0;
             start = false;
