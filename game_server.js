@@ -104,7 +104,7 @@ function check_win(game, ws, msg, start)
 
 function respond(team, ws, wss)
 {
-    if (ws.readyState != 1 && start == true && ws.qquit == 1)
+    if (ws.readyState == 2 && start == true && ws.qquit == 1)
     {
         console.log("someone quite the game");
         ws.qquit = 0;
