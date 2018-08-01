@@ -12,7 +12,6 @@ function create_tab_nation(nb_card)
 		card.id = id[i];
 		card.img = img[i];
 		card.text = text[i];
-		card.prob = prob[i];
 		card.use = tab_fct_nation[i];
 		tab_card[i] = card;
 	}
