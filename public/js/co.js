@@ -34,13 +34,7 @@ function try_connect()
     document.getElementById("choose").style.display = "none";
     document.getElementById("wait").style.display = "";
     msg = JSON.stringify(msg);
-        var t = setTimeout(function()
-        {
-            if (co === false)
-                wss.send(msg);
-            else
-                clearTimeout(t);
-        }, 1000);
+    wss.send(msg);
 }
 
 function attack(direction)

@@ -2,6 +2,7 @@
 
 var start = false;
 var player_in = [];
+var player_wait = [];
 
 function connect(name)
 {
@@ -121,6 +122,15 @@ function respond(team, ws, wss)
         else if (ws.me === 3)
             game.team3.name = "";
         console.log("someone quite the game");
+        if (player_wait.length >= 1)
+        {
+            player_in.push(player_wait[0]);
+            check_connection(player_wait.name, player_wait);
+            var tmp_player_wait = [];
+            for (let i = 1; i < player_wait.length; i++)
+                tmp_player_wait.push(player_wait[i]);
+            player_wait = tmp_player_wait;
+        }
         if (player_in.length <= 1)
         {
             ws.qquit = 0;
