@@ -8,7 +8,7 @@ vm.runInThisContext(fs.readFileSync(__dirname + "/char_avion_soldat.js"));
 vm.runInThisContext(fs.readFileSync(__dirname + "/creation_cartes.js"));
 vm.runInThisContext(fs.readFileSync(__dirname + "/game_server.js"));
 
-/*global connect do_msg game:true respond init_game start:true*/
+/*global connect do_msg game:true respond init_game start:true player_in:true*/
 start = false;
 game = init_game();
 //quand quelqu'un ce connect
@@ -24,7 +24,10 @@ wss.on('connection', function (ws)
     console.log(message);
     if (message.order === "connect"/* && ws.me === 0*/)
     {
+      
       ws.me = check_connection(message.msg);
+      if (ws.me != 0)
+        player_in.push(ws);
     }
     else if (start === true)
       interpret_msg(ws.me, message);
@@ -56,9 +59,11 @@ function interpret_msg(me, message)
 
 wss.broadcast = function broadcast(msg)
 {
-  wss.clients.forEach(function each(client)
+  /*wss.clients.forEach(function each(client)
   {
     if (client.readyState == 1)
       client.send(msg);
-  });
+  });*/
+  for (let i = 0; i < player_in.length; i++)
+    player_in[i].send(msg);
 };

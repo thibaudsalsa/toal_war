@@ -1,6 +1,7 @@
 /*global init_game game:true*/
 
 var start = false;
+var player_in = [];
 
 function connect(name)
 {
@@ -89,11 +90,11 @@ function check_win(game, ws, msg, start)
     msg.winner = "";
     msg.win = false;
     if (game.team1.city > 0 && game.team3.city <= 0 && game.team2.city <= 0)
-        msg.winner = "L'équipe bleu gagne la partie";
+        msg.winner = "L'equipe bleu gagne la partie";
     else if (game.team2.city > 0 && game.team3.city <= 0 && game.team1.city <= 0)
-        msg.winner = "L'équipe orange gagne la partie";
+        msg.winner = "L'equipe orange gagne la partie";
     else if (game.team3.city > 0 && game.team1.city <= 0 && game.team2.city <= 0)
-        msg.winner = "L'équipe rouge gagne la partie";
+        msg.winner = "L'equipe rouge gagne la partie";
     if (msg.winner != "")
     {
         msg.win = true;
@@ -104,14 +105,24 @@ function check_win(game, ws, msg, start)
 
 function respond(team, ws, wss)
 {
-    if (ws.readyState == 2 && start == true && ws.qquit == 1)
+    if (ws.readyState == 2 && start == true && ws.qquit == 1 && ws.me != 0)
     {
+        var tab = [];
+        for (let i = 0; i < player_in.length; i++)
+        {
+            if (ws != player_in[i])
+                tab.push(player_in[i]);
+        }
+        player_in = tab;
         console.log("someone quite the game");
-        ws.qquit = 0;
-        start = false;
-        game = null;
-        game = init_game();
-        wss.broadcast("reset");
+        if (player_in <= 1)
+        {
+            ws.qquit = 0;
+            start = false;
+            game = null;
+            game = init_game();
+            wss.broadcast("reset");
+        }
     }
     if (start != false && team != 0 && ws.readyState == 1)
     {
