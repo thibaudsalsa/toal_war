@@ -5,8 +5,6 @@ function init_card()
 	Icard.tab_nation = create_tab_nation();
 	Icard.tab_bonus = create_tab_bonus();
 	Icard.tab_proba_carte = calcule_proba(Icard);
-	Icard.add_fct = add_fct;
-	Icard.add_fct();
 	Icard.get_card = return_card;
 	return (Icard);
 }
