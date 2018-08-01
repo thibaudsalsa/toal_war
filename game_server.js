@@ -114,6 +114,12 @@ function respond(team, ws, wss)
                 tab.push(player_in[i]);
         }
         player_in = tab;
+        if (ws.me === 1)
+            game.team1.name = "";
+        else if (ws.me === 2)
+            game.team2.name = "";
+        else if (ws.me === 3)
+            game.team3.name = "";
         console.log("someone quite the game");
         if (player_in.length <= 1)
         {
