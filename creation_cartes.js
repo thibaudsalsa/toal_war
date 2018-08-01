@@ -261,7 +261,7 @@ function delete_unit(unit1, unit2)
 	unit1.char = [];
 	unit1.avion = [];
 	unit1.soldat = [];
-	unit2.char = []
+	unit2.char = [];
 	unit2.avion = [];
 	unit2.soldat = [];
 }
@@ -273,7 +273,7 @@ function return_enemie_team(team)
 	{
 		if (tab_team[i].id != team.id && tab_team[i].city > 0)
 			tab.push(tab_team[i]);
-	} 
+	}
 	return (tab);
 }
 /* fin */
