@@ -38,7 +38,8 @@ function try_connect()
         {
             if (co === false)
                 wss.send(msg);
-            else clearTimeout(t);
+            else
+                clearTimeout(t);
         }, 1000);
 }
 
