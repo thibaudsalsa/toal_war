@@ -1,15 +1,17 @@
 function create_tab_nation()
 {
 	var tab_card = [];
-	var id = ["Dubai", "France", "Kosovo", "Monaco"];/* -----------------------------------*/
-	var img = ["", "", "", ""];
+	var id = ["Dubai", "France", "Kosovo", "Monaco", "Portugal", "Corée du nord"];/* -----------------------------------*/
+	var img = ["", "", "", "", "", ""];
 	var text = ["a echangé son argent avec celle d'un autre joueur.",
 				"a arreté toutes ses unitées.",
 				"a rendu pauvre tout les joueurs... Ils ne vous reste que vos cartes...",
-				"a gagné 12 unitées, 4 de chaque."];
-	var prix = [100, 100, 100, 100];
-	var nomb_util = [0, 0, 0]
-	var tab_fct_nation = [dubai, france, kosovo, monaco];
+				"a gagné 12 unitées, 4 de chaque.",
+				"a gagne 1000 pv grace des murs plus solides",
+				"a utilisé une carte nation"];
+	var prix = [100, 100, 100, 100, 100, 100];
+	var nomb_util = [0, 0, 0, 0, 0, 0]
+	var tab_fct_nation = [dubai, france, kosovo, monaco, portugal, coree_du_nord];
 	for (let i = 0; i < id.length; i++)
 	{
 		var card = new Object();
@@ -117,6 +119,43 @@ function monaco(team, game)
 		team.add("soldat", 1);
 		team.add("char", 1);
 		team.add("avion", 1);
+	}
+}
+
+function portugal(team, game)
+{
+	team.city += 1000;
+}
+
+function coree_du_nord(team, game)
+{
+	var tab = return_enemie_team(team, game);
+	add_100_avion(team);
+	if (tab.length > 1)
+	{
+		team.launch_right("avion", 100);
+		add_100_avion(team);
+		team.launch_left("avion", 100);
+	}
+	else
+	{
+		console.log(team.id, tab[0].id)
+		if (tab[0].id == team.id + 1 || tab[0].id == team.id - 2)
+		{	
+			team.launch_left("avion", 100);
+		}
+		else 
+			team.launch_right("avion", 100);
+	}
+}
+function add_100_avion(team)
+{
+	team.money += 5;
+	team.add("avion", 100);
+	for (let i = 0; i < 100; i++)
+	{
+		team.unit.avion[i].pv = 0.1;
+		team.unit.avion[i].dmg = 0;
 	}
 }
 /* fin */ 
