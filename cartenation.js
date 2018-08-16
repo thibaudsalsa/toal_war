@@ -18,11 +18,8 @@ function create_tab_nation()
 		card.id = id[i];
 		card.img = img[i];
 		card.text = text[i];
-<<<<<<< HEAD
-=======
 		card.prix = prix[i];
 		card.nomb_util = nomb_util[i];
->>>>>>> dev
 		card.use = tab_fct_nation[i];
 		tab_card[i] = card;
 	}
@@ -67,6 +64,7 @@ function dubai(team, game)
 	var tab_team = [game.team1,game.team2,game.team3];
 	var tab = return_enemie_team(team, game);
 	var gold = team.money;
+	
 	var aleatoire = Math.floor(Math.random() * (2 + 0));
 	if (aleatoire == 1)
 	{
