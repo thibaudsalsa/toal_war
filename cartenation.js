@@ -26,7 +26,7 @@ function create_tab_nation()
 	return (tab_card);
 }
 
-function get_nation(game)
+function get_nation()
 {
 	tab_team = [game.team1, game.team2, game.team3]
 	for ( let i =0; i < tab_team.length; i++)
@@ -39,14 +39,14 @@ function get_nation(game)
 	}
 }
 
-function use_card_nation(team, game, num_card)
+function use_card_nation(team, num_card)
 {
 	var color = ["bleu", "orange" , "rouge"];
 	if (team.carte[num_card].nomb_util == 0)
 	{
 		team.carte[num_card].nomb_util = 1;
 		game.info += "La team " + color[team.id - 1] + " " + team.carte[num_card].text + "\n"  ;
-		team.carte[num_card].use(team, game);
+		team.carte[num_card].use(team);
 	}
 	else
 	{
@@ -54,12 +54,12 @@ function use_card_nation(team, game, num_card)
 			return;
 		else
 			game.info += "La team " + color[team.id - 1] + " " + team.carte[num_card].text + "\n"  ;
-			team.carte[num_card].use(team, game);
+			team.carte[num_card].use(team);
 			team.money -= team.carte[num_card].prix;
 	}
 }
 /* function des cartes nation */ 
-function dubai(team, game)
+function dubai(team)
 {
 	var tab_team = [game.team1,game.team2,game.team3];
 	var tab = return_enemie_team(team, game);
@@ -77,7 +77,7 @@ function dubai(team, game)
 	}
 }
 
-function france(team, game)
+function france(team)
 {
 	for (let i = 0; i < team.unit.unit_left.char.length; i++)
 		team.unit.unit_left.char[i].speed = 0;
@@ -93,7 +93,7 @@ function france(team, game)
 		team.unit.unit_right.avion[i].speed = 0;	
 }
 
-function kosovo(team, game)
+function kosovo(team)
 {
 	var tab_team = [game.team1, game.team2, game.team3];
 	for (let i = 0; i < tab_team.length; i++)
@@ -111,7 +111,7 @@ function kosovo(team, game)
 	}
 }
 
-function monaco(team, game)
+function monaco(team)
 {
 	for (let i = 0; i < 4; i++)
 	{
@@ -122,14 +122,14 @@ function monaco(team, game)
 	}
 }
 
-function portugal(team, game)
+function portugal(team)
 {
 	team.city += 1000;
 }
 
-function coree_du_nord(team, game)
+function coree_du_nord(team)
 {
-	var tab = return_enemie_team(team, game);
+	var tab = return_enemie_team(team);
 	add_100_avion(team);
 	if (tab.length > 1)
 	{
