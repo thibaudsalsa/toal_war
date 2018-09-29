@@ -1,8 +1,15 @@
 {{#if user}}
+
+
+<!--Recherche de partie-->
 <div style="color: black">
 <canvas id="canvas01" width="500" height="490" style="position: absolute; padding-top: 175px; z-index: 0"></canvas>
 <canvas id="canvas02" width="500" height="490" style="position: absolute; right: 0;  padding-top: 175px; z-index: 0"></canvas>
 <p id="wait" style="color: white; font-size: 50px; font-family: Bubblegum; width: 40%; padding-left: 30%; padding-top: 10%; display: none; z-index: 1; text-align: center;">Recherche de partie ...</p>
+
+
+
+<!--Matchmaking-->
 <div id="choose" style="font-family: Bubblegum; font-size: 50px; width: 40%; padding-left: 30%; z-index: 1; padding-top: 10%; text-align: center;">
     <p style="color: white;">Choisissez votre nation</p>
     <select id="choose_nation">
@@ -11,10 +18,21 @@
         Aller au combat
     </button>
 </div>
+
+
+
+
+
+<!-- Victoire -->
 <div id="victory" style="color: white; font-size: 50px; font-family: Bubblegum; width: 40%; padding-left: 30%; padding-top: 10%; display: none; z-index: 1; text-align: center;">
     <p id="winner"></p>
     <button onclick="replay()">Rejouer</button>
 </div>
+
+
+
+
+<!-- Gameplay -->
 <div id="display_game" style="display: none">
     <div id="gameplay" style="background: white; width: 20%; position:absolute">
         <label for="information">Information</label>
@@ -80,13 +98,31 @@
                 <option>4</option>
             </select>
             <button onclick="order('use', 'carte', parseInt(document.getElementById('len_carte').value, 10))">Utiliser la carte</button>
-            <button onclick="order('buy', 'carte', 1)">Acheter une carte</button>
+            <button onclick="order('buy', 'carte', 1)">Acheter un atout</button>
         </div>
     </div>
     <canvas width="1000" height="750" id="art" style="padding-left: 40%"></canvas>
 </div>
 <audio id="sound" src="menu.ogg" autoplay loop></audio>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script src="js/co.js"></script>
 <script src=js/nation.js></script>
 <script src="isomer/dist/isomer.min.js"></script>
