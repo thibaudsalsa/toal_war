@@ -91,7 +91,7 @@ function use_card(num_card)/* dans l'objet team */
 	if (num_card != 0)
 	{
 		game.info += "La team " + color[this.id - 1] + " " + this.carte[num_card].text + "\n"  ;
-		this.carte[num_card].use(this, game);
+		this.carte[num_card].use(this);
 		var tab_divise = [];
 		for (let i = 0; i < this.carte.length; i++)
 		{
@@ -101,7 +101,7 @@ function use_card(num_card)/* dans l'objet team */
 		this.carte = tab_divise;
 	}
 	else
-		use_card_nation(this, game, num_card)
+		use_card_nation(this,  num_card)
 }
 function return_card(num_card)/* dans l'objet Icard */
 {
@@ -281,7 +281,7 @@ function delete_unit(unit1, unit2)
 	unit2.avion = [];
 	unit2.soldat = [];
 }
-function return_enemie_team(team, game)
+function return_enemie_team(team)
 {
 	var tab_team = [game.team1, game.team2, game.team3];
 	var tab = [];
