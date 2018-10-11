@@ -493,6 +493,3 @@ var x=init_game();
 var carte = x.card.get_card(-1);
 x.team1.carte.push(carte)
 console.log(x.team1.carte)
-
-
-
